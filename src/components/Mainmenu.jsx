@@ -7,12 +7,12 @@ const Mainmenu = () => {
         <div class="flex ">
           
           <ul class="space-y-5 mx-8">
-            <li class="flex flex-row space-x-2"><span class="text-white text-center content-center text-2xl ">&#8226;</span><a href="" class="text-red-600 text-6xl hover:text-red-500 font"> PLAY</a> </li>
-            <li><a href="" class="text-white text-2xl ">&#8226; CAREER</a> </li>
-            <li><a href="" class="text-white text-2xl">&#8226; BATTLEPASS</a> </li>
-            <li><a href="" class="text-white text-2xl">&#8226; COLLECTION</a> </li>
-            <li><a href="" class="text-white text-2xl">&#8226; AGENTS</a> </li>
-            <li><a href="" class="text-white  text-2xl">&#8226; STORE</a> </li>
+            <li class="flex flex-row space-x-2"><span class="text-white text-center content-center text-sm ">&#9670;</span><a href="" class="text-red-600 text-6xl hover:text-red-500 font"> PLAY</a> </li>
+            <li><span class="text-white text-center content-center text-sm ">&#9670;</span><a href="" class="text-white text-2xl "> CAREER</a> </li>
+            <li><span class="text-white text-center content-center text-sm ">&#9670;</span><a href="" class="text-white text-2xl"> BATTLEPASS</a> </li>
+            <li><span class="text-white text-center content-center text-sm ">&#9670;</span><a href="" class="text-white text-2xl"> COLLECTION</a> </li>
+            <li><span class="text-white text-center content-center text-sm ">&#9670;</span><a href="" class="text-white text-2xl"> AGENTS</a> </li>
+            <li><span class="text-white text-center content-center text-sm ">&#9670;</span><a href="" class="text-white  text-2xl"> STORE</a> </li>
             
           </ul>
         </div>
