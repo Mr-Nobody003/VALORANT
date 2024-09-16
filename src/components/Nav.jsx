@@ -6,7 +6,7 @@ const Nav = () => {
      <div class="flex flex-row text-white justify-between">
         <div class=" flex text-white">
           <div class="logo">
-          <img src="src/assets/games-valorant-icon-512x512-kqz6q7jw.png" alt="" srcset="" width="50" height="50"/>
+          <img src="./src/assets/games-valorant-icon-512x512-kqz6q7jw.png" alt="" srcset="" width="50" height="50"/>
           </div>
           <div class="flex flex-col">
           <span class="text-slate-300 text-3xl font-Oswald  font-bold">COLLISION</span>
@@ -20,7 +20,7 @@ const Nav = () => {
         <div class="flex pr-10">points</div>
         <div class="flex">
           <a href="#">
-          <img src="src/assets/settings.svg" alt="settings" height="30" width="30" />
+          <img src="./src/assets/settings.svg" alt="settings" height="30" width="30" />
           </a>
         </div>
        </div>
