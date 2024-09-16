@@ -1,7 +1,8 @@
 import react ,{ useState } from 'react'
 import Mainmenu from './components/Mainmenu'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Nav from './components/Nav'
+import Info from './components/Info'
+import Friend_list from './components/Friend_list'
 // import './App.css'
 
 function App() {
@@ -9,12 +10,24 @@ function App() {
 
   return (
     <>
-      <div class=" h-screen content-center">
-        <div class=" self-center">
-          <Mainmenu/>
-
-        
+      <div class=" h-screen">
+        <div class="justify-between">
+          <Nav/>
         </div>
+        <div class="justify-between">
+          <div class="absolute left-0 top-1/3 ">
+            <Mainmenu/>
+          </div>
+          <div>
+            <div class="absolute right-20">
+              <Info/>
+            </div>
+            <div class="absolute right-0">
+              <Friend_list/>
+            </div>
+          </div>
+        </div>
+        
       </div>
 
     </>
