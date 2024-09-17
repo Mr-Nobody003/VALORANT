@@ -20,10 +20,10 @@ function App() {
      {showLogoPage ? (
         // Logo page content
         <div
-          className="h-screen flex justify-center items-center bg-gray-100 cursor-pointer"
+          className="w-screen h-screen overflow-hidden cursor-pointer"
           onClick={handleLogoClick}
         >
-          <img src="https://via.placeholder.com/200" alt="Logo" />
+          <img class="object-fill" src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/main/src/assets/valo_START.png" alt="Logo" />
         </div>
       ) : (
         <>

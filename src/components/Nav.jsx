@@ -19,7 +19,7 @@ const Nav = () => {
        <div class="Points + settings flex flex-row">
         <div class="flex pr-10">points</div>
         <div class="flex">
-          <a href="#">
+          <a href="">
           <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/5338af39dff99ce7890dc36430f5946cc3be0bfb/src/assets/settings.svg" alt="settings" height="30" width="30" />
           </a>
         </div>
