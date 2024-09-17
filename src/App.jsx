@@ -1,37 +1,38 @@
 import react ,{ useState } from 'react'
-import Mainmenu from './components/Mainmenu'
-import Nav from './components/Nav'
-import Info from './components/Info'
-import Friend_list from './components/Friend_list'
-// import './App.css'
-
+import Main_page from './Main_page'
+import Play_page from './Play_page';
 function App() {
-  // const [count, setCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState('Main_page');
   const [showLogoPage, setShowLogoPage] = useState(true);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const handleBackToMainMenu = () => {
+    setCurrentPage('Main_page');
+  };
+  const handleLogoClick = () => {
+    setShowLogoPage(false);
+  };
+
   return (
     <>
-      <div class=" h-screen">
-        <div class="justify-between">
-          <Nav/>
+     {showLogoPage ? (
+        // Logo page content
+        <div
+          className="h-screen flex justify-center items-center bg-gray-100 cursor-pointer"
+          onClick={handleLogoClick}
+        >
+          <img src="https://via.placeholder.com/200" alt="Logo" />
         </div>
-        <div class="justify-between">
-          <div class="absolute left-0 top-1/3 ">
-            <Mainmenu/>
-          </div>
-          <div>
-            <div class="absolute right-20">
-              <Info/>
-            </div>
-            <div class="absolute right-0">
-              <Friend_list/>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-
+      ) : (
+        <>
+      {currentPage === 'Main_page' && <Main_page onPageChange={handlePageChange} />}
+      {currentPage === 'Play_page' && <Play_page onBack={handleBackToMainMenu} />}
+       </>
+      )}
     </>
-  )
+  );
 }
 
 export default App
