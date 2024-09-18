@@ -1,8 +1,8 @@
 import react ,{ useState } from 'react'
-import Mainmenu from './components/Mainmenu'
-import Nav from './components/Nav'
-import Info from './components/Info'
-import Friend_list from './components/Friend_list'
+import Mainmenu from '../components/Mainmenu'
+import Nav from '../components/Nav'
+import Info from '../components/Info'
+import Friend_list from '../components/Friend_list'
 // import './App.css'
 
 const Main_page = ({ onPageChange }) =>  {
