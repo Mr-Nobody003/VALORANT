@@ -16,7 +16,7 @@ const Nav= ({ onPageChange,showBackButton,current_Page }) =>{
   };
 
   return (
-     <div class="flex flex-row text-white justify-between">
+     <div class="flex flex-row text-white justify-between scale-x-100">
         <div class=" flex text-white ">
         {showBackButton ? (
           <Back_button onClick={()=>onPageChange('Main_page')} text={getButtonText()} />
@@ -32,7 +32,7 @@ const Nav= ({ onPageChange,showBackButton,current_Page }) =>{
           </>
           )}
        </div>
-       <div class="Timer ">
+       <div class="Timer absolute top-0 left-1/2 ">
         Timer
        </div>
        <div class="Points + settings flex flex-row">
