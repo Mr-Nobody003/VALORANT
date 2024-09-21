@@ -1,12 +1,25 @@
 import React from 'react'
 import Back_button from './Back_button'
 
-const Nav= ({ onPageChange,showBackButton }) =>{
+const Nav= ({ onPageChange,showBackButton,current_Page }) =>{
+   
+  // Function to determine the button text based on the current page
+  const getButtonText = () => {
+    switch (current_Page) {
+      case 'Play_page':
+        return 'LOBBY';
+      case 'Premieer_page':
+        return 'PREMIERE';
+      default:
+        return ' .';
+    }
+  };
+
   return (
      <div class="flex flex-row text-white justify-between">
-        <div class=" flex text-white">
+        <div class=" flex text-white ">
         {showBackButton ? (
-          <Back_button onClick={()=>onPageChange('Main_page')} text="Back to Main Menu" />
+          <Back_button onClick={()=>onPageChange('Main_page')} text={getButtonText()} />
       ) : (
         <>
           <div class="logo">
@@ -32,7 +45,7 @@ const Nav= ({ onPageChange,showBackButton }) =>{
        </div>
 
      </div>
-  )
+  );
 }
 
 export default Nav

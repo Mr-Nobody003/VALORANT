@@ -32,7 +32,7 @@ function App() {
         </div>
       ) : (
         <>
-        <Nav onPageChange={handlePageChange} showBackButton={showBackButton}/>
+        <Nav onPageChange={handlePageChange} showBackButton={showBackButton} current_Page={currentPage}/>
       {currentPage === 'Main_page' && <Main_page onPageChange={handlePageChange} />}
       {currentPage === 'Play_page' && <Play_page  />}
       {currentPage === 'Premieer_page' && <Premieer_page />}
