@@ -3,8 +3,23 @@ import React from 'react'
 
 const Play_page = ({ onBack }) => {
     return (
-      <div class="text-white text-5xl ">
-      Play
+      <div class="text-white ">
+
+      <div class="match_type">
+        
+      </div>
+
+      <div class="closed_party">
+
+      </div>
+
+      <div class="player_card">
+
+      </div>
+
+      <div class="start_button">
+
+      </div>
 
       </div>
     );
