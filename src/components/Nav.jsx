@@ -1,10 +1,14 @@
 import React from 'react'
+import Back_button from './Back_button'
 
-const Nav = () => {
+const Nav= ({ onPageChange,showBackButton }) =>{
   return (
-    <>
      <div class="flex flex-row text-white justify-between">
         <div class=" flex text-white">
+        {showBackButton ? (
+          <Back_button onClick={()=>onPageChange('Main_page')} text="Back to Main Menu" />
+      ) : (
+        <>
           <div class="logo">
           <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/main/src/assets/games-valorant-icon-512x512-kqz6q7jw.png" alt="" srcset="" width="50" height="50"/>
           </div>
@@ -12,6 +16,8 @@ const Nav = () => {
           <span class="text-slate-300 text-3xl font-Oswald  font-bold">COLLISION</span>
           <span class="text-slate-300 text-sm">Episode 9//ACT II</span>
           </div>
+          </>
+          )}
        </div>
        <div class="Timer ">
         Timer
@@ -26,8 +32,6 @@ const Nav = () => {
        </div>
 
      </div>
-      
-    </>
   )
 }
 
