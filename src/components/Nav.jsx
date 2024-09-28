@@ -16,7 +16,7 @@ const Nav= ({ onPageChange,showBackButton,current_Page }) =>{
   };
 
   return (
-     <div class="flex flex-row text-white justify-between scale-x-100">
+     <div class="flex flex-row text-white justify-between scale-x-100 fixed w-full">
         <div class=" flex text-white ">
         {showBackButton ? (
           <Back_button onClick={()=>onPageChange('Main_page')} text={getButtonText()} />
