@@ -16,18 +16,22 @@ export default {
     function ({addUtilities}){
       const newUtilities ={
         ".scrollbar-thin" : {
-           scrollbarwidth : "thin",
-           scrollbarcolour : "rgb(31 29 29) white"
+           scrollbarwidth : "thin", //firefox
+           scrollbarcolour : "white transparent" 
         },
         ".scrollbar-webkit" : {
           "&::-webkit-scrollbar" : {
-            width: "8px"
+            width: "8px",
+            height:"10px"
           },
           "&::-webkit-scrollbar-thumb":{
-            backgroundColor : "rgb(31 41 55)",
+            backgroundColor : "white",
             borderRadius : "20px",
             border : "1px solid white"
-          }
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "transparent", // Transparent track background
+          },
         }
       }
       addUtilities(newUtilities,["responsive","hover"])
