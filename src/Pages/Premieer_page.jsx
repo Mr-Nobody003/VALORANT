@@ -1,38 +1,18 @@
 import React from 'react'
+import Premieer_scheduler from '../components/Premieer_scheduler';
+import Premieer_mid from '../components/Premieer_mid';
+import Premieer_verify from '../components/Premieer_verify';
 // import Card from './Card';
 
 const Premieer_page = ({ onBack }) => {
   return (
     <div class="bg-amber-400 pt-28 h-screen">
-      <div class="flex flex-row justify-between">
+      <div class="flex flex-row justify-between p-10">
+        <Premieer_scheduler />
 
-        <div class="schedule flex flex-col border-solid border-2 border-slate-950">
-          <p>Check which Schedule works best</p>
-          <p>for you and your team.</p>
-          <a>View All Schedules</a>
-        </div>
+        <Premieer_mid />
 
-
-        <div class="steps flex flex-col justify-center items-center">
-          <div class="text-yellow-700 text-4xl justify-center items-center">
-            <div>PREMIER</div>
-          </div>
-          <div>
-            <p>Step 1:</p>
-            <p class="text-4xl text-yellow-600">Create Your Team</p>
-            <p>Step 2:</p>
-            <p class="text-4xl text-yellow-600">Select Your Zone</p>
-            <p>Step 3:</p>
-            <p class="text-4xl text-yellow-600">Play Premier Games</p>
-          </div>
-        </div>
-
-        <div class="eligibility  border-solid border-2 border-slate-950 flex flex-col justify-center items-center">
-          <p>Eligibility</p>
-          <p>You need to verify your account in order to</p>
-          <p>participate in the PREMIER experience.</p>
-          <div class="verify-button"><button>Verify</button></div>
-        </div>
+        <Premieer_verify />
 
       </div>
     </div>
