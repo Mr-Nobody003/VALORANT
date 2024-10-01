@@ -3,7 +3,7 @@ import React from 'react'
 
 const Play_page = ({ onBack }) => {
   return (
-    <div class="text-white ">
+    <div class="text-white bg-blue-500 h-screen">
 
       <div class="match_type">
 

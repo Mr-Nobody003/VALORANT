@@ -10,6 +10,16 @@ const Nav= ({ onPageChange,showBackButton,current_Page }) =>{
         return 'LOBBY';
       case 'Premieer_page':
         return 'PREMIERE';
+      case 'Agent_page':
+        return 'AGENTS';
+      case 'Store_page':
+        return 'STORE';
+      case 'Collection_page':
+        return 'COLLECTION';
+      case 'Career_page':
+        return 'CAREER';
+      case 'Battlepass_page':
+        return 'BATTLEPASS';
       default:
         return ' .';
     }
