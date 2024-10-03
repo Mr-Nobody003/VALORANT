@@ -1,10 +1,20 @@
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
+
+// // https://vitejs.dev/config/
+// export default defineConfig({
+//   plugins: [react()],
+//   base: process.env.VERCEL === 'true'
+//     ? '' // No base path for Vercel
+//     : '/VALORANT/', // Base path for GitHub Pages
+// })
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VERCEL === 'true'
-    ? 'valorant-omega.vercel.app' // No base path for Vercel
-    : '/VALORANT/', // Base path for GitHub Pages
+  base: process.env.GITHUB_PAGES === 'true'
+    ? '/VALORANT/' // Base path for GitHub Pages
+    : undefined, // Root path for Vercel
 })
