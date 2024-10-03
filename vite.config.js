@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: process.env.VERCEL === 'true'
-    ? '' // No base path for Vercel
+    ? 'valorant-omega.vercel.app' // No base path for Vercel
     : '/VALORANT/', // Base path for GitHub Pages
 })
