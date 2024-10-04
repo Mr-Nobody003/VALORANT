@@ -2,7 +2,7 @@ import React from 'react'
 import Agent_box from '../components/Agent_box'
 
 const agents = [
-  { name: 'Brimstone', image: '' },
+  { name: 'Brimstone', image: '../assets/brim.jpg' },
   { name: 'Viper', image: '' },
   { name: 'Omen', image: '' },
   { name: 'Jett', image: '' },
