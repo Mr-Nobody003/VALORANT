@@ -45,12 +45,10 @@ const Nav= ({ onPageChange,showBackButton,current_Page }) =>{
        <div class="Timer absolute top-0 left-1/2 ">
         Timer
        </div>
-       <div class="Points + settings flex flex-row">
+       <div class="Points + settings flex flex-row absolute top-0 right-0">
         <div class="flex pr-10">points</div>
         <div class="flex">
-          <a href="">
-          <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/5338af39dff99ce7890dc36430f5946cc3be0bfb/src/assets/settings.svg" alt="settings" height="30" width="30" />
-          </a>
+          <a href=" "><img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/5338af39dff99ce7890dc36430f5946cc3be0bfb/src/assets/settings.svg" alt="settings" height="30" width="30" /></a>
         </div>
        </div>
 
