@@ -18,7 +18,7 @@ function App() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-
+//new add
   // const handleBackToMainMenu = () => {
   //   setCurrentPage('Main_page');
   // };
