@@ -6,8 +6,9 @@ import Premieer_verify from '../components/Premieer_verify';
 
 const Premieer_page = ({ onBack }) => {
   return (
-    <div class="bg-amber-400 pt-28 h-screen">
-      <div class="flex flex-row justify-between p-10">
+    <>
+      <img src="/src/assets/pages_bgc/Premieer_bgc.png" alt="" class="absolute -z-10 h-screen w-full" />
+      <div class="flex flex-row justify-between pt-32 p-10">
         <Premieer_scheduler />
 
         <Premieer_mid />
@@ -15,7 +16,7 @@ const Premieer_page = ({ onBack }) => {
         <Premieer_verify />
 
       </div>
-    </div>
+    </>
   );
 };
 
