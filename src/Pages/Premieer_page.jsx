@@ -7,7 +7,7 @@ import Premieer_verify from '../components/Premieer_verify';
 const Premieer_page = ({ onBack }) => {
   return (
     <>
-      <img src="/src/assets/pages_bgc/Premieer_bgc.png" alt="" class="absolute -z-10 h-screen w-full" />
+      <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/refs/heads/main/src/assets/pages_bgc/Premieer_bgc.png" alt="" class="absolute -z-10 h-screen w-full" />
       <div class="flex flex-row justify-between pt-32 p-10">
         <Premieer_scheduler />
 

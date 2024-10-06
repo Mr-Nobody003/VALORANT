@@ -3,7 +3,7 @@ import React from 'react';
 const Play_info = ({ activeType }) => {
   return (
     <>
-      <div className="flex justify-center items-center text-white mt-10">
+      <div className="flex justify-center items-center text-white">
         {activeType === 'UNRATED' && <div>Unrated: mode is a more casual way to enjoy the game.</div>}
         {activeType === 'COMPETITIVE' && <div>Competitive: mode lets you rank up and test your skills.</div>}
         {activeType === 'SWIFTPLAY' && <div>Swiftplay: is a faster version of the game with shorter rounds.</div>}
