@@ -4,7 +4,7 @@ const Premieer_scheduler = () => {
   return (
     <>
       <div class="schedule flex flex-col border-solid border-2 backdrop-blur-sm text-gray-500 pb-28 w-72">
-        <div class="flex justify-center items-center pt-20"> <img src="src/assets/premieer_calender.png" alt="" class="h-52 w-52 flex justify-center items-center" /></div>
+        <div class="flex justify-center items-center pt-20"> <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/refs/heads/main/src/assets/premieer_calender.png" alt="" class="h-52 w-52 flex justify-center items-center" /></div>
         <div class=" flex justify-center items-center  ">Check which Schedule works best</div>
         <div class=" flex justify-center items-center -">for you and your team.</div>
         <div class=" verify-button flex justify-center items-center mt-3"><div class=" bg-black text-gray-500 flex h-10 w-56 justify-center items-center border-solid border-2 border-slate-400  font-Roboto font-semibold">VIEW ALL SCHEDULES</div></div>
