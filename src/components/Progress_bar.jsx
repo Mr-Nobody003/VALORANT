@@ -29,15 +29,15 @@ const Progress_bar = ({ progress }) => {
     };
 
     return (
-        <div class="flex flex-col">
-            <div class="flex flex-col items-center justify-center w-[20rem] ">
+        <div class="flex flex-col justify-center">
+            <div class="flex w-[20rem] ">
                 <div class="relative h-[5px] w-[20rem] bg-gray-300 rounded-full overflow-hidden">
                     <div class={`absolute h-[5px] bg-teal-400 transition-all duration-300 ${getProgressWidth()}`}></div>
                 </div>
             </div>
             <div class="flex flex-row justify-between">
-                <div class="flex text-teal-400">Rank Rating</div>
-                <div class=" flex text-teal-400">{progress}/ 100</div>
+                <div class="flex text-teal-400 text-sm">Rank Rating</div>
+                <div class=" flex text-teal-400 text-sm">{progress}/ 100</div>
 
             </div>
         </div>

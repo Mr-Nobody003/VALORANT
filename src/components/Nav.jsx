@@ -43,7 +43,7 @@ const Nav= ({ onPageChange,showBackButton,current_Page }) =>{
           )}
        </div>
        <div class="Timer absolute top-0 left-1/2 ">
-        Timer
+        
        </div>
        <div class="Points + settings flex flex-row absolute top-0 right-0">
         <div class="flex pr-10">points</div>
