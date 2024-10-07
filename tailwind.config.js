@@ -6,35 +6,47 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily:{
-        Oswald:["Oswald",'sans-serif'],
-        Roboto:["Roboto"],
+      fontFamily: {
+        Oswald: ["Oswald", 'sans-serif'],
+        Roboto: ["Roboto"],
       },
+      width: {
+        '10p': '10%',
+        '20p': '20%',
+        '30p': '30%',
+        '40p': '40%',
+        '50p': '50%',
+        '60p': '60%',
+        '70p': '70%',
+        '80p': '80%',
+        '90p': '90%',
+        '100p': '100%',
+      }
     },
   },
   plugins: [
-    function ({addUtilities}){
-      const newUtilities ={
-        ".scrollbar-thin" : {
-           scrollbarwidth : "thin", //firefox
-           scrollbarcolour : "white transparent" 
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".scrollbar-thin": {
+          scrollbarwidth: "thin", //firefox
+          scrollbarcolour: "white transparent"
         },
-        ".scrollbar-webkit" : {
-          "&::-webkit-scrollbar" : {
+        ".scrollbar-webkit": {
+          "&::-webkit-scrollbar": {
             width: "8px",
-            height:"10px"
+            height: "10px"
           },
-          "&::-webkit-scrollbar-thumb":{
-            backgroundColor : "white",
-            borderRadius : "20px",
-            border : "1px solid white"
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "white",
+            borderRadius: "20px",
+            border: "1px solid white"
           },
           "&::-webkit-scrollbar-track": {
             background: "transparent", // Transparent track background
           },
         }
       }
-      addUtilities(newUtilities,["responsive","hover"])
+      addUtilities(newUtilities, ["responsive", "hover"])
     }
   ],
 }
