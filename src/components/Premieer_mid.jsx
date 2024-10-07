@@ -4,7 +4,7 @@ const Premieer_mid = () => {
   return (
     <>
       <div class="steps flex flex-col justify-center items-center">
-        <div class="-mt-28 pb-28"><img src="src/assets/premieer_logo.png" alt="" class="h-24 w-24 flex justify-center items-center" /></div>
+        <div class="-mt-28 pb-28"><img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/refs/heads/main/src/assets/premieer_logo.png" alt="" class="h-24 w-24 flex justify-center items-center" /></div>
         <div class="text-yellow-700 text-4xl justify-center items-center -mt-32">
           <div class="bold text-yellow-700 border-b-2 border-yellow-700 flex flex-col justify-center items-center">
             <div>PREMIER</div>

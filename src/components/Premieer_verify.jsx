@@ -6,7 +6,7 @@ const Premieer_verify = () => {
 
       <div class="eligibility text-yellow-600 border-solid border-2 border-slate-950  backdrop-blur-sm flex flex-col justify-center items-center">
         <div class=" flex flex-row  justify-center self-center items-center pl-">
-          <img src="src/assets/premieer_logo.png" alt="" class=" h-14 w-14 flex justify-center items-center" />
+          <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/refs/heads/main/src/assets/premieer_logo.png" alt="" class=" h-14 w-14 flex justify-center items-center" />
           <div class="text-3xl font-serif font-medium  text-yellow-700">PREMIER</div>
         </div>
 
