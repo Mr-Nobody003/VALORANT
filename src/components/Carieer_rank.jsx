@@ -9,7 +9,7 @@ const Carieer_rank = () => {
     return (
         <>
             <div class="flex flex-col text-white justify-center items-center pt-5">
-                <img src="/src/assets/ranks/silver_3.png" alt="" class="h-[7rem] w-[7rem]" />
+                <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/refs/heads/main/src/assets/ranks/silver_3.png" alt="" class="h-[7rem] w-[7rem]" />
                 <div class="Rank text-white text-3xl font-Oswald font-[500]">SILVER 3</div>
                 <div class="rank_bar flex flex-row p-2">
                     {/* <div class="bg-white border-solid border-2 rounded-full h-[5px] w-[10rem]">
