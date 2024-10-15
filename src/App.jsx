@@ -9,34 +9,37 @@ import Career_page from "./Pages/Career_page";
 import Store_page from "./Pages/Store_page";
 import Nav from "./components/Nav";
 import Valo_start from "./assets/Valo_start.png";
+
 function App() {
   const [currentPage, setCurrentPage] = useState("Main_page");
   const [showStartPage, setShowStartPage] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-  //preload the start img
+  // Preload the start img
   useEffect(() => {
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "image";
-    link.href = Valo_start;
-    document.head.appendChild(link);
+    const img = new Image();
+    img.src = Valo_start; // Set the image source to preload
+
+    img.onload = () => {
+      setImageLoaded(true); // Set imageLoaded to true when the image is loaded
+    };
 
     return () => {
-      document.head.removeChild(link);
+      setImageLoaded(false); // Cleanup on unmount
     };
   }, []);
 
-    // Hide the Start img page after 3 seconds
+  // Hide the Start img page after 1 second if the image has loaded
   useEffect(() => {
-    if (!showStartPage) return;
+    if (!showStartPage || !imageLoaded) return; // Only set timeout if the image is loaded
+
     const timer = setTimeout(() => {
       setShowStartPage(false);
-    }, 3000); // 3 seconds delay
+    }, 2000); // 2 second delay after image is loaded
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [showStartPage, imageLoaded]);
 
-  //const showBackButton = currentPage === 'Play_page' || currentPage === 'Premieer_page' || currentPage === 'Collection_page' || currentPage === 'Battlepass_page' || currentPage === 'Agent_page' || currentPage === 'Store_page' || currentPage === 'Career_page';
   const showBackButton = [
     "Play_page",
     "Premieer_page",
@@ -63,7 +66,7 @@ function App() {
           className="w-screen h-screen overflow-hidden cursor-pointer"
           onClick={handleStartClick}
         >
-          <img class="object-fill" src={Valo_start} alt="Start" />
+          <img className="object-fill" src={Valo_start} alt="Start" />
         </div>
       ) : (
         <>
