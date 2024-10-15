@@ -8,7 +8,7 @@ import Battlepass_page from "./Pages/Battlepass_page";
 import Career_page from "./Pages/Career_page";
 import Store_page from "./Pages/Store_page";
 import Nav from "./components/Nav";
-import Valo_START from "./assets/Valo_START.png";
+import Valo_start from "./assets/Valo_start.png";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Main_page");
@@ -19,7 +19,7 @@ function App() {
     const link = document.createElement("link");
     link.rel = "preload";
     link.as = "image";
-    link.href = Valo_START;
+    link.href = Valo_start;
     document.head.appendChild(link);
 
     return () => {
@@ -64,7 +64,7 @@ function App() {
           className="w-screen h-screen overflow-hidden cursor-pointer"
           onClick={handleStartClick}
         >
-          <img class="object-fill" src={Valo_START} alt="Start" />
+          <img class="object-fill" src={Valo_start} alt="Start" />
         </div>
       ) : (
         <>
