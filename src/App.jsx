@@ -9,7 +9,6 @@ import Career_page from "./Pages/Career_page";
 import Store_page from "./Pages/Store_page";
 import Nav from "./components/Nav";
 import Valo_start from "./assets/Valo_start.png";
-
 function App() {
   const [currentPage, setCurrentPage] = useState("Main_page");
   const [showStartPage, setShowStartPage] = useState(true);
