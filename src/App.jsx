@@ -35,7 +35,7 @@ function App() {
     }, 3000); // 3 seconds delay
 
     return () => clearTimeout(timer);
-  }, [showStartPage]);
+  }, []);
 
   //const showBackButton = currentPage === 'Play_page' || currentPage === 'Premieer_page' || currentPage === 'Collection_page' || currentPage === 'Battlepass_page' || currentPage === 'Agent_page' || currentPage === 'Store_page' || currentPage === 'Career_page';
   const showBackButton = [
