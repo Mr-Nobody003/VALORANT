@@ -16,9 +16,11 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Specify the Node.js version you want
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install # Use npm install directly to install dependencies
 
       - name: Build project
         run: |
