@@ -19,7 +19,7 @@ const Main_page = ({ onPageChange }) =>  {
             <div class="absolute right-20">
               <Info/>
             </div>
-            <div class="absolute right-0">
+            <div class="absolute right-0 mt-8">
               <Friend_list/>
             </div>
           </div>

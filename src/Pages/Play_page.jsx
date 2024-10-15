@@ -5,6 +5,7 @@ import Play_card from '../components/Play_card';
 import Play_info from '../components/Play_info';
 import Play_buttons from '../components/Play_buttons';
 import Play_custom from '../components/Play_custom';
+import Play_bgc from "../assets/pages_bgc/Play_bgc.png";
 
 const Play_page = () => {
   const [activeType, setActiveType] = useState('UNRATED'); // Default play type
@@ -17,7 +18,7 @@ const Play_page = () => {
 
   return (
     <>
-      <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/refs/heads/main/src/assets/pages_bgc/Play_bgc.png" alt="play bgc" className="absolute -z-10 h-full w-full" />
+      <img src={Play_bgc} className="absolute -z-10 h-full w-full" />
 
       <div className="text-white pt-20 pb-4 pr-32 pl-32 flex flex-col">
         {/* Pass content array, activeType, and setActiveType as props */}
