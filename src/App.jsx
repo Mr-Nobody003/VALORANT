@@ -35,7 +35,7 @@ function App() {
 
     const timer = setTimeout(() => {
       setShowStartPage(false);
-    }, 2000); // 2 second delay after image is loaded
+    }, 1599); // 1.6 second delay after image is loaded
 
     return () => clearTimeout(timer);
   }, [showStartPage, imageLoaded]);
