@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Progress_bar from './Progress_bar'
-const Carieer_rank = () => {
+import Progress_bar from './Progress_bar';
+import Rank from '../assets/ranks/radient.png';
+const Carieer_rank = ({Rank_no,Rank_name}) => {
     const [progress, setProgress] = useState(0);
 
     const increaseProgress = () => {
@@ -9,8 +10,8 @@ const Carieer_rank = () => {
     return (
         <>
             <div class="flex flex-col text-white justify-center items-center pt-5">
-                <img src="https://raw.githubusercontent.com/Mr-Nobody003/VALORANT/refs/heads/main/src/assets/ranks/silver_3.png" alt="" class="h-[7rem] w-[7rem]" />
-                <div class="Rank text-white text-3xl font-Oswald font-[500]">SILVER 3</div>
+                <img src={Rank} alt="" class="h-[7rem] w-[7rem]" />
+                <div class="Rank text-white text-3xl font-Oswald font-[500]">{Rank_name}Radient</div>
                 <div class="rank_bar flex flex-row p-2">
                     {/* <div class="bg-white border-solid border-2 rounded-full h-[5px] w-[10rem]">
                         <div class="bg-blue h-6 rounded-full w-7/12"></div>
