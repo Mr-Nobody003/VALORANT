@@ -3,20 +3,52 @@ import Premieer_logo from '../assets/premieer_logo.png'
 const Premieer_mid = () => {
   return (
     <>
-      <div class="steps flex flex-col justify-center items-center">
-        <div class="-mt-28 pb-28"><img src={Premieer_logo} alt="" class="h-24 w-24 flex justify-center items-center" /></div>
-        <div class="text-yellow-700 text-4xl justify-center items-center -mt-32">
-          <div class="bold text-yellow-700 border-b-2 border-yellow-700 flex flex-col justify-center items-center">
+      <div class="flex flex-col justify-start items-center h-[30rem]">
+        {/* logo */}
+        <div class=""><img src={Premieer_logo} alt="logo" class="h-24 w-24 flex justify-center items-center" /></div>
+        {/* sub text */}
+        <div class="text-[#bb986f] text-4xl justify-center items-center">
+          <div class="[600] text-[#bb986f] border-b-2 border-[#bb986f] flex flex-col justify-center items-center">
             <div>PREMIER</div>
-            <div class="text-lg font-bold">STAGE E9A2</div>
+            <div class="text-lg font-[600]">STAGE E9A2</div>
           </div>
 
-          <div class="text-white">Step 1:</div>
-          <div class="text-4xl text-yellow-600 flex flex-row"> <svg xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -920 920 920" width="60px" fill="#79674f"><path d="M480-200 200-480l280-280 280 280-280 280Zm0-114 166-166-166-166-166 166 166 166Zm0-166Z" /></svg>Create Your Team</div>
-          <div class="text-white">Step 2:</div>
-          <div class="text-4xl text-yellow-600 flex flex-row"><svg xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#79674f"><path d="M480-200 200-480l280-280 280 280-280 280Zm0-114 166-166-166-166-166 166 166 166Zm0-166Z" /></svg>Select Your Zone</div>
-          <div class="text-white">Step 3:</div>
-          <div class="text-4xl text-yellow-600 flex flex-row"><svg xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#79674f"><path d="M480-200 200-480l280-280 280 280-280 280Zm0-114 166-166-166-166-166 166 166 166Zm0-166Z" /></svg>Play Premier Games</div>
+         {/* procedures */}
+          <div>
+            <div class="flex flex-col space-y-8 text-white pt-4">
+              {/* <!-- STEP 1 --> */}
+              <div class="flex items-center space-x-2">
+                {/* {diamond div} */}
+                <div class="w-5 h-5 mr-5 border-[#d5ab78] border-solid border-t-2 border-l-2 border-b-2 border-r-[1px] transform rotate-45"></div>
+                <div class="flex flex-col">
+                  <span class="text-xs ">STEP 1</span>
+                  <span class="text-3xl text-[#e1b782] font-[600] font-Oswald ">CREATE YOUR TEAM</span>
+                </div>
+              </div>
+
+              {/* <!-- STEP 2 --> */}
+              <div class="flex items-center space-x-2">
+                {/* diamond div */}
+                <div class="w-5 h-5 mr-5 border-[#d5ab78] border-solid border-t-2 border-l-2 border-b-2 border-r-[1px] transform rotate-45"></div>
+                <div class="flex flex-col">
+                  <span class="text-xs ">STEP 2</span>
+                  <span class="text-3xl text-[#e1b782] font-[600] font-Oswald">SELECT YOUR ZONE</span>
+                </div>
+              </div>
+
+              {/* <!-- STEP 3 --> */}
+              <div class="flex items-center space-x-2">
+                {/* diamond div */}
+                <div class="w-5 h-5 mr-5 border-[#d5ab78] border-solid border-t-2 border-l-2 border-b-2 border-r-[1px] transform rotate-45"></div>
+                <div class="flex flex-col">
+                  <span class="text-xs ">STEP 3</span>
+                  <span class="text-3xl text-[#e1b782] font-[600] font-Oswald">PLAY PREMIER GAME</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </>

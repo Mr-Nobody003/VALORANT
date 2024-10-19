@@ -13,3 +13,7 @@
     font-family: Roboto;
     src: url(./fonts/Roboto-Bold.ttf) format('truetype');
 }
+@font-face {
+    font-family: Audiowide-Regular;
+    src: url(./fonts/Audiowide-Regular.ttf);
+}

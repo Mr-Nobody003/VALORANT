@@ -17,7 +17,7 @@ const Premieer_page = ({ onBack }) => {
         className="absolute -z-10 h-screen w-full"
       />
 
-      <div className="content pt-11">
+      <div className="content pt-11 items-center">
         <Content
           activeType={activeType}
           setActiveType={setActiveType}
@@ -25,7 +25,7 @@ const Premieer_page = ({ onBack }) => {
         />
       </div>
 
-      <div className="flex flex-row justify-between pt-32 p-10">
+      <div className="flex flex-row justify-between pt-20 p-2 items-center">
         <Premieer_scheduler />
         <Premieer_mid />
         <Premieer_verify />

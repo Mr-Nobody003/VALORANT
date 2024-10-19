@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         Oswald: ["Oswald", 'sans-serif'],
         Roboto: ["Roboto" ,'sans-serif'],
+        Audiowide:["Audiowide-Regular"],
       },
       width: {
         '10p': '10%',
