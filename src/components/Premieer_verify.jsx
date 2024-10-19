@@ -1,6 +1,6 @@
 import React from 'react'
 import Premieer_logo from '../assets/premieer_logo.png'
-import Graph from '../assets/pages_bgc/premieer_graph.png'
+import Graph from '../assets/pages_bgc/Premieer_graph.png'
 const Premieer_verify = () => {
   return (
     <>

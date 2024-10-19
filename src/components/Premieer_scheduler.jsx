@@ -1,6 +1,6 @@
 import React from 'react'
 import Premieer_calender from '../assets/premieer_calender.png'
-import Graph from '../assets/pages_bgc/premieer_graph.png'
+import Graph from '../assets/pages_bgc/Premieer_graph.png'
 const Premieer_scheduler = () => {
   return (
     <>

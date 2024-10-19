@@ -4,6 +4,7 @@ import Premieer_mid from "../components/Premieer_mid";
 import Premieer_verify from "../components/Premieer_verify";
 import Content from "../components/Content";
 import Premieer_bgc from "../assets/pages_bgc/Premieer_bgc.png";
+import Animation_sunrays from "../components/Animation_sunrays";
 const Premieer_page = ({ onBack }) => {
   const [activeType, setActiveType] = useState("HUB");
 
@@ -16,7 +17,7 @@ const Premieer_page = ({ onBack }) => {
         alt="premieer bgc"
         className="absolute -z-10 h-screen w-full"
       />
-
+     
       <div className="content pt-11 items-center">
         <Content
           activeType={activeType}
