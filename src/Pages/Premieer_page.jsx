@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Premieer_scheduler from "../components/Premieer_scheduler";
 import Premieer_mid from "../components/Premieer_mid";
 import Premieer_verify from "../components/Premieer_verify";
+import Premieer_info from "../components/Premieer_info";
 import Content from "../components/Content";
 import Premieer_bgc from "../assets/pages_bgc/Premieer_bgc.png";
 import Animation_sunrays from "../components/Animation_sunrays";
@@ -25,7 +26,7 @@ const Premieer_page = ({ onBack }) => {
           content={type}
         />
       </div>
-
+      <div class='text-xs'><Premieer_info/></div>
       <div className="flex flex-row justify-between pt-20 p-2 items-center">
         <Premieer_scheduler />
         <Premieer_mid />
