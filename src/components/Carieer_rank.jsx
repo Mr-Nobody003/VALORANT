@@ -11,7 +11,7 @@ const Carieer_rank = ({Rank_no,Rank_name}) => {
         <>
             <div class="flex flex-col text-white justify-center items-center pt-5">
                 <img src={Rank} alt="" class="h-[7rem] w-[7rem]" />
-                <div class="Rank text-white text-3xl font-Oswald font-[500]">{Rank_name}Radient</div>
+                <div class="Rank text-white text-3xl font-Oswald font-[500]">{Rank_name}Radiant</div>
                 <div class="rank_bar flex flex-row p-2">
                     {/* <div class="bg-white border-solid border-2 rounded-full h-[5px] w-[10rem]">
                         <div class="bg-blue h-6 rounded-full w-7/12"></div>
