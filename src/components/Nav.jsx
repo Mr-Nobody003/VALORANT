@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Back_button from "./Back_button";
+import Options from './Options';
 import Game_icon from "../assets/games-valorant-icon-512x512-kqz6q7jw.png";
 import Settings from "../assets/settings.svg";
+
 const Nav = ({ onPageChange, showBackButton, current_Page }) => {
-  // Function to determine the button text based on the current page
+  const [ShowOptions, setShowOptions] = useState(false);
+
   const getButtonText = () => {
     switch (current_Page) {
       case "Play_page":
@@ -26,43 +29,44 @@ const Nav = ({ onPageChange, showBackButton, current_Page }) => {
   };
 
   return (
-    <div class="flex flex-row text-white justify-between scale-x-100 fixed w-full">
-      <div class=" flex text-white ">
-        {showBackButton ? (
-          <Back_button
-            onClick={() => onPageChange("Main_page")}
-            text={getButtonText()}
-          />
-        ) : (
-          <>
-            <div class="icon">
-              <img
-                src={Game_icon}
-                alt="game icon"
-                srcset=""
-                width="50"
-                height="50"
-              />
+    <>
+      <div className="flex flex-row text-white justify-between fixed w-full">
+        <div className="flex text-white">
+          {showBackButton ? (
+            <Back_button
+              onClick={() => onPageChange("Main_page")}
+              text={getButtonText()}
+            />
+          ) : (
+            <>
+              <div className="icon">
+                <img
+                  src={Game_icon}
+                  alt="game icon"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-slate-300 text-3xl font-Oswald font-bold">
+                  COLLISION
+                </span>
+                <span className="text-slate-300 text-sm">Episode 9//ACT II</span>
+              </div>
+            </>
+          )}
+        </div>
+        <div className="Points + settings flex flex-row absolute top-0 right-0">
+          <div className="flex pr-10">points</div>
+          <div className="flex">
+            <div onClick={() => setShowOptions(true)} className="cursor-pointer">
+              <img src={Settings} alt="settings" height="30" width="30" />
             </div>
-            <div class="flex flex-col">
-              <span class="text-slate-300 text-3xl font-Oswald  font-bold">
-                COLLISION
-              </span>
-              <span class="text-slate-300 text-sm">Episode 9//ACT II</span>
-            </div>
-          </>
-        )}
-      </div>
-      <div class="Timer absolute top-0 left-1/2 "></div>
-      <div class="Points + settings flex flex-row absolute top-0 right-0">
-        <div class="flex pr-10">points</div>
-        <div class="flex">
-          <a href=" ">
-            <img src={Settings} alt="settings" height="30" width="30" />
-          </a>
+          </div>
         </div>
       </div>
-    </div>
+      {ShowOptions && <Options setShowOptions={setShowOptions} />}
+    </>
   );
 };
 

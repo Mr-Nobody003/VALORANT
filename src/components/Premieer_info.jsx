@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Close_icon from './Close_icon';
 const Premieer_info = () => {
     const [ShowInfo, setShowInfo] = useState(false);
 
@@ -25,15 +25,15 @@ const Premieer_info = () => {
                 {/* Full-page overlay */}
                 {ShowInfo && (
                     <div className="fixed inset-0 bg-black bg-opacity-75 z-20 flex justify-center items-center">
-                        <div className="bg-white p-4 w-full h-full  relative">
+                        <div className="bg-black p-4 w-full h-full  relative">
                            {/*close button */}
-                            <button
-                                className="absolute top-2 right-2 text-black text-3xl hover:text-red-600"
+                            <div
+                                className="absolute top-2 right-2 text-white"
                                 onClick={() => setShowInfo(false)}
                             >
-                                X
-                            </button>
-                            <div className="text-black">
+                                <Close_icon />
+                            </div>
+                            <div className="text-white">
                                 {/*info content here */}
                                 <h2 className="text-2xl font-bold">Info</h2>
                             </div>
