@@ -56,8 +56,12 @@ const Nav = ({ onPageChange, showBackButton, current_Page }) => {
             </>
           )}
         </div>
-        <div className="Points + settings flex flex-row absolute top-0 right-0">
-          <div className="flex pr-10">points</div>
+        <div className="flex flex-row absolute top-0 right-0">
+          {/* points */}
+          <div className="flex pr-10">points
+            
+          </div>
+          {/* settings */}
           <div className="flex">
             <div onClick={() => setShowOptions(true)} className="cursor-pointer">
               <img src={Settings} alt="settings" height="30" width="30" />
