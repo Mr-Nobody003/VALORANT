@@ -29,6 +29,7 @@ const Play_page = () => {
       <img src={Play_bgc} className="absolute -z-10 h-full w-full bg-opacity-[50%]" />
       {/* <video src={Contract} autoPlay muted loop className="absolute -z-10 -mt-[40px] object-fill w-full transform scale-105  opacity-[39%]" /> */}
       <video
+        preload="auto"
         src={Contract}
         autoPlay
         muted

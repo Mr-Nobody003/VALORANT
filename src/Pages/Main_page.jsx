@@ -12,6 +12,7 @@ const Main_page = ({ onPageChange }) =>  {
           <Nav/>
         </div> */}
         <video
+        preload="auto"
         src={Home_vid}
         autoPlay
         muted

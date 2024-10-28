@@ -19,6 +19,7 @@ const Premieer_page = ({ onBack }) => {
         className="absolute -z-10 h-screen w-full"
       />
      <video
+        preload="auto"
         src={Contract}
         autoPlay
         muted
