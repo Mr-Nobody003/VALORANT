@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react"
+//import { Analytics } from "@vercel/analytics/react"
 import Main_page from "./Pages/Main_page";
 import Play_page from "./Pages/Play_page";
 import Premieer_page from "./Pages/Premieer_page";
@@ -67,8 +67,6 @@ function App() {
           className="w-screen h-screen overflow-hidden cursor-pointer"
           onClick={handleStartClick}
         >
-          {/* web analtics page added */}
-          <Analytics mode="production"/>
           {/*start image added */}
           <img className="object-fill" src={Valo_start} alt="Start" />
         </div>
