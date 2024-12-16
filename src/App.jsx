@@ -68,7 +68,7 @@ function App() {
           onClick={handleStartClick}
         >
           {/* web analtics page added */}
-          <Analytics/>
+          <Analytics mode="production"/>
           {/*start image added */}
           <img className="object-fill" src={Valo_start} alt="Start" />
         </div>
