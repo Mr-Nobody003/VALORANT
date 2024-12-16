@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.4](https://github.com/ljharb/Iterator.prototype/compare/v1.1.3...v1.1.4) - 2024-12-11
+
+### Commits
+
+- [actions] split out node 10-20, and 20+ [`a6e7fa2`](https://github.com/ljharb/Iterator.prototype/commit/a6e7fa21e5f470551594db6caf497ac3a1e1aa29)
+- [Refactor] use `define-data-property` directly instead of `define-properties` [`9c55a02`](https://github.com/ljharb/Iterator.prototype/commit/9c55a029f606e751deb3bcbca4cff622acf806bc)
+- [Deps] update `get-intrinsic`, `has-symbols`, `reflect.getprototypeof`, `set-function-name` [`958fdf5`](https://github.com/ljharb/Iterator.prototype/commit/958fdf52e5a331a2c35d7c70ca51272e7800c2f9)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `npmignore`, `tape` [`ab7c77d`](https://github.com/ljharb/Iterator.prototype/commit/ab7c77d7be8fe91b0a54b7e61eae85ba9c717bbe)
+- [Robustness] use `es-object-atoms` [`ed8ee34`](https://github.com/ljharb/Iterator.prototype/commit/ed8ee3447ea912e6f915247d0245f59717ece94f)
+
 ## [v1.1.3](https://github.com/ljharb/Iterator.prototype/compare/v1.1.2...v1.1.3) - 2024-10-08
 
 ### Commits
