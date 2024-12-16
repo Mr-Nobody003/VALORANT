@@ -1,230 +1,151 @@
-import React from 'react'
-import Weapon_box from './Weapon_box'
+import React from "react";
+import Weapon_box from "./Weapon_box";
+
+// Importing weapon images
+import knife from "../assets/weapon/melee/melee.png";
+
 import classic from "../assets/weapon/sidearms/classic.png";
 import shorty from "../assets/weapon/sidearms/shorty.png";
 import ghost from "../assets/weapon/sidearms/ghost.png";
 import frenzy from "../assets/weapon/sidearms/frenzy.png";
 import sheriff from "../assets/weapon/sidearms/sheriff.png";
+
 import stinger from "../assets/weapon/smgs/stinger.png";
 import spectre from "../assets/weapon/smgs/spectre.png";
+
 import bucky from "../assets/weapon/shotguns/bucky.png";
 import judge from "../assets/weapon/shotguns/judge.png";
+
 import bulldog from "../assets/weapon/rifles/bulldog.png";
 import guardian from "../assets/weapon/rifles/guardian.png";
 import phantom from "../assets/weapon/rifles/phantom.png";
-import vandal from "../assets/weapon/rifles/vandal.png";
-import melee from "../assets/weapon/melee/melee.png";
-import outlaw from "../assets/weapon/snipers/outlaw.png";
+import vandel from "../assets/weapon/rifles/vandal.png";
+
+import marshal from "../assets/weapon/snipers/marshal.png";
 import operator from "../assets/weapon/snipers/operator.png";
+import outlaw from "../assets/weapon/snipers/outlaw.png";
+
 import ares from "../assets/weapon/machine guns/ares.png";
 import odin from "../assets/weapon/machine guns/odin.png";
-import marshal from "../assets/weapon/snipers/marshal.png";
 
-const sidearms = [
-    {
-        name: "CLASSIC",
-        image: classic,
-    },
-    {
-        name: "SHORTY",
-        image: shorty,
-    },
-    {
-        name: "FRENZY",
-        image: frenzy,
-    },
-    {
-        name: "GHOST",
-        image: ghost,
-    },
-    {
-        name: "SHERIFF",
-        image: sheriff,
-    },
-];
-const smgs = [
-    {
-        name: "STINGER",
-        image: stinger,
-    },
-    {
-        name: "SPECTRE",
-        image: spectre,
-    },
-];
-const knife = [
-    {
-        name: "MELEE",
-        image: melee,
-    },
-];
-const machinegun = [
-    {
-        name: "ARES",
-        image: ares,
-    },
-    {
-        name: "ODIN",
-        image: odin,
-    },
-];
-const sniper = [
-    {
-        name: "MARSHAL",
-        image: marshal,
-    },
-    {
-        name: "OUTLAW",
-        image: outlaw,
-    },
-    {
-        name: "OPERATOR",
-        image: operator,
-    },
-];
-const rifels = [
-    {
-        name: "BULLDOG",
-        image: bulldog,
-    },
-    {
-        name: "GUARDIAN",
-        image: guardian,
-    },
-    {
-        name: "PHANTOM",
-        image: phantom,
-    },
-    {
-        name: "VANDAL",
-        image: vandal,
-    },
-];
-const shotguns = [{
-    name: "BUCKY",
-    image: bucky,
-},
-{
-    name: "JUDGE",
-    image: judge,
-},
-];
-
+const weaponsData = {
+    SIDEARMS: [
+        { name: "CLASSIC", image: classic },
+        { name: "SHORTY", image: shorty },
+        { name: "FRENZY", image: frenzy },
+        { name: "GHOST", image: ghost },
+        { name: "SHERIFF", image: sheriff },
+    ],
+    SMGS: [
+        { name: "STINGER", image: stinger },
+        { name: "SPECTRE", image: spectre },
+    ],
+    SHOTGUNS: [
+        { name: "BUCKY", image: bucky },
+        { name: "JUDGE", image: judge },
+    ],
+    RIFELS: [
+        { name: "BULLDOG", image: bulldog },
+        { name: "GUARDIAN", image: guardian },
+        { name: "PHANTOM", image: phantom },
+        { name: "VANDAL", image: vandel },
+    ],
+    MELLE: [{ name: "KNIFE", image: knife }],
+    SNIPERS: [
+        { name: "MARSHAL", image: marshal },
+        { name: "OUTLAW", image: outlaw },
+        { name: "OPERATOR", image: operator },
+    ],
+    MACHINE_GUNS: [
+        { name: "ARES", image: ares },
+        { name: "ODIN", image: odin },
+    ],
+    // Add more categories as needed...
+};
 
 const Weapons = () => {
     return (
-        <div className='flex flex-row'>
-            <div className="overflow-hidden pt-28 items-center justify-center">
-                <div className="text-white justify-center items-center flex">
-                    <div className="text-2sm text-white">SIDEARMS</div>
+        <div class="flex h-[70%] mt-12">
+            {/* sidearms */}
+            <div className="flex flex-col rounded-md p-[5px]  items-center">
+                <div className="text-white p-[2px] text-2sm mt-5 font-Oswald">SIDEARMS</div>
+                <div className="flex flex-col gap-[16px]">
+                    {weaponsData.SIDEARMS.map((weapon, index) => (
+                        <Weapon_box key={index} name={weapon.name} image={weapon.image} />
+                    ))}
                 </div>
-                <div className="flex p-2 items-center justify-center">
-                    <div className="grid grid-rows-4 gap-4  overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-webkit">
-                        {sidearms.map((shotgun, index) => (
-                            <Weapon_box
-                                key={index}
-                                name={shotgun.name}
-                                image={shotgun.image}
-
-
-                            />
+            </div>
+            {/* smgs and shot guns */}
+            <div className="flex flex-col rounded-md  p-[5px] ">
+                {/* SMGS */}
+                <div className="flex flex-col  items-center">
+                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">SMGS</div>
+                    <div className="flex flex-col gap-[16px]">
+                        {weaponsData.SMGS.map((weapon, index) => (
+                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
+                        ))}
+                    </div>
+                </div>
+                {/* SHOTGUNS */}
+                <div className="flex flex-col  items-center">
+                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">
+                        SHOTGUNS
+                    </div>
+                    <div className="flex flex-col gap-[16px]">
+                        {weaponsData.SHOTGUNS.map((weapon, index) => (
+                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="overflow-hidden  items-center justify-center flex flex-col">
-                <div className="text-white justify-center items-center flex">
-                    <div className="text-2sm text-white">SMGS</div>
-                </div>
-                <div className="flex p-2 items-center justify-center">
-                    <div className="grid grid-rows-1 gap-4 overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-webkit">
-                        {smgs.map((shotgun, index) => (
-                            <Weapon_box
-                                key={index}
-                                name={shotgun.name}
-                                image={shotgun.image}
-                            />
+            {/* rifeles and melle */}
+            <div className="flex flex-col rounded-md  p-[5px] ">
+                {/* RIFELS */}
+                <div className="flex flex-col  items-center">
+                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">RIFELS</div>
+                    <div className="flex flex-col gap-[16px]">
+                        {weaponsData.RIFELS.map((weapon, index) => (
+                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
                         ))}
-                        <div className="text-white justify-center items-center flex">
-                            <div className="text-2sm text-white">SHOTGUN</div>
-                        </div>
-                        {shotguns.map((shotgun, index) => (
-                            <Weapon_box
-                                key={index}
-                                name={shotgun.name}
-                                image={shotgun.image}
-
-
-                            />
+                    </div>
+                </div>
+                {/* MELLE */}
+                <div className="flex flex-col  items-center">
+                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">
+                        MELLE
+                    </div>
+                    <div className="flex flex-col gap-[16px]">
+                        {weaponsData.MELLE.map((weapon, index) => (
+                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="overflow-hidden pt-28 items-center justify-center">
-                <div className="text-white justify-center items-center flex">
-                    <div className="text-2sm text-white">Rifels</div>
-                </div>
-                <div className="flex p-2 items-center justify-center">
-                    <div className="grid grid-rows-1 gap-4  overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-webkit">
-                        {rifels.map((shotgun, index) => (
-                            <Weapon_box
-                                key={index}
-                                name={shotgun.name}
-                                image={shotgun.image}
-                            />
+            {/* sniper rifels and machine guns */}
+            <div className="flex flex-col rounded-md  p-[5px] ">
+                {/*SNIPER  RIFELS */}
+                <div className="flex flex-col  items-center">
+                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">SNIPER RIFELS</div>
+                    <div className="flex flex-col gap-[16px]">
+                        {weaponsData.SNIPERS.map((weapon, index) => (
+                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
                         ))}
                     </div>
                 </div>
-                <div className="text-white justify-center items-center flex">
-                    <div className="text-2sm text-white">MELLE</div>
-                </div>
-                <div className="flex p-2 items-center justify-center">
-                    <div className="grid grid-rows-1 gap-4 overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-webkit">
-                        {knife.map((shotgun, index) => (
-                            <Weapon_box
-                                key={index}
-                                name={shotgun.name}
-                                image={shotgun.image}
-
-
-                            />
+                {/* MACHINE GUNS*/}
+                <div className="flex flex-col  items-center">
+                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">
+                        MACHINE GUNS
+                    </div>
+                    <div className="flex flex-col gap-[16px]">
+                        {weaponsData.MACHINE_GUNS.map((weapon, index) => (
+                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="overflow-hidden -mt[100px} items-center justify-center flex flex-col">
-                <div className="text-white justify-center items-center flex">
-                    <div className="text-2sm text-white">SMGS</div>
-                </div>
-                <div className="flex p-2 items-center justify-center">
-                    <div className="grid grid-rows-1 gap-1 overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-webkit -pb-[200px]">
-                        {sniper.map((shotgun, index) => (
-                            <Weapon_box
-                                key={index}
-                                name={shotgun.name}
-                                image={shotgun.image}
-
-
-                            />
-                        ))}
-                        <div className="text-white justify-center items-center flex -pd-[50px]">
-                            <div className="text-2sm text-white">SHOTGUN</div>
-                        </div>
-                        {machinegun.map((shotgun, index) => (
-                            <Weapon_box
-                                key={index}
-                                name={shotgun.name}
-                                image={shotgun.image}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-
         </div>
+    );
+};
 
-    )
-
-}
-
-export default Weapons
+export default Weapons;

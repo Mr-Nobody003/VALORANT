@@ -1,23 +1,28 @@
-import React from 'react';
-import Weapons from '../components/Weapons';
-import Sprays from '../components/Sprays';
-import Playercard from '../components/Playercard';
-
+import React from "react";
+import Weapons from "../components/Weapons";
+import Playercard from "../components/Playercard";
+import Sprays from "../components/Sprays";
 import Play_bgc from "../assets/pages_bgc/Play_bgc.png";
 
 const Collection_page = () => {
   return (
     <>
-      <img src={Play_bgc} alt="" class="absolute -z-10 h-full w-full" />
-      <div className='flex flex-row'>
+      {/* Background Image */}
+      <img src={Play_bgc} alt="background" className="absolute -z-10 h-full w-full" />
+      
+      {/* Main Content */}
+      <div className="flex">
+        {/* Weapons Section */}
         <Weapons />
-        <div className='flex flex-col'>
+        
+        {/* Right Section */}
+        <div className="flex flex-col">
           <Playercard />
           <Sprays />
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Collection_page
+export default Collection_page;

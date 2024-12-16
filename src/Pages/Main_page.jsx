@@ -8,9 +8,6 @@ const Main_page = ({ onPageChange }) =>  {
  //  const [showLogoPage, setShowLogoPage] = useState(true);
   return (
       <>
-        {/* <div class="justify-between">
-          <Nav/>
-        </div> */}
         <video
         preload="auto"
         src={Home_vid}
