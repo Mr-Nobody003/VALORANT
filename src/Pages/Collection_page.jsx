@@ -16,7 +16,7 @@ const Collection_page = () => {
         <Weapons />
         
         {/* Right Section */}
-        <div className="flex flex-col">
+        <div className="flex flex-col ml-10">
           <Playercard />
           <Sprays />
         </div>
