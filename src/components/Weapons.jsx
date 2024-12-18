@@ -68,7 +68,7 @@ const Weapons = () => {
         <div class="flex h-[70%] mt-12">
             {/* sidearms */}
             <div className="flex flex-col rounded-md p-[5px]  items-center">
-                <div className="text-white p-[2px] text-2sm mt-5 font-Oswald">SIDEARMS</div>
+                <div className="text-white p-[2px] text-lg mt-5 font-Oswald">SIDEARMS</div>
                 <div className="flex flex-col gap-[16px]">
                     {weaponsData.SIDEARMS.map((weapon, index) => (
                         <Weapon_box key={index} name={weapon.name} image={weapon.image} />
@@ -79,7 +79,7 @@ const Weapons = () => {
             <div className="flex flex-col rounded-md  p-[5px] ">
                 {/* SMGS */}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">SMGS</div>
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">SMGS</div>
                     <div className="flex flex-col gap-[16px]">
                         {weaponsData.SMGS.map((weapon, index) => (
                             <Weapon_box key={index} name={weapon.name} image={weapon.image} />
@@ -88,7 +88,7 @@ const Weapons = () => {
                 </div>
                 {/* SHOTGUNS */}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">
                         SHOTGUNS
                     </div>
                     <div className="flex flex-col gap-[16px]">
@@ -102,7 +102,7 @@ const Weapons = () => {
             <div className="flex flex-col rounded-md  p-[5px] ">
                 {/* RIFELS */}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">RIFELS</div>
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">RIFELS</div>
                     <div className="flex flex-col gap-[16px]">
                         {weaponsData.RIFELS.map((weapon, index) => (
                             <Weapon_box key={index} name={weapon.name} image={weapon.image} />
@@ -111,7 +111,7 @@ const Weapons = () => {
                 </div>
                 {/* MELLE */}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">
                         MELLE
                     </div>
                     <div className="flex flex-col gap-[16px]">
@@ -125,7 +125,7 @@ const Weapons = () => {
             <div className="flex flex-col rounded-md  p-[5px] ">
                 {/*SNIPER  RIFELS */}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">SNIPER RIFELS</div>
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">SNIPER RIFELS</div>
                     <div className="flex flex-col gap-[16px]">
                         {weaponsData.SNIPERS.map((weapon, index) => (
                             <Weapon_box key={index} name={weapon.name} image={weapon.image} />
@@ -134,7 +134,7 @@ const Weapons = () => {
                 </div>
                 {/* MACHINE GUNS*/}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-2sm mt-5 font-Oswald">
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">
                         MACHINE GUNS
                     </div>
                     <div className="flex flex-col gap-[16px]">
