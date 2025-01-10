@@ -23,9 +23,9 @@ const Collection_page = () => {
         <div className="relative flex flex-col ml-10 p-0">
           <div className="flex">
             <Playercard />
-          </div> */}
+          </div>
 
-          /* <div className=" flex absolute p-0 m-0 bottom-[40px]">
+           <div className=" flex absolute p-0 m-0 bottom-[40px]">
             <Sprays />
           </div>
         </div>

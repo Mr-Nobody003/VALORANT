@@ -34,8 +34,8 @@ export default {
         },
         ".scrollbar-webkit": {
           "&::-webkit-scrollbar": {
-            width: "8px",
-            height: "10px"
+            width: "5px",
+            height: "100%"
           },
           "&::-webkit-scrollbar-thumb": {
             backgroundColor: "white",
