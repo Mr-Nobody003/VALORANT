@@ -5,8 +5,8 @@ import GentleBreeze from "../assets/player_cards/GentleBreeze_Card.png";
 
 const Playercard = () => {
   return (
-    <div className="mt-12 flex-col cursor-pointer">
-      <div className="mt-6 flex  justify-center text-white text-lg font-Oswald">
+    <div className="mt-[45px] flex-col cursor-pointer">
+      <div className="mt-5 flex  justify-center text-white text-lg font-Oswald">
         PLAYER CARDS
       </div>
       {/* playercard */}
