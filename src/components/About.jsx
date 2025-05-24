@@ -66,18 +66,25 @@ const About = ({ setShowAbout, setShowOptions }) => {
           </div>
 
           {/* Assets Information */}
-          <div className=" flex flex-col items-center justify-center text-base leading-relaxed space-y-4 font-mono ">
+          <div className=" flex flex-col items-center justify-center text-base leading-relaxed space-y-2 font-mono ">
             <a
-              className="flex text-red-500 font-Oswald font-bold text-xl text-decoration-line: underline"
+              className="flex text-red-500 font-Oswald font-bold text-lg text-decoration-line: underline"
               href="https://playvalorant.com/en-gb/"
             >
               VALORANT
             </a>
             <a
-              className="flex text-red-500 font-Oswald font-bold text-xl text-decoration-line: underline"
+              className="flex text-red-500 font-Oswald font-bold text-lg text-decoration-line: underline"
               href="https://valorant.fandom.com/wiki/VALORANT_Wiki"
             >
               valorant.fandom.com
+            </a>
+            <a
+              className="flex text-red-500 font-Oswald font-bold text-lg text-decoration-line: underline"
+              target="_blank"
+              href="https://icons8.com"
+            >
+              Valorant icon by Icons8
             </a>
           </div>
 
@@ -86,7 +93,7 @@ const About = ({ setShowAbout, setShowOptions }) => {
             <span className="text-3xl">Contributors</span>
           </div>
 
-          <div className="flex flex-col justify-between items-end text-base leading-relaxed space-y-10 font-mono ">
+          <div className="flex flex-col justify-between items-end text-base leading-relaxed space-y-6 font-mono ">
             {/* 1st row */}
             <div className="flex flex-row justify-between space-x-[150px]">
               <a
@@ -170,22 +177,25 @@ const About = ({ setShowAbout, setShowOptions }) => {
           <div className=" border-white border-[1px] w-[100%]" />
 
           <div className="font-Oswald font-medium text-lg">
-            <a href="https://github.com/Mr-Nobody003/VALORANT" className="text-3xl text-red-500 hover:text-blue-300 inline-flex items-center gap-2">
-                GitHub Repo
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-8 h-8"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
+            <a
+              href="https://github.com/Mr-Nobody003/VALORANT"
+              className="text-3xl text-red-500 hover:text-blue-300 inline-flex items-center gap-2"
+            >
+              GitHub Repo
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
             </a>
           </div>
           <div className=" border-white border-[1px] w-[100%]" />
