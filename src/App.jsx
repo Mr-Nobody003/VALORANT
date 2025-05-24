@@ -58,10 +58,7 @@ function App() {
   const handleStartClick = () => {
     setShowStartPage(false);
   };
-  <audio  autoPlay >
-  <source src="/src/assets/Audio/agentmenu.mp3" type="audio/mpeg"/>
-</audio>
-
+  
   return (
     <>
       {showStartPage ? (
