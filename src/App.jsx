@@ -58,7 +58,7 @@ function App() {
   const handleStartClick = () => {
     setShowStartPage(false);
   };
-
+  
   return (
     <>
       {showStartPage ? (
@@ -77,6 +77,10 @@ function App() {
             showBackButton={showBackButton}
             current_Page={currentPage}
           />
+          
+  
+
+
           {currentPage === "Main_page" && (
             <Main_page onPageChange={handlePageChange} />
           )}
