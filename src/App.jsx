@@ -58,6 +58,9 @@ function App() {
   const handleStartClick = () => {
     setShowStartPage(false);
   };
+  <audio  autoPlay >
+  <source src="/src/assets/Audio/agentmenu.mp3" type="audio/mpeg"/>
+</audio>
 
   return (
     <>
@@ -77,6 +80,10 @@ function App() {
             showBackButton={showBackButton}
             current_Page={currentPage}
           />
+          
+  
+
+
           {currentPage === "Main_page" && (
             <Main_page onPageChange={handlePageChange} />
           )}
