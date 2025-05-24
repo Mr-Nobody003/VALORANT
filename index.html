@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="-9_kUpNBrwt9wmjzfq5t3td0CWmigTg3yRuO_KFhi6M" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="screen-orientation" content="landscape">
@@ -44,24 +44,22 @@
     <h1 class="text-white">Enable javascript in your browser</h1>
   </noscript>
 
-  <audio id="myAudio" src="/agentmenu.mp3" type="audio/mpeg"></audio>
+  <audio id="myAudio">
+  <source src="/agentmenu.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- Audio Script -->
   <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        alert("Click anywhere to enable sound.");
-        
-        const audio = document.getElementById('myAudio');
+    document.body.addEventListener('click', () => {
+      const audio = document.getElementById('myAudio');
+      const message = document.getElementById('clickMessage');
 
-        // Wait for the first user interaction to play the audio
-        document.body.addEventListener('click', () => {
-          audio.play().catch(err => {
-            console.warn("Autoplay blocked: ", err);
-          });
-        }, { once: true }); // Ensures it only runs once
-      }, 1000); // 1-second delay
-    });
+      audio.play().then(() => {
+        message.style.display = 'none';
+      }).catch((err) => {
+        console.warn("Autoplay blocked:", err);
+      });
+    }, { once: true });
   </script>
 </body>
 
