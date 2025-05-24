@@ -1,7 +1,7 @@
 'use strict';
 
 var GetIntrinsic = require('get-intrinsic');
-var gPO = require('reflect.getprototypeof');
+var gPO = require('get-proto');
 var hasSymbols = require('has-symbols');
 var setFunctionName = require('set-function-name');
 var defineDataProperty = require('define-data-property');
