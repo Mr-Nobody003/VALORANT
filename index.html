@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
-
-  
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="-9_kUpNBrwt9wmjzfq5t3td0CWmigTg3yRuO_KFhi6M" />
@@ -12,9 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="screen-orientation" content="landscape">
 
+  <link type="image/png" sizes="16x16" rel="icon" href="/icons8-valorant-ios_filled-16.png">
+  <link type="image/png" sizes="32x32" rel="icon" href="/icons8-valorant-ios_filled-32.png">
+  <link type="image/png" sizes="96x96" rel="icon" href="/VALORANT/icons8-valorant-ios-17-filled-120.png">
+  <link type="image/png" sizes="120x120" rel="icon" href="/icons8-valorant-ios_filled-120.png">
 
-  <link type="image/png" sizes="16x16" rel="icon" href="/icons8-valorant-ios_filled-16.png"> <link type="image/png" sizes="32x32" rel="icon" href="/icons8-valorant-ios_filled-32.png"> <link type="image/png" sizes="96x96" rel="icon" href="/VALORANT/icons8-valorant-ios-17-filled-120.png"> <link type="image/png" sizes="120x120" rel="icon" href="/icons8-valorant-ios_filled-120.png" >
-  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
   <link rel="preload" href="/VALORANT/assets/Roboto-Bold-CM98DFac.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
   <link rel="preload" href="/VALORANT/assets/Oswald-Regular-CUewnb0h.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
 
@@ -22,34 +22,16 @@
   <link rel="preload" href="/VALORANT/assets/games-valorant-icon-512x512-kqz6q7jw-DIfgZuoU.png" as="image" />
   <link rel="preload" href="/VALORANT/assets/Play_bgc-Cj5ym3fn.png" as="image" />
   <link rel="preload" href="/VALORANT/assets/Premieer_bgc-C1peLADx.png" as="image" />
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWFWSHL1KZ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-DWFWSHL1KZ');
   </script>
-  
-  <!-- <link rel="preload" href="./src/assets/video/Homescreen.mp4" type="video/mp4" />
-  <link rel="preload" href="./src/assets/video/Contract Glitches.webm" tyoe="video/webm"/> -->
-  
-  <!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Oswald:wght@256&display=swap" as="style"
-    onload="this.onload=null;this.rel='stylesheet'" />
-  <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@403&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    as="style" onload="this.onload=null;this.rel='stylesheet'" /> -->
 
-  <!-- <link rel="preload" href="./src/assets/premieer_logo.png" as="image" />
-  <link rel="preload" href="./src/assets/premieer_calender.png" as="image" /> -->
-
-  <noscript>
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@256&display=swap" />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@403&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" /> -->
-  </noscript>
   <title>VALORANT</title>
   <script type="module" crossorigin src="/VALORANT/assets/index-DurACRbD.js"></script>
   <link rel="stylesheet" crossorigin href="/VALORANT/assets/index-CAUco2qr.css">
@@ -57,10 +39,31 @@
 
 <body class="bg-black">
   <div id="root"></div>
+
   <noscript>
     <h1 class="text-white">This website requires the use of java-script for rendering</h1>
     <h1 class="text-white">Enable javascript in your browser</h1>
   </noscript>
+
+  <audio id="myAudio" src="/agentmenu.mp3" type="audio/mpeg"></audio>
+
+  <!-- Audio Script -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        alert("Click anywhere to enable sound.");
+        
+        const audio = document.getElementById('myAudio');
+
+        // Wait for the first user interaction to play the audio
+        document.body.addEventListener('click', () => {
+          audio.play().catch(err => {
+            console.warn("Autoplay blocked: ", err);
+          });
+        }, { once: true }); // Ensures it only runs once
+      }, 1000); // 1-second delay
+    });
+  </script>
 </body>
 
 </html>
