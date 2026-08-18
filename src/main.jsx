@@ -3,8 +3,18 @@ import { createRoot } from 'react-dom/client'
 import { QueryClient } from '@tanstack/react-query'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import { get, set, del } from 'idb-keyval'
+import { registerSW } from 'virtual:pwa-register'
 import App from './App.jsx'
 import './index.css'
+
+// Setup PWA Auto-Update
+const updateSW = registerSW({
+  onNeedRefresh() {
+    if (confirm("New content available. Reload to update?")) {
+      updateSW(true)
+    }
+  },
+})
 
 const idbPersister = {
   persistClient: async (client) => {

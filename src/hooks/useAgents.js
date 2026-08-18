@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '../api';
+import { Languages } from 'lucide-react';
 
 export const useAgents = () => {
   return useQuery({
@@ -7,6 +8,7 @@ export const useAgents = () => {
     queryFn: async () => {
       const { data } = await api.get('/agents', {
         params: {
+          language:"en-US",
           isPlayableCharacter: true
         }
       });

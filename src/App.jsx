@@ -15,6 +15,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState("Main_page");
   const [showStartPage, setShowStartPage] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [selectedAgent, setSelectedAgent] = useState(null);
 
   // Preload the start img
   useEffect(() => {
@@ -53,6 +54,16 @@ function App() {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    // Reset selected agent when changing pages
+    setSelectedAgent(null);
+  };
+
+  const handleBack = () => {
+    if (currentPage === "Agent_page" && selectedAgent) {
+      setSelectedAgent(null);
+    } else {
+      setCurrentPage("Main_page");
+    }
   };
 
   const handleStartClick = () => {
@@ -74,6 +85,7 @@ function App() {
         <>
           <Nav
             onPageChange={handlePageChange}
+            onBack={handleBack}
             showBackButton={showBackButton}
             current_Page={currentPage}
           />
@@ -88,7 +100,7 @@ function App() {
           {currentPage === "Premieer_page" && <Premieer_page />}
           {currentPage === "Collection_page" && <Collection_page />}
           {currentPage === "Career_page" && <Career_page />}
-          {currentPage === "Agent_page" && <Agent_page />}
+          {currentPage === "Agent_page" && <Agent_page selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
           {currentPage === "Battlepass_page" && <Battlepass_page />}
           {currentPage === "Store_page" && <Store_page />}
         </>

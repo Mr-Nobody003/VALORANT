@@ -4,7 +4,7 @@ import Options from './Options';
 import Game_icon from "../assets/games-valorant-icon-512x512-kqz6q7jw.png";
 import Settings from "../assets/settings.svg";
 
-const Nav = ({ onPageChange, showBackButton, current_Page }) => {
+const Nav = ({ onPageChange, onBack, showBackButton, current_Page }) => {
   const [ShowOptions, setShowOptions] = useState(false);
 
   const getButtonText = () => {
@@ -34,7 +34,7 @@ const Nav = ({ onPageChange, showBackButton, current_Page }) => {
         <div className="flex text-white">
           {showBackButton ? (
             <Back_button
-              onClick={() => onPageChange("Main_page")}
+              onClick={() => (onBack ? onBack() : onPageChange("Main_page"))}
               text={getButtonText()}
             />
           ) : (
