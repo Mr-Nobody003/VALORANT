@@ -1,153 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import Agent_box from "../components/Agent_box";
+import Agent_modal from "../components/Agent_modal";
+import { useAgents } from "../hooks/useAgents";
+import { Loader2 } from "lucide-react";
 
-// Importing agent icons
-import brimstone from "../assets/agents_icon/brimstone.png";
-import viper from "../assets/agents_icon/viper.png";
-import omen from "../assets/agents_icon/omen.png";
-import jett from "../assets/agents_icon/jett.png";
-import phoenix from "../assets/agents_icon/phoenix.png";
-import sage from "../assets/agents_icon/sage.png";
-import sova from "../assets/agents_icon/sova.png";
-import reyna from "../assets/agents_icon/reyna.png";
-import raze from "../assets/agents_icon/raze.png";
-import breach from "../assets/agents_icon/breach.png";
-import killjoy from "../assets/agents_icon/killjoy.png";
-import cypher from "../assets/agents_icon/cypher.png";
-import skye from "../assets/agents_icon/skye.png";
-import yoru from "../assets/agents_icon/yoru.png";
-import astra from "../assets/agents_icon/astra.png";
-import kayo from "../assets/agents_icon/kayo.png";
-import chamber from "../assets/agents_icon/chamber.png";
-import neon from "../assets/agents_icon/neon.png";
-import fade from "../assets/agents_icon/fade.png";
-import harbor from "../assets/agents_icon/harbor.png";
-import deadlock from "../assets/agents_icon/deadlock.png";
-import clove from "../assets/agents_icon/clove.png";
-import iso from "../assets/agents_icon/iso.png";
-import vyse from "../assets/agents_icon/vyse.png";
-import gekko from "../assets/agents_icon/gekko.png";
-
-// Importing agent type icons
-import controller from "../assets/agent_type/controller.png";
-import duelist from "../assets/agent_type/duelist.png";
-import sentinel from "../assets/agent_type/sentinel.png";
-import initiator from "../assets/agent_type/initiator.png";
-
-const agents = [
-  {
-    name: "BRIMSTONE",
-    image: brimstone,
-    type: "CONTROLLER",
-    typeimg: controller,
-  },
-  {
-    name: "VIPER",
-    image: viper,
-    type: "CONTROLLER",
-    typeimg: controller,
-  },
-  {
-    name: "OMEN",
-    image: omen,
-    type: "CONTROLLER",
-    typeimg: controller,
-  },
-  { name: "JETT", image: jett, type: "DUELIST", typeimg: duelist },
-  {
-    name: "PHOENIX",
-    image: phoenix,
-    type: "DUELIST",
-    typeimg: duelist,
-  },
-  { name: "SAGE", image: sage, type: "SENTINEL", typeimg: sentinel },
-  { name: "SOVA", image: sova, type: "INITIATOR", typeimg: initiator },
-  { name: "REYNA", image: reyna, type: "DUELIST", typeimg: duelist },
-  { name: "RAZE", image: raze, type: "DUELIST", typeimg: duelist },
-  {
-    name: "BREACH",
-    image: breach,
-    type: "INITIATOR",
-    typeimg: initiator,
-  },
-  {
-    name: "KILLJOY",
-    image: killjoy,
-    type: "SENTINEL",
-    typeimg: sentinel,
-  },
-  {
-    name: "CYPHER",
-    image: cypher,
-    type: "SENTINEL",
-    typeimg: sentinel,
-  },
-  { name: "SKYE", image: skye, type: "INITIATOR", typeimg: initiator },
-  { name: "YORU", image: yoru, type: "DUELIST", typeimg: duelist },
-  {
-    name: "ASTRA",
-    image: astra,
-    type: "CONTROLLER",
-    typeimg: controller,
-  },
-  { name: "KAY/O", image: kayo, type: "INITIATOR", typeimg: initiator },
-  {
-    name: "CHAMBER",
-    image: chamber,
-    type: "SENTINEL",
-    typeimg: sentinel,
-  },
-  { name: "NEON", image: neon, type: "DUELIST", typeimg: duelist },
-  { name: "FADE", image: fade, type: "INITIATOR", typeimg: initiator },
-  {
-    name: "HARBOR",
-    image: harbor,
-    type: "CONTROLLER",
-    typeimg: controller,
-  },
-  {
-    name: "DEADLOCK",
-    image: deadlock,
-    type: "SENTINEL",
-    typeimg: sentinel,
-  },
-  {
-    name: "CLOVE",
-    image: clove,
-    type: "CONTROLLER",
-    typeimg: controller,
-  },
-  { name: "ISO", image: iso, type: "DUELIST", typeimg: duelist },
-  { name: "VYSE", image: vyse, type: "SENTINAL", typeimg: sentinel },
-  {
-    name: "GEKKO",
-    image: gekko,
-    type: "INITIATOR",
-    typeimg: initiator,
-  },
-];
 const Agent_page = () => {
-  return (
-    <>
-      <div className="bg-gradient-to-br from-pink-800 via-purple-700 to-indigo-800 overflow-hidden h-screen w-full pt-28 items-center justify-center">
-        <div className="text-white justify-center items-center w-full flex">
-          <div className="text-2sm text-white">Agents</div>
-        </div>
-        <div className="flex p-2 items-center justify-center w-full">
-          <div className="grid grid-cols-4 gap-4 h-[500px] overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-webkit">
-            {agents.map((agent, index) => (
-              <Agent_box
-                key={index}
-                name={agent.name}
-                image={agent.image}
-                type={agent.type}
-                typeimg={agent.typeimg}
-              />
-            ))}
-          </div>
-        </div>
+  const { data: agents, isLoading, isError } = useAgents();
+  const [selectedAgent, setSelectedAgent] = useState(null);
+
+  if (isLoading) {
+    return (
+      <div className="bg-[#0f1923] h-screen w-full flex items-center justify-center">
+        <Loader2 className="w-12 h-12 text-pink-500 animate-spin" />
       </div>
-    </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="bg-[#0f1923] h-screen w-full flex items-center justify-center text-white font-Roboto">
+        Error loading agents. Please check your connection.
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-[#0f1923] min-h-screen w-full pt-28 pb-12 px-6 md:px-12 lg:px-24">
+      {/* Header */}
+      <div className="text-white w-full mb-10">
+        <h1 className="text-4xl md:text-6xl font-Oswald font-bold tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
+          Agents
+        </h1>
+        <p className="text-gray-400 mt-2 font-Roboto max-w-2xl">
+          Meet the roster of radiant and non-radiant agents, each equipped with their own unique set of abilities.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        {agents?.map((agent) => (
+          <Agent_box
+            key={agent.uuid}
+            agent={agent}
+            onClick={() => setSelectedAgent(agent)}
+          />
+        ))}
+      </div>
+
+      {/* Modal */}
+      <Agent_modal agent={selectedAgent} onClose={() => setSelectedAgent(null)} />
+    </div>
   );
 };
 
