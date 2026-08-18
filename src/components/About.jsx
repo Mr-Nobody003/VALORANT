@@ -106,7 +106,7 @@ const About = ({ setShowAbout, setShowOptions }) => {
                   className="flex h-[100px] w-[100px] rounded-full"
                 />
                 <div
-                  class="absolute top-full left-1/2 transform
+                  className="absolute top-full left-1/2 transform
                        -translate-x-1/2 mt-2 w-max px-2 py-1 
                        text-sm text-white bg-gray-700 rounded
                        shadow-lg opacity-0 group-hover:opacity-100"
@@ -125,7 +125,7 @@ const About = ({ setShowAbout, setShowOptions }) => {
                   className="flex h-[100px] w-[100px] rounded-full"
                 />
                 <div
-                  class="absolute top-full left-1/2 transform
+                  className="absolute top-full left-1/2 transform
                        -translate-x-1/2 mt-2 w-max px-2 py-1 
                        text-sm text-white bg-gray-700 rounded
                        shadow-lg opacity-0 group-hover:opacity-100"
@@ -146,7 +146,7 @@ const About = ({ setShowAbout, setShowOptions }) => {
                   className="flex h-[100px] w-[100px] rounded-full"
                 />
                 <div
-                  class="absolute top-full left-1/2 transform
+                  className="absolute top-full left-1/2 transform
                        -translate-x-1/2 mt-2 w-max px-2 py-1 
                        text-sm text-white bg-gray-700 rounded
                        shadow-lg opacity-0 group-hover:opacity-100"
@@ -161,7 +161,7 @@ const About = ({ setShowAbout, setShowOptions }) => {
                   className="flex h-[100px] w-[100px] rounded-full"
                 />
                 <div
-                  class="absolute top-full left-1/2 transform
+                  className="absolute top-full left-1/2 transform
                        -translate-x-1/2 mt-2 w-max px-2 py-1 
                        text-sm text-white bg-gray-700 rounded
                        shadow-lg opacity-0 group-hover:opacity-100"
@@ -184,7 +184,7 @@ const About = ({ setShowAbout, setShowOptions }) => {
               GitHub Repo
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-8 h-8"
+                className="w-8 h-8"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"

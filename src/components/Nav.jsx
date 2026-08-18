@@ -30,7 +30,7 @@ const Nav = ({ onPageChange, showBackButton, current_Page }) => {
 
   return (
     <>
-      <div className="flex flex-row text-white justify-between fixed w-full">
+      <div className="flex flex-row text-white justify-between fixed w-full z-50 mt-4 px-6 md:px-12 lg:px-24 pointer-events-auto">
         <div className="flex text-white">
           {showBackButton ? (
             <Back_button

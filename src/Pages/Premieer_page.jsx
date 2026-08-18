@@ -33,7 +33,7 @@ const Premieer_page = ({ onBack }) => {
           content={type}
         />
       </div>
-      <div class='text-xs'><Premieer_info/></div>
+      <div className='text-xs'><Premieer_info/></div>
       <div className="flex flex-row justify-between pt-20 p-2 items-center">
         <Premieer_scheduler />
         <Premieer_mid />

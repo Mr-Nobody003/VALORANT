@@ -2,11 +2,11 @@ import React from 'react'
 
 const Info = () => {
   return (
-    <div class="text-white flex flex-col">
-      <div class="images flex">
+    <div className="text-white flex flex-col">
+      <div className="images flex">
 
       </div>
-      <div class="info flex">
+      <div className="info flex">
         
       </div>
 

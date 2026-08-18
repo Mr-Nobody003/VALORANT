@@ -16,15 +16,15 @@ const Main_page = ({ onPageChange }) =>  {
         loop
         className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
       />
-        <div class="justify-between">
-          <div class="absolute left-0 top-1/3 ">
+        <div className="justify-between">
+          <div className="absolute left-0 top-1/3 ">
             <Mainmenu  onPageChange={onPageChange}/>
           </div>
           <div>
-            <div class="absolute right-20">
+            <div className="absolute right-20">
               <Info/>
             </div>
-            <div class="absolute right-0 mt-8">
+            <div className="absolute right-0 mt-8">
               <Friend_list/>
             </div>
           </div>
