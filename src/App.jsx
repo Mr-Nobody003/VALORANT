@@ -9,6 +9,7 @@ import Battlepass_page from "./Pages/Battlepass_page";
 import Career_page from "./Pages/Career_page";
 import Store_page from "./Pages/Store_page";
 import Nav from "./components/Nav";
+import GlobalDataPrefetcher from "./components/GlobalDataPrefetcher";
 import Valo_start from "./assets/Valo_start.png";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [showStartPage, setShowStartPage] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState(null);
+  const [navBackOverride, setNavBackOverride] = useState(null);
 
   // Preload the start img
   useEffect(() => {
@@ -54,12 +56,15 @@ function App() {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    // Reset selected agent when changing pages
+    // Reset selected agent and overrides when changing pages
     setSelectedAgent(null);
+    setNavBackOverride(null);
   };
 
   const handleBack = () => {
-    if (currentPage === "Agent_page" && selectedAgent) {
+    if (navBackOverride) {
+      navBackOverride();
+    } else if (currentPage === "Agent_page" && selectedAgent) {
       setSelectedAgent(null);
     } else {
       setCurrentPage("Main_page");
@@ -83,6 +88,7 @@ function App() {
         </div>
       ) : (
         <>
+          <GlobalDataPrefetcher />
           <Nav
             onPageChange={handlePageChange}
             onBack={handleBack}
@@ -98,7 +104,7 @@ function App() {
           </div>
           {currentPage === "Play_page" && <Play_page />}
           {currentPage === "Premieer_page" && <Premieer_page />}
-          {currentPage === "Collection_page" && <Collection_page />}
+          {currentPage === "Collection_page" && <Collection_page setNavBackOverride={setNavBackOverride} />}
           {currentPage === "Career_page" && <Career_page />}
           {currentPage === "Agent_page" && <Agent_page selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
           {currentPage === "Battlepass_page" && <Battlepass_page />}

@@ -1,31 +1,25 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { PlayerContext } from '../context/PlayerContext'
-import api from '../api'
+import { useCompetitiveTiers } from '../hooks/useCompetitiveTiers'
+import GentleBreeze from "../assets/player_cards/GentleBreeze_Card.png";
 
 const Play_card = ({ activeType }) => {
     const { equippedCard, equippedTitle, showLevel, equippedBorder } = useContext(PlayerContext);
     const [rankIcon, setRankIcon] = useState(null);
+    const { data: tiersData } = useCompetitiveTiers();
 
     useEffect(() => {
-        const fetchRank = async () => {
-            try {
-                const response = await api.get('/competitivetiers');
-                const tiersData = response.data.data;
-                const latestEpisode = tiersData[tiersData.length - 1];
-                
-                if (latestEpisode && latestEpisode.tiers) {
-                    // Find Radiant tier or fallback to index 24
-                    const radiantTier = latestEpisode.tiers.find(t => t.tierName === "RADIANT") || latestEpisode.tiers[24];
-                    if (radiantTier && radiantTier.largeIcon) {
-                        setRankIcon(radiantTier.largeIcon);
-                    }
+        if (tiersData) {
+            const latestEpisode = tiersData[tiersData.length - 1];
+            if (latestEpisode && latestEpisode.tiers) {
+                // Find Radiant tier or fallback to index 24
+                const radiantTier = latestEpisode.tiers.find(t => t.tierName === "RADIANT") || latestEpisode.tiers[24];
+                if (radiantTier && radiantTier.largeIcon) {
+                    setRankIcon(radiantTier.largeIcon);
                 }
-            } catch (error) {
-                console.error("Failed to fetch rank icon:", error);
             }
-        };
-        fetchRank();
-    }, []);
+        }
+    }, [tiersData]);
 
     return (
         <div className='h-[450px] w-full flex justify-center'>
@@ -79,18 +73,16 @@ const Play_card = ({ activeType }) => {
                     />
 
                     <div className="relative h-full w-full">
-                        {equippedCard ? (
-                            <img
-                                src={equippedCard.largeArt}
-                                width={268}
-                                height={640}
-                                alt="card image"
-                                className="absolute top-0 left-0 w-full h-full object-cover z-0"
-                                style={{
-                                    clipPath: "polygon(50% 94%, 100% 76%, 100% 0, 0 0, 0 76%)"
-                                }}
-                            />
-                        ) : null}
+                        <img
+                            src={equippedCard ? equippedCard.largeArt : GentleBreeze}
+                            width={268}
+                            height={640}
+                            alt="card image"
+                            className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                            style={{
+                                clipPath: "polygon(50% 94%, 100% 76%, 100% 0, 0 0, 0 76%)"
+                            }}
+                        />
                     </div>
                 </div>
 

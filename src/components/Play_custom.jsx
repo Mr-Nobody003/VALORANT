@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import api from '../api';
+import { useMaps } from '../hooks/useMaps';
 import { PlayerContext } from '../context/PlayerContext';
 
 const Play_custom = () => {
     const { equippedCard, equippedTitle, showLevel, equippedBorder } = useContext(PlayerContext);
-    const [maps, setMaps] = useState([]);
+    const { data: maps = [] } = useMaps();
     const [selectedMap, setSelectedMap] = useState(null);
     
     // New states
@@ -16,23 +16,11 @@ const Play_custom = () => {
     const [selectedServer, setSelectedServer] = useState(servers[0]);
 
     useEffect(() => {
-        const fetchMaps = async () => {
-            try {
-                const response = await api.get('/maps');
-                const mapsData = response.data.data;
-                // Filter out 'The Range' if we only want real maps
-                const standardMaps = mapsData.filter(m => m.displayIcon !== null);
-                setMaps(standardMaps);
-                
-                // Set default map
-                const defaultMap = standardMaps.find(m => m.displayName === 'Haven') || standardMaps[0];
-                setSelectedMap(defaultMap);
-            } catch (error) {
-                console.error("Failed to fetch maps:", error);
-            }
-        };
-        fetchMaps();
-    }, []);
+        if (maps.length > 0 && !selectedMap) {
+            const defaultMap = maps.find(m => m.displayName === 'Haven') || maps[0];
+            setSelectedMap(defaultMap);
+        }
+    }, [maps, selectedMap]);
 
     const PlayerSlot = () => (
         <div className="h-12 bg-black/60 flex items-center px-2 gap-3 border-l-2 border-white mb-2">

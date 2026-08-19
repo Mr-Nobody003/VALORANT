@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Weapons from "../components/Weapons";
 import Playercard from "../components/Playercard";
 import Sprays from "../components/Sprays";
@@ -7,10 +7,24 @@ import PlayerCardSelection from "./PlayerCardSelection";
 import WeaponSelection from "./WeaponSelection";
 import SpraySelection from "./SpraySelection";
 
-const Collection_page = () => {
+const Collection_page = ({ setNavBackOverride }) => {
   const [isSelectingCard, setIsSelectingCard] = useState(false);
   const [selectedWeaponForSkin, setSelectedWeaponForSkin] = useState(null); // { name, defaultImage }
   const [selectedSprayQuadrant, setSelectedSprayQuadrant] = useState(null); // 'Top', 'Right', 'Bottom', 'Left'
+
+  useEffect(() => {
+    if (isSelectingCard) {
+      setNavBackOverride(() => () => setIsSelectingCard(false));
+    } else if (selectedWeaponForSkin) {
+      setNavBackOverride(() => () => setSelectedWeaponForSkin(null));
+    } else if (selectedSprayQuadrant) {
+      setNavBackOverride(() => () => setSelectedSprayQuadrant(null));
+    } else {
+      setNavBackOverride(null);
+    }
+    
+    return () => setNavBackOverride(null);
+  }, [isSelectingCard, selectedWeaponForSkin, selectedSprayQuadrant, setNavBackOverride]);
 
   return (
     <div className="relative h-screen w-full overflow-hidden">

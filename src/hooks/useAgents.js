@@ -4,7 +4,7 @@ import { Languages } from 'lucide-react';
 
 export const useAgents = () => {
   return useQuery({
-    queryKey: ['agents-v2'],
+    queryKey: ['agents-v3'],
     queryFn: async () => {
       const { data } = await api.get('/agents', {
         params: {

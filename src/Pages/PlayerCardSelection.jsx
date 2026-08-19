@@ -54,8 +54,15 @@ const PlayerCardSelection = ({ onBack }) => {
             if (defaultTitle) setPreviewTitle(defaultTitle);
         }
     }
-    if(!previewBorder && equippedBorder) setPreviewBorder(equippedBorder);
-  }, [equippedCard, equippedTitle, equippedBorder, cards, titles, previewCard, previewTitle, previewBorder]);
+    if(!previewBorder) {
+        if(equippedBorder) setPreviewBorder(equippedBorder);
+        else if (borders) {
+            // Find max level border
+            const maxBorder = [...borders].sort((a, b) => (b.startingLevel || 0) - (a.startingLevel || 0))[0];
+            if (maxBorder) setPreviewBorder(maxBorder);
+        }
+    }
+  }, [equippedCard, equippedTitle, equippedBorder, cards, titles, borders, previewCard, previewTitle, previewBorder]);
 
   const handleEquip = () => {
     setEquippedCard(previewCard);
@@ -95,10 +102,6 @@ const PlayerCardSelection = ({ onBack }) => {
 
   return (
     <div className="w-full h-full flex pt-[70px]">
-        {/* Overlay Back Button */}
-        <div className="absolute top-0 left-0 z-[60] h-[70px] w-full bg-[#1a212d]">
-            <Back_button onClick={onBack} text="COLLECTION" />
-        </div>
         
         {/* Left Sidebar */}
         <div className="absolute left-0 top-[70px] w-[350px] lg:w-[400px] h-[calc(100vh-70px)] flex flex-col bg-slate-900/30 border-r border-slate-700/30 px-4 pt-4 z-20 backdrop-blur-sm">
@@ -136,46 +139,56 @@ const PlayerCardSelection = ({ onBack }) => {
                 {previewCard ? previewCard.displayName : 'SELECT A CARD'}
             </h1>
 
-            {/* Preview Card Area (matching original Playercard layout exactly) */}
-            <div className="flex justify-center m-0 p-0 relative">
-                <img
-                    src={previewCard ? previewCard.largeArt : GentleBreeze}
-                    alt="Playercard Preview"
-                    className="object-fill w-[200px] h-[450px] p-[5px] filter brightness-100"
-                    style={{
-                        WebkitMaskImage: "linear-gradient(to top, rgba(0, 0, 0, 0) , rgba(0, 0, 0, 1) 50%)",
-                        maskImage: "linear-gradient(to top, rgba(0, 0, 0, 0) 10px, rgba(0, 0, 0, 1) 50%)",
-                    }}
-                />
+            {/* Preview Card Area (matching Play_card layout exactly) */}
+            <div className="w-[268px] h-[640px] relative scale-[0.65] origin-top flex-shrink-0" id="card-preview">
                 
                 {/* Level Border */}
                 {showLevel && previewBorder && (
-                    <div className="absolute -top-[15px] left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center">
-                        <img src={previewBorder.levelNumberAppearance} alt="Level Border" className="w-[70px] h-[70px] object-contain drop-shadow-lg" />
-                        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[10px] font-bold mt-[1px]">
-                            235
+                    <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center">
+                        <img src={previewBorder.levelNumberAppearance} alt="Level Border" className="w-[80px] h-[80px] object-contain drop-shadow-xl" />
+                        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[14px] font-bold mt-[2px]">
+                            999
                         </span>
                     </div>
                 )}
 
-                {/* Equip Button (overlaid strictly above the name bar) */}
-                <button 
-                    onClick={handleEquip}
-                    className="absolute bottom-[170px] w-[190px] py-2 bg-slate-900/80 border border-slate-500 hover:border-teal-400 hover:bg-slate-800 text-white tracking-widest font-semibold transition-colors text-xs z-10"
-                >
-                    EQUIP CARD
-                </button>
-
-                {/* player name */}
-                <div className="flex absolute bottom-[150px] w-[190px] bg-yellow-100 justify-center text-[12px] shadow-xl shadow-black/50 text-black font-semibold">
+                <h2 className="absolute bottom-[214px] left-1/2 -translate-x-1/2 z-20 font-medium text-[16px] text-black">
                     PLAYER_NAME
-                </div>
-                
-                {/* player title */}
-                <div className="flex absolute bottom-[135px] w-[190px] text-[10px] text-white justify-center bg-black/40">
+                </h2>
+
+                <h3 className="absolute bottom-[193px] w-full left-1/2 -translate-x-1/2 z-20 font-normal text-center text-[11px] text-gray-100">
                     {previewTitle ? (previewTitle.titleText || previewTitle.displayName) : "Super Shy"}
+                </h3>
+
+                <img
+                    src="/card_border.png"
+                    width={268}
+                    height={640}
+                    alt="card border"
+                    className="absolute top-0 left-[1px] w-full h-full object-contain z-10 pointer-events-none"
+                />
+
+                <div className="relative h-full w-full">
+                    <img
+                        src={previewCard ? previewCard.largeArt : GentleBreeze}
+                        width={268}
+                        height={640}
+                        alt="card image"
+                        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                        style={{
+                            clipPath: "polygon(50% 94%, 100% 76%, 100% 0, 0 0, 0 76%)"
+                        }}
+                    />
                 </div>
             </div>
+            
+            {/* Equip Button (positioned below the scaled card) */}
+            <button 
+                onClick={handleEquip}
+                className="mt-[-200px] w-[200px] py-3 bg-slate-900/90 border border-slate-500 hover:border-teal-400 hover:bg-slate-800 text-white tracking-widest font-semibold transition-colors text-sm z-50"
+            >
+                EQUIP CARD
+            </button>
 
             {/* Equip Titles Dropdown at bottom right */}
             <div className="absolute bottom-12 right-12 flex flex-col items-start gap-1 z-20">

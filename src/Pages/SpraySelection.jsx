@@ -75,11 +75,6 @@ const SpraySelection = ({ quadrant, onBack }) => {
         <div className="absolute inset-0 w-full h-full flex bg-[#0f1923] z-40">
             {/* Background */}
             <div className="absolute inset-0 w-full h-full opacity-30 bg-cover bg-center pointer-events-none" style={{ backgroundImage: 'url(https://media.valorant-api.com/themes/5b09613d-470c-74f4-a69a-028474b703a6/displayicon.png)' }}></div>
-            
-            {/* Overlay Back Button - Fixed overlap by setting w-full to cover the nav bar underneath */}
-            <div className="fixed top-0 left-0 z-[60] h-[70px] w-full bg-[#1a212d]">
-                <Back_button onClick={onBack} text="COLLECTION" />
-            </div>
 
             {/* Left Sidebar */}
             <div className="absolute left-0 top-[70px] w-[350px] lg:w-[400px] h-[calc(100vh-70px)] flex flex-col bg-slate-900/30 border-r border-slate-700/30 px-4 pt-4 z-20 backdrop-blur-sm">

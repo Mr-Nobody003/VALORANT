@@ -86,6 +86,13 @@ const About = ({ setShowAbout, setShowOptions }) => {
             >
               Valorant icon by Icons8
             </a>
+            <a
+              className="flex text-red-500 font-Oswald font-bold text-lg text-decoration-line: underline"
+              target="_blank"
+              href="https://valorant-api.com"
+            >
+              valorant-api
+            </a>
           </div>
 
           {/* {contributors} */}
