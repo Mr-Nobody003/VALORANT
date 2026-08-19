@@ -43,6 +43,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        maximumFileSizeToCacheInBytes: 10485760, // 10 MB limit to allow the JSON loadout bundle
         cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
