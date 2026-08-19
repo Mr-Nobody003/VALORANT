@@ -28,12 +28,12 @@ const Agent_box = ({ agent, onClick, isSelected }) => {
       {/* Top Right: Mock Currency Price */}
       <div className="absolute top-2 right-2 md:top-3 md:right-3 flex items-center gap-1.5 opacity-60">
         <div className="flex items-center gap-1 text-[8px] md:text-[10px] font-Roboto uppercase tracking-widest text-white">
-          <div className="w-2.5 h-2.5 rounded-full border border-white flex items-center justify-center text-[6px]">V</div>
+          <img src="https://media.valorant-api.com/currencies/85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741/displayicon.png" alt="VP" className="w-2.5 h-2.5" />
           1,000
         </div>
         <span className="text-[8px] md:text-[10px] font-Roboto lowercase text-white/50 mx-0.5">or</span>
         <div className="flex items-center gap-1 text-[8px] md:text-[10px] font-Roboto uppercase tracking-widest text-white">
-          <div className="w-2.5 h-2.5 bg-black clip-diamond flex items-center justify-center rotate-45"></div>
+          <img src="https://media.valorant-api.com/currencies/85ca954a-41f2-ce94-9b45-8ca3dd39a00d/displayicon.png" alt="KC" className="w-2.5 h-2.5" />
           8,000
         </div>
       </div>

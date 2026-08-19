@@ -65,7 +65,7 @@ const weaponsData = {
 
 const Weapons = () => {
     return (
-        <div className="flex h-[70%] mt-[45px]">
+        <div className="flex flex-wrap xl:flex-nowrap justify-center h-auto xl:h-[70%] mt-4 xl:mt-[45px] gap-6 xl:gap-2">
             {/* sidearms */}
             <div className="flex flex-col rounded-md p-[5px]  items-center">
                 <div className="text-white p-[2px] text-lg mt-5 font-Oswald">SIDEARMS</div>

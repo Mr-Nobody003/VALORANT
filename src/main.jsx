@@ -5,6 +5,7 @@ import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client
 import { get, set, del } from 'idb-keyval'
 import { registerSW } from 'virtual:pwa-register'
 import App from './App.jsx'
+import { PlayerProvider } from './context/PlayerContext.jsx'
 import './index.css'
 
 // Setup PWA Auto-Update
@@ -44,7 +45,9 @@ createRoot(document.getElementById('root')).render(
       client={queryClient}
       persistOptions={{ persister: idbPersister }}
     >
-      <App />
+      <PlayerProvider>
+        <App />
+      </PlayerProvider>
     </PersistQueryClientProvider>
   </StrictMode>,
 )
