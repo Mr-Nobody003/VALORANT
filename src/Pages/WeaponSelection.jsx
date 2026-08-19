@@ -124,8 +124,12 @@ const WeaponSelection = ({ weapon, onBack }) => {
     
     if (weaponsError) return <div>Error loading data</div>;
 
+    const wData = Array.isArray(weaponsData) ? weaponsData : weaponsData?.data;
+    const tData = Array.isArray(themesData) ? themesData : themesData?.data;
+    const bData = Array.isArray(buddiesData) ? buddiesData : buddiesData?.data;
+
     // Find the specific weapon from API data
-    const apiWeapon = weaponsData?.find(w => w.displayName.toUpperCase() === weapon.name.toUpperCase());
+    const apiWeapon = wData?.find(w => w.displayName.toUpperCase() === weapon.name.toUpperCase());
     
     // Extract skins
     let skins = [];
@@ -153,7 +157,7 @@ const WeaponSelection = ({ weapon, onBack }) => {
             displayIcon: null,
             isDefault: true
         },
-        ...(buddiesData?.filter(b => !b.isHiddenIfNotOwned && b.displayIcon) || [])
+        ...(bData?.filter(b => !b.isHiddenIfNotOwned && b.displayIcon) || [])
     ];
     const filteredBuddies = allBuddies.filter(b => b.displayName.toLowerCase().includes(searchQuery.toLowerCase()));
 
@@ -162,15 +166,15 @@ const WeaponSelection = ({ weapon, onBack }) => {
     if (activeTab === 'Skins' && previewSkin && !previewSkin.isDefault) {
         if (previewSkin.wallpaper) {
             backgroundImageUrl = previewSkin.wallpaper;
-        } else if (previewSkin.themeUuid && themesData) {
-            const theme = themesData.find(t => t.uuid === previewSkin.themeUuid);
+        } else if (previewSkin.themeUuid && tData) {
+            const theme = tData.find(t => t.uuid === previewSkin.themeUuid);
             if (theme) {
                 backgroundImageUrl = theme.displayIcon || theme.storeFeaturedImage;
             }
         }
     } else if (activeTab === 'Buddies' && previewBuddy && !previewBuddy.isDefault) {
-        if (previewBuddy.themeUuid && themesData) {
-            const theme = themesData.find(t => t.uuid === previewBuddy.themeUuid);
+        if (previewBuddy.themeUuid && tData) {
+            const theme = tData.find(t => t.uuid === previewBuddy.themeUuid);
             if (theme) {
                 backgroundImageUrl = theme.displayIcon || theme.storeFeaturedImage;
             }
