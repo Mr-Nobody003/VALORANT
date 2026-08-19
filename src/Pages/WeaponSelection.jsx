@@ -7,19 +7,22 @@ import Back_button from '../components/Back_button';
 const fetchWeapons = async () => {
     const response = await fetch('https://valorant-api.com/v1/weapons');
     if (!response.ok) throw new Error('Failed to fetch weapons');
-    return response.json();
+    const json = await response.json();
+    return json.data;
 };
 
 const fetchThemes = async () => {
     const response = await fetch('https://valorant-api.com/v1/themes');
     if (!response.ok) throw new Error('Failed to fetch themes');
-    return response.json();
+    const json = await response.json();
+    return json.data;
 };
 
 const fetchBuddies = async () => {
     const response = await fetch('https://valorant-api.com/v1/buddies');
     if (!response.ok) throw new Error('Failed to fetch buddies');
-    return response.json();
+    const json = await response.json();
+    return json.data;
 };
 
 const WeaponSelection = ({ weapon, onBack }) => {
@@ -122,7 +125,7 @@ const WeaponSelection = ({ weapon, onBack }) => {
     if (weaponsError) return <div>Error loading data</div>;
 
     // Find the specific weapon from API data
-    const apiWeapon = weaponsData?.data?.find(w => w.displayName.toUpperCase() === weapon.name.toUpperCase());
+    const apiWeapon = weaponsData?.find(w => w.displayName.toUpperCase() === weapon.name.toUpperCase());
     
     // Extract skins
     let skins = [];
@@ -150,7 +153,7 @@ const WeaponSelection = ({ weapon, onBack }) => {
             displayIcon: null,
             isDefault: true
         },
-        ...(buddiesData?.data?.filter(b => !b.isHiddenIfNotOwned && b.displayIcon) || [])
+        ...(buddiesData?.filter(b => !b.isHiddenIfNotOwned && b.displayIcon) || [])
     ];
     const filteredBuddies = allBuddies.filter(b => b.displayName.toLowerCase().includes(searchQuery.toLowerCase()));
 
@@ -160,14 +163,14 @@ const WeaponSelection = ({ weapon, onBack }) => {
         if (previewSkin.wallpaper) {
             backgroundImageUrl = previewSkin.wallpaper;
         } else if (previewSkin.themeUuid && themesData) {
-            const theme = themesData.data.find(t => t.uuid === previewSkin.themeUuid);
+            const theme = themesData.find(t => t.uuid === previewSkin.themeUuid);
             if (theme) {
                 backgroundImageUrl = theme.displayIcon || theme.storeFeaturedImage;
             }
         }
     } else if (activeTab === 'Buddies' && previewBuddy && !previewBuddy.isDefault) {
         if (previewBuddy.themeUuid && themesData) {
-            const theme = themesData.data.find(t => t.uuid === previewBuddy.themeUuid);
+            const theme = themesData.find(t => t.uuid === previewBuddy.themeUuid);
             if (theme) {
                 backgroundImageUrl = theme.displayIcon || theme.storeFeaturedImage;
             }
