@@ -13,7 +13,7 @@ const Options = ({ setShowOptions }) => {
     <>
       {/* Options Modal */}
       <div className="fixed inset-0 bg-black bg-opacity-50 z-20 flex justify-center items-center">
-        <div className="bg-gray-800 bg-opacity-90 w-[400px] h-96 rounded-lg relative shadow-lg">
+        <div className="bg-gray-800 bg-opacity-90 w-[400px] h-80 rounded-lg relative shadow-lg">
           {/* Close Button */}
           <div
             className="absolute top-3 right-3 text-white cursor-pointer"
@@ -35,9 +35,9 @@ const Options = ({ setShowOptions }) => {
               <div className="font-Oswald font-medium text-lg">ABOUT</div>
             </div>
 
-            <div className="flex items-center justify-center border border-slate-600 py-2 w-[300px] bg-slate-400 bg-opacity-90 rounded-md cursor-pointer hover:bg-slate-600 transition duration-200">
+            {/* <div className="flex items-center justify-center border border-slate-600 py-2 w-[300px] bg-slate-400 bg-opacity-90 rounded-md cursor-pointer hover:bg-slate-600 transition duration-200">
               <div className="font-Oswald font-medium text-lg">LEAVE MATCH</div>
-            </div>
+            </div> */}
 
             {/* EXIT Button */}
             <a href=" " className="">

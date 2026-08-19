@@ -95,8 +95,8 @@ const PlayerCardSelection = ({ onBack }) => {
 
   return (
     <div className="w-full h-full flex pt-[70px]">
-        {/* Overlay Back Button to intercept clicks intended for the Nav back button */}
-        <div className="fixed top-0 left-0 z-[60] h-[70px] bg-[#1a212d]">
+        {/* Overlay Back Button */}
+        <div className="absolute top-0 left-0 z-[60] h-[70px] w-full bg-[#1a212d]">
             <Back_button onClick={onBack} text="COLLECTION" />
         </div>
         

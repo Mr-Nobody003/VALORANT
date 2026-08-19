@@ -1,8 +1,8 @@
 import React from "react";
 
-const Weapon_box = ({ image, name }) => {
+const Weapon_box = ({ image, name, onClick }) => {
   return (
-    <div className="group relative flex flex-col items-center justify-center backdrop-blur-[2px] bg-white/5 rounded-sm p-[5px] border border-slate-300  hover:border-teal-400 hover:bg-gradient-to-t from-teal-400 from-[-40px] via-transparent to-transparent  hover:scale-105 transition-transform duration-300 cursor-pointer overflow-hidden">
+    <div onClick={onClick} className="group relative flex flex-col items-center justify-center backdrop-blur-[2px] bg-white/5 rounded-sm p-[5px] border border-slate-300  hover:border-teal-400 hover:bg-gradient-to-t from-teal-400 from-[-40px] via-transparent to-transparent  hover:scale-105 transition-transform duration-300 cursor-pointer overflow-hidden">
       {/* side corner div */}
       <div className="absolute top-[-25px] left-[-25px] w-[45px] h-[45px] rotate-45 backdrop-blur-[2px] group-hover:bg-teal-400 bg-white/10 "></div>
       {/* Weapon Image */}

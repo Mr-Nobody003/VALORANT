@@ -93,9 +93,9 @@ function App() {
   
 
 
-          {currentPage === "Main_page" && (
+          <div className={`absolute inset-0 ${currentPage === "Main_page" ? "opacity-100 z-0" : "opacity-0 pointer-events-none -z-50"}`}>
             <Main_page onPageChange={handlePageChange} />
-          )}
+          </div>
           {currentPage === "Play_page" && <Play_page />}
           {currentPage === "Premieer_page" && <Premieer_page />}
           {currentPage === "Collection_page" && <Collection_page />}

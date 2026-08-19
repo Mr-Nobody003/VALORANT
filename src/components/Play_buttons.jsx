@@ -7,7 +7,7 @@ const Play_buttons = () => {
             <div className='flex h-[32px]  text-slate-400 items-center justify-center text-[11px] w-36 backdrop-blur-md backdrop-brightness-75'>
                 PRACTICE
             </div>
-            <div className=' bg-red-500 text-white items-center justify-center font-bold text-2xl flex h-[50px] w-48'>
+            <div className=' bg-[#ff4655] hover:bg-[#ff5865] transition-colors text-white items-center justify-center font-bold text-2xl flex h-[50px] w-48 cursor-pointer'>
                 START
             </div>
             <div className='flex h-[32px] w-36 text-slate-400 items-center justify-center text-[11px] backdrop-blur-md backdrop-brightness-75'>

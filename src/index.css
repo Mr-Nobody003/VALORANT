@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: black;
+}
+
 @layer utilities {
   .scrollbar-hidden {
     -ms-overflow-style: none;

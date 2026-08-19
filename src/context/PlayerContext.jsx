@@ -24,6 +24,21 @@ export const PlayerProvider = ({ children }) => {
         return saved ? JSON.parse(saved) : true;
     });
 
+    const [equippedWeapons, setEquippedWeapons] = useState(() => {
+        const saved = localStorage.getItem('equippedWeapons');
+        return saved ? JSON.parse(saved) : {};
+    });
+
+    const [equippedSprays, setEquippedSprays] = useState(() => {
+        const saved = localStorage.getItem('equippedSprays');
+        return saved ? JSON.parse(saved) : { Top: null, Right: null, Bottom: null, Left: null };
+    });
+
+    const [equippedBuddies, setEquippedBuddies] = useState(() => {
+        const saved = localStorage.getItem('equippedBuddies');
+        return saved ? JSON.parse(saved) : {};
+    });
+
     // Save state to localStorage whenever it changes
     useEffect(() => {
         localStorage.setItem('equippedCard', JSON.stringify(equippedCard));
@@ -41,12 +56,27 @@ export const PlayerProvider = ({ children }) => {
         localStorage.setItem('showLevel', JSON.stringify(showLevel));
     }, [showLevel]);
 
+    useEffect(() => {
+        localStorage.setItem('equippedWeapons', JSON.stringify(equippedWeapons));
+    }, [equippedWeapons]);
+
+    useEffect(() => {
+        localStorage.setItem('equippedSprays', JSON.stringify(equippedSprays));
+    }, [equippedSprays]);
+
+    useEffect(() => {
+        localStorage.setItem('equippedBuddies', JSON.stringify(equippedBuddies));
+    }, [equippedBuddies]);
+
     return (
         <PlayerContext.Provider value={{
             equippedCard, setEquippedCard,
             equippedTitle, setEquippedTitle,
             equippedBorder, setEquippedBorder,
-            showLevel, setShowLevel
+            showLevel, setShowLevel,
+            equippedWeapons, setEquippedWeapons,
+            equippedSprays, setEquippedSprays,
+            equippedBuddies, setEquippedBuddies
         }}>
             {children}
         </PlayerContext.Provider>

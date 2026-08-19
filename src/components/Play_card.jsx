@@ -1,48 +1,106 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { PlayerContext } from '../context/PlayerContext'
+import api from '../api'
 
-const Play_card = () => {
+const Play_card = ({ activeType }) => {
     const { equippedCard, equippedTitle, showLevel, equippedBorder } = useContext(PlayerContext);
+    const [rankIcon, setRankIcon] = useState(null);
+
+    useEffect(() => {
+        const fetchRank = async () => {
+            try {
+                const response = await api.get('/competitivetiers');
+                const tiersData = response.data.data;
+                const latestEpisode = tiersData[tiersData.length - 1];
+                
+                if (latestEpisode && latestEpisode.tiers) {
+                    // Find Radiant tier or fallback to index 24
+                    const radiantTier = latestEpisode.tiers.find(t => t.tierName === "RADIANT") || latestEpisode.tiers[24];
+                    if (radiantTier && radiantTier.largeIcon) {
+                        setRankIcon(radiantTier.largeIcon);
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to fetch rank icon:", error);
+            }
+        };
+        fetchRank();
+    }, []);
 
     return (
-        <div className='h-[450px] '>
-            <div className='flex flex-row justify-evenly items-baseline pt-4'>
-                <div className='backdrop-blur-md backdrop-brightness-150 h-[300px] w-[120px] pt-4'>
-
-                </div >
-                <div className='backdrop-blur-md backdrop-brightness-150 h-[300px] w-[120px] pt-4'>
-
+        <div className='h-[450px] w-full flex justify-center'>
+            <div className='flex flex-row justify-center gap-12 items-center h-full w-full'>
+                
+                <div className='border border-white/20 h-[300px] w-[140px] flex justify-center items-center text-white/50 hover:bg-white/5 cursor-pointer'>
+                    <span className="text-2xl font-light">+</span>
                 </div>
+                <div className='border border-white/20 h-[300px] w-[140px] flex justify-center items-center text-white/50 hover:bg-white/5 cursor-pointer'>
+                    <span className="text-2xl font-light">+</span>
+                </div>
+                
                 {/* Player's Card (Center) */}
-                <div className='backdrop-blur-md backdrop-brightness-150 h-[300px] w-[120px] relative flex flex-col items-center border border-slate-500/50 hover:border-teal-400'>
-                    {equippedCard ? (
-                        <img src={equippedCard.largeArt} className="absolute top-0 left-0 w-full h-full object-cover -z-10" />
-                    ) : null}
+                <div className="w-[268px] h-[640px] relative scale-[0.65] origin-center flex-shrink-0" id="card-preview">
                     
-                    {/* Border & Level */}
+                    {/* Level */}
                     {showLevel && equippedBorder && (
-                        <div className="absolute -top-[10px] left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center">
-                            <img src={equippedBorder.levelNumberAppearance} alt="Level Border" className="w-[50px] h-[50px] object-contain drop-shadow-lg" />
-                            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[7px] font-bold mt-[1px]">
-                                235
+                        <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center">
+                            <img src={equippedBorder.levelNumberAppearance} alt="Level Border" className="w-[80px] h-[80px] object-contain drop-shadow-xl" />
+                            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[14px] font-bold mt-[2px]">
+                                999
                             </span>
                         </div>
                     )}
 
-                    {/* Name & Title */}
-                    <div className="absolute bottom-16 w-[110px] bg-yellow-100 flex justify-center py-[2px] text-black font-semibold text-[10px] shadow-xl">
+                    <h2 className="absolute bottom-[214px] left-1/2 -translate-x-1/2 z-20 font-medium text-[16px] text-black">
                         PLAYER_NAME
-                    </div>
-                    <div className="absolute bottom-11 w-[110px] bg-black/60 text-white flex justify-center py-[2px] text-[8px]">
-                        {equippedTitle ? (equippedTitle.titleText || equippedTitle.displayName) : "Super Shy"}
-                    </div>
-                </div>
-                <div className='backdrop-blur-md backdrop-brightness-150 h-[300px] w-[120px] pt-4'>
+                    </h2>
 
-                </div>
-                <div className='backdrop-blur-md backdrop-brightness-150 h-[300px] w-[120px] pt-4'>
+                    <h3 className="absolute bottom-[193px] w-full left-1/2 -translate-x-1/2 z-20 font-normal text-center text-[11px] text-gray-100">
+                        {equippedTitle ? (equippedTitle.titleText || equippedTitle.displayName) : "Hard Carry"}
+                    </h3>
 
+                    {/* Only show rank icon if activeType is COMPETITIVE and rankIcon is fetched */}
+                    {activeType === "COMPETITIVE" && rankIcon && (
+                        <img
+                            src={rankIcon}
+                            width={60}
+                            height={60}
+                            alt="tier icon"
+                            className="object-contain absolute bottom-[44px] left-1/2 -translate-x-1/2 z-40"
+                        />
+                    )}
+
+                    <img
+                        src="/card_border.png"
+                        width={268}
+                        height={640}
+                        alt="card border"
+                        className="absolute top-0 left-[1px] w-full h-full object-contain z-10 pointer-events-none"
+                    />
+
+                    <div className="relative h-full w-full">
+                        {equippedCard ? (
+                            <img
+                                src={equippedCard.largeArt}
+                                width={268}
+                                height={640}
+                                alt="card image"
+                                className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                                style={{
+                                    clipPath: "polygon(50% 94%, 100% 76%, 100% 0, 0 0, 0 76%)"
+                                }}
+                            />
+                        ) : null}
+                    </div>
                 </div>
+
+                <div className='border border-white/20 h-[300px] w-[140px] flex justify-center items-center text-white/50 hover:bg-white/5 cursor-pointer'>
+                    <span className="text-2xl font-light">+</span>
+                </div>
+                <div className='border border-white/20 h-[300px] w-[140px] flex justify-center items-center text-white/50 hover:bg-white/5 cursor-pointer'>
+                    <span className="text-2xl font-light">+</span>
+                </div>
+
             </div>
         </div>
     )

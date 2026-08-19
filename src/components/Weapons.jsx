@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import Weapon_box from "./Weapon_box";
+import { PlayerContext } from "../context/PlayerContext";
 
 // Importing weapon images
 import knife from "../assets/weapon/melee/melee.png";
@@ -50,7 +51,7 @@ const weaponsData = {
         { name: "PHANTOM", image: phantom },
         { name: "VANDAL", image: vandel },
     ],
-    MELLE: [{ name: "KNIFE", image: knife }],
+    MELLE: [{ name: "MELEE", image: knife }], // Changed KNIFE to MELEE to match API
     SNIPERS: [
         { name: "MARSHAL", image: marshal },
         { name: "OUTLAW", image: outlaw },
@@ -63,16 +64,31 @@ const weaponsData = {
     // Add more categories as needed...
 };
 
-const Weapons = () => {
+const Weapons = ({ onWeaponClick }) => {
+    const { equippedWeapons } = useContext(PlayerContext);
+
+    const renderWeaponList = (category) => {
+        return weaponsData[category].map((weapon, index) => {
+            const equippedSkin = equippedWeapons[weapon.name];
+            const displayImage = equippedSkin ? equippedSkin.displayIcon || equippedSkin.chromas?.[0]?.displayIcon || weapon.image : weapon.image;
+            return (
+                <Weapon_box 
+                    key={index} 
+                    name={weapon.name} 
+                    image={displayImage} 
+                    onClick={() => onWeaponClick({ name: weapon.name, defaultImage: weapon.image })}
+                />
+            );
+        });
+    };
+
     return (
         <div className="flex flex-wrap xl:flex-nowrap justify-center h-auto xl:h-[70%] mt-4 xl:mt-[45px] gap-6 xl:gap-2">
             {/* sidearms */}
             <div className="flex flex-col rounded-md p-[5px]  items-center">
                 <div className="text-white p-[2px] text-lg mt-5 font-Oswald">SIDEARMS</div>
                 <div className="flex flex-col gap-[16px]">
-                    {weaponsData.SIDEARMS.map((weapon, index) => (
-                        <Weapon_box key={index} name={weapon.name} image={weapon.image} />
-                    ))}
+                    {renderWeaponList('SIDEARMS')}
                 </div>
             </div>
             {/* smgs and shot guns */}
@@ -81,9 +97,7 @@ const Weapons = () => {
                 <div className="flex flex-col  items-center">
                     <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">SMGS</div>
                     <div className="flex flex-col gap-[16px]">
-                        {weaponsData.SMGS.map((weapon, index) => (
-                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
-                        ))}
+                        {renderWeaponList('SMGS')}
                     </div>
                 </div>
                 {/* SHOTGUNS */}
@@ -92,9 +106,7 @@ const Weapons = () => {
                         SHOTGUNS
                     </div>
                     <div className="flex flex-col gap-[16px]">
-                        {weaponsData.SHOTGUNS.map((weapon, index) => (
-                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
-                        ))}
+                        {renderWeaponList('SHOTGUNS')}
                     </div>
                 </div>
             </div>
@@ -102,22 +114,18 @@ const Weapons = () => {
             <div className="flex flex-col rounded-md  p-[5px] ">
                 {/* RIFELS */}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">RIFELS</div>
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">RIFLES</div>
                     <div className="flex flex-col gap-[16px]">
-                        {weaponsData.RIFELS.map((weapon, index) => (
-                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
-                        ))}
+                        {renderWeaponList('RIFELS')}
                     </div>
                 </div>
                 {/* MELLE */}
                 <div className="flex flex-col  items-center">
                     <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">
-                        MELLE
+                        MELEE
                     </div>
                     <div className="flex flex-col gap-[16px]">
-                        {weaponsData.MELLE.map((weapon, index) => (
-                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
-                        ))}
+                        {renderWeaponList('MELLE')}
                     </div>
                 </div>
             </div>
@@ -125,11 +133,9 @@ const Weapons = () => {
             <div className="flex flex-col rounded-md  p-[5px] ">
                 {/*SNIPER  RIFELS */}
                 <div className="flex flex-col  items-center">
-                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">SNIPER RIFELS</div>
+                    <div className="flex text-white p-[2px] text-lg mt-5 font-Oswald">SNIPER RIFLES</div>
                     <div className="flex flex-col gap-[16px]">
-                        {weaponsData.SNIPERS.map((weapon, index) => (
-                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
-                        ))}
+                        {renderWeaponList('SNIPERS')}
                     </div>
                 </div>
                 {/* MACHINE GUNS*/}
@@ -138,9 +144,7 @@ const Weapons = () => {
                         MACHINE GUNS
                     </div>
                     <div className="flex flex-col gap-[16px]">
-                        {weaponsData.MACHINE_GUNS.map((weapon, index) => (
-                            <Weapon_box key={index} name={weapon.name} image={weapon.image} />
-                        ))}
+                        {renderWeaponList('MACHINE_GUNS')}
                     </div>
                 </div>
             </div>
