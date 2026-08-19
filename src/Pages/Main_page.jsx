@@ -14,7 +14,7 @@ const Main_page = ({ onPageChange }) =>  {
         autoPlay
         muted
         loop
-        className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
+        className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       />
         <div className="justify-between">
           <div className="absolute left-0 top-1/3 ">

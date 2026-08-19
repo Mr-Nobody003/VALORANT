@@ -31,7 +31,7 @@ const Agent_page = ({ selectedAgent, setSelectedAgent }) => {
 
   if (isLoading) {
     return (
-      <div className="bg-[#0f1923] h-screen w-full flex items-center justify-center">
+      <div className="bg-[#0f1923] h-full w-full flex items-center justify-center">
         <Loader2 className="w-12 h-12 text-pink-500 animate-spin" />
       </div>
     );
@@ -39,7 +39,7 @@ const Agent_page = ({ selectedAgent, setSelectedAgent }) => {
 
   if (isError || !data) {
     return (
-      <div className="bg-[#0f1923] h-screen w-full flex items-center justify-center text-white font-Roboto">
+      <div className="bg-[#0f1923] h-full w-full flex items-center justify-center text-white font-Roboto">
         Error loading agents. Please check your connection.
       </div>
     );
@@ -53,7 +53,7 @@ const Agent_page = ({ selectedAgent, setSelectedAgent }) => {
     : "#e51010ff";
 
   return (
-    <div className="relative h-screen w-full overflow-hidden flex flex-col pt-24 bg-[#0f1923]">
+    <div className="relative h-full w-full overflow-hidden flex flex-col pt-24 bg-[#0f1923]">
       {/* Background Gradient (Fades in based on scroll in View 1, fully visible in View 2) */}
       <div
         className="absolute inset-0 transition-opacity duration-300"

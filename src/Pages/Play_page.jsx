@@ -12,22 +12,9 @@ const Play_page = () => {
   const [activeType, setActiveType] = useState("UNRATED"); // Default play type
   const [scale, setScale] = useState(1);
 
-  // Dynamically calculate scale to fit smaller screens
+  // Global ScaleWrapper handles all scaling, so Play_page stays at a fixed 1400px layout
   useEffect(() => {
-    const handleResize = () => {
-      // 1400px is the safe width for this fixed layout
-      const baseWidth = 1400;
-      const currentWidth = window.innerWidth;
-      if (currentWidth < baseWidth) {
-        setScale(currentWidth / baseWidth);
-      } else {
-        setScale(1);
-      }
-    };
-
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    setScale(1);
   }, []);
 
   // Play types array
@@ -45,7 +32,7 @@ const Play_page = () => {
 
   return (
     <>
-      <img src={Play_bgc} className="fixed top-0 left-0 -z-10 h-screen w-screen object-cover opacity-50" />
+      <img src={Play_bgc} className="fixed top-0 left-0 -z-10 h-full w-full object-cover opacity-50" />
       {/* <video src={Contract} autoPlay muted loop className="absolute -z-10 -mt-[40px] object-fill w-full transform scale-105  opacity-[39%]" /> */}
       <video
         preload="auto"
@@ -53,11 +40,11 @@ const Play_page = () => {
         autoPlay
         muted
         loop
-        className="fixed top-0 left-0 w-screen h-screen object-cover -z-10 opacity-[49%]"
+        className="fixed top-0 left-0 w-full h-full object-cover -z-10 opacity-[49%]"
       />
 
       {/* Main Responsive Wrapper */}
-      <div className="w-full h-screen flex justify-center overflow-hidden">
+      <div className="w-full h-full flex justify-center overflow-hidden">
         
         {/* Scaled Canvas */}
         <div 

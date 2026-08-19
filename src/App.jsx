@@ -10,11 +10,12 @@ import Career_page from "./Pages/Career_page";
 import Store_page from "./Pages/Store_page";
 import Nav from "./components/Nav";
 import GlobalDataPrefetcher from "./components/GlobalDataPrefetcher";
+import ScaleWrapper from "./components/ScaleWrapper";
 import Valo_start from "./assets/Valo_start.png";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Main_page");
   const [showStartPage, setShowStartPage] = useState(true);
+  const [currentPage, setCurrentPage] = useState("Main_page");
   const [imageLoaded, setImageLoaded] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [navBackOverride, setNavBackOverride] = useState(null);
@@ -76,15 +77,15 @@ function App() {
   };
   
   return (
-    <>
+    <ScaleWrapper>
       {showStartPage ? (
         // Start page content
         <div
-          className="w-screen h-screen overflow-hidden cursor-pointer"
+          className="w-full h-full overflow-hidden cursor-pointer flex justify-center items-center"
           onClick={handleStartClick}
         >
           {/*start image added */}
-          <img className="object-fill" src={Valo_start} alt="Start" />
+          <img className="object-cover w-full h-full" src={Valo_start} alt="Start" />
         </div>
       ) : (
         <>
@@ -111,7 +112,7 @@ function App() {
           {currentPage === "Store_page" && <Store_page />}
         </>
       )}
-    </>
+    </ScaleWrapper>
   );
 }
 

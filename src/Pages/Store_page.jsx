@@ -212,7 +212,7 @@ const Store_page = () => {
   }, [skins]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden text-white font-Oswald select-none">
+    <div className="relative h-full w-full overflow-hidden text-white font-Oswald select-none">
       <img
         src={Play_bgc}
         alt="background"

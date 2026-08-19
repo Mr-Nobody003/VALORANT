@@ -16,7 +16,7 @@ const Premieer_page = ({ onBack }) => {
       <img
         src={Premieer_bgc}
         alt="premieer bgc"
-        className="absolute -z-10 h-screen w-full"
+        className="absolute -z-10 h-full w-full"
       />
      <video
         preload="auto"
@@ -24,7 +24,7 @@ const Premieer_page = ({ onBack }) => {
         autoPlay
         muted
         loop
-        className="fixed top-0 left-0 w-screen h-screen object-cover -z-10 opacity-[20%]"
+        className="fixed top-0 left-0 w-full h-full object-cover -z-10 opacity-[20%]"
       />
       <div className="content pt-11 items-center">
         <Content

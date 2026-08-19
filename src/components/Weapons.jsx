@@ -83,7 +83,7 @@ const Weapons = ({ onWeaponClick }) => {
     };
 
     return (
-        <div className="flex flex-wrap xl:flex-nowrap justify-center h-auto xl:h-[70%] mt-4 xl:mt-[45px] gap-6 xl:gap-2">
+        <div className="flex flex-wrap xl:flex-nowrap justify-between w-full h-auto xl:h-[70%] mt-4 xl:mt-[45px] gap-4 xl:gap-8">
             {/* sidearms */}
             <div className="flex flex-col rounded-md p-[5px]  items-center">
                 <div className="text-white p-[2px] text-lg mt-5 font-Oswald">SIDEARMS</div>

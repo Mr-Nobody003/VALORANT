@@ -27,7 +27,7 @@ const Collection_page = ({ setNavBackOverride }) => {
   }, [isSelectingCard, selectedWeaponForSkin, selectedSprayQuadrant, setNavBackOverride]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden">
       {/* Background Image */}
       <img
         src={Play_bgc}
@@ -42,19 +42,20 @@ const Collection_page = ({ setNavBackOverride }) => {
       ) : selectedSprayQuadrant ? (
           <SpraySelection quadrant={selectedSprayQuadrant} onBack={() => setSelectedSprayQuadrant(null)} />
       ) : (
-          <div className="flex flex-col xl:flex-row h-full w-full justify-center px-4 xl:px-8 py-8 xl:py-0">
+          <div className="flex flex-col xl:flex-row h-full w-full justify-between items-center px-4 xl:px-[10%] py-8 xl:py-0">
             {/* Weapons Section */}
             <div className="flex justify-center w-full xl:w-auto overflow-y-auto xl:overflow-visible h-full xl:h-auto pb-20 xl:pb-0">
               <Weapons onWeaponClick={(weapon) => setSelectedWeaponForSkin(weapon)} />
             </div>
 
             {/* Right Section */}
-            <div className="flex flex-col items-center xl:ml-10 mt-8 xl:mt-0 gap-[40px] xl:gap-0 relative">
-              <div onClick={() => setIsSelectingCard(true)} className="cursor-pointer">
+            <div className="flex flex-col items-center h-full xl:ml-10 mt-8 xl:mt-[40px] gap-[40px] xl:gap-0 relative">
+              <div onClick={() => setIsSelectingCard(true)} className="cursor-pointer xl:mt-[30px]">
                   <Playercard />
               </div>
               
-              <div className="flex xl:absolute xl:bottom-[40px]">
+              
+              <div className="flex xl:absolute xl:bottom-[40px] xl:left-1/2 xl:-translate-x-1/2">
                 <Sprays onQuadrantClick={(quadrant) => setSelectedSprayQuadrant(quadrant)} />
               </div>
             </div>
