@@ -76,7 +76,7 @@ const PlayerCardSelection = ({ onBack }) => {
       if (cardsLoading) return <div className="text-white text-center mt-10">Loading Cards...</div>;
       const filtered = cards?.filter(c => c.displayName.toLowerCase().includes(searchQuery.toLowerCase())) || [];
       return (
-        <div className="grid grid-cols-3 xl:grid-cols-4 gap-2 overflow-y-auto pr-2 pb-20 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-white/70 [&::-webkit-scrollbar-track]:bg-transparent">
+        <div className="grid grid-cols-3 xl:grid-cols-4 gap-2 overflow-y-auto pr-2 pb-20 [@media(max-height:700px)]:pb-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-white/70 [&::-webkit-scrollbar-track]:bg-transparent">
           {filtered.map(card => (
             <div key={card.uuid} onClick={() => setPreviewCard(card)} className={`cursor-pointer p-1 ${previewCard?.uuid === card.uuid ? 'bg-teal-400' : 'bg-transparent hover:bg-slate-500/50'} transition-colors`}>
               <img src={card.smallArt} alt={card.displayName} className="w-full h-auto object-cover" />
@@ -89,10 +89,10 @@ const PlayerCardSelection = ({ onBack }) => {
       if (bordersLoading) return <div className="text-white text-center mt-10">Loading Borders...</div>;
       const filtered = borders?.filter(b => b.displayName.toLowerCase().includes(searchQuery.toLowerCase())) || [];
       return (
-        <div className="grid grid-cols-3 xl:grid-cols-4 gap-2 overflow-y-auto pr-2 pb-20 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-white/70 [&::-webkit-scrollbar-track]:bg-transparent">
+        <div className="grid grid-cols-3 xl:grid-cols-4 gap-2 overflow-y-auto pr-2 pb-20 [@media(max-height:700px)]:pb-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-white/70 [&::-webkit-scrollbar-track]:bg-transparent">
           {filtered.map(border => (
             <div key={border.uuid} onClick={() => setPreviewBorder(border)} className={`cursor-pointer flex items-center justify-center p-2 border-2 ${previewBorder?.uuid === border.uuid ? 'border-teal-400' : 'border-transparent hover:border-slate-500'} bg-slate-800/50`}>
-              <img src={border.levelNumberAppearance} alt={border.displayName} className="w-16 h-16 object-contain" />
+              <img src={border.levelNumberAppearance} alt={border.displayName} className="w-16 h-16 [@media(max-height:700px)]:w-12 [@media(max-height:700px)]:h-12 object-contain" />
             </div>
           ))}
         </div>
@@ -106,7 +106,7 @@ const PlayerCardSelection = ({ onBack }) => {
         {/* Left Sidebar */}
         <div className="absolute left-0 top-[70px] w-[350px] lg:w-[400px] h-[calc(100vh-70px)] flex flex-col bg-slate-900/30 border-r border-slate-700/30 px-4 pt-4 z-20 backdrop-blur-sm">
             {/* Search */}
-            <div className="relative mb-6">
+            <div className="relative mb-6 [@media(max-height:700px)]:mb-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
                 <input 
                     type="text" 
