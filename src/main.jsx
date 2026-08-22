@@ -7,6 +7,7 @@ import { registerSW } from 'virtual:pwa-register'
 import App from './App.jsx'
 import { PlayerProvider } from './context/PlayerContext.jsx'
 import './index.css'
+import { Analytics } from '@vercel/analytics/react' 
 
 // Setup PWA Auto-Update
 const updateSW = registerSW({
@@ -49,5 +50,6 @@ createRoot(document.getElementById('root')).render(
         <App />
       </PlayerProvider>
     </PersistQueryClientProvider>
+     <Analytics /> 
   </StrictMode>,
 )
