@@ -20,6 +20,44 @@ function App() {
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [navBackOverride, setNavBackOverride] = useState(null);
 
+  // PWA Install Prompt Logic
+  /*
+  useEffect(() => {
+    let deferredPrompt;
+
+    const handleBeforeInstallPrompt = (e) => {
+      // Prevent the default mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+    };
+
+    const handleGlobalClick = async () => {
+      if (deferredPrompt) {
+        // Show the native install prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        const { outcome } = await deferredPrompt.userChoice;
+        
+        // We've used the prompt, and can't use it again, throw it away
+        deferredPrompt = null;
+        
+        // Remove the click listener since we only want this to happen once
+        document.removeEventListener("click", handleGlobalClick);
+      }
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    // Listen for any click on the document to trigger the prompt
+    document.addEventListener("click", handleGlobalClick);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      document.removeEventListener("click", handleGlobalClick);
+    };
+  }, []);
+  */
+
   // Preload the start img
   useEffect(() => {
     const img = new Image();
