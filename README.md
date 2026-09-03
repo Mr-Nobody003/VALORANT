@@ -86,20 +86,21 @@ npm run preview
 This diagram illustrates the high-level architecture of the application, showcasing how different libraries and components interact.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff4655', 'primaryTextColor': '#fff', 'primaryBorderColor': '#111', 'lineColor': '#ff4655', 'secondaryColor': '#0f1923', 'tertiaryColor': '#ece8e1'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff4655', 'primaryTextColor': '#fff', 'primaryBorderColor': '#111', 'lineColor': '#ff4655', 'secondaryColor': '#0f1923', 'tertiaryColor': '#ece8e1', 'clusterBorder': '#ff4655'}}}%%
 graph TD
-    User((User)) --> |Interacts with| Browser
-    subgraph "VALORANT UI Clone (Client-Side)"
-        Browser --> |Loads| Vite[Vite Development/Build]
-        Vite --> |Serves| App[React SPA]
-        App --> Router[Custom State-Based Router]
-        Router --> Pages[Pages: Play, Collection, Agents, etc.]
-        Pages --> Components[UI Components]
-        Components -.-> |Styled by| Tailwind[Tailwind CSS]
-        Components -.-> |Animated by| Framer[Framer Motion]
-        Pages --> ReactQuery[TanStack React Query]
-        ReactQuery -.-> |Fetches/Manages| LocalData[(Local State/Mock Data)]
-    end
+    subgraph "System Architecture"
+        User((User)) --> |Interacts with| Browser
+        subgraph "VALORANT UI Clone (Client-Side)"
+            Browser --> |Loads| Vite[Vite Development/Build]
+            Vite --> |Serves| App[React SPA]
+            App --> Router[Custom State-Based Router]
+            Router --> Pages[Pages: Play, Collection, Agents, etc.]
+            Pages --> Components[UI Components]
+            Components -.-> |Styled by| Tailwind[Tailwind CSS]
+            Components -.-> |Animated by| Framer[Framer Motion]
+            Pages --> ReactQuery[TanStack React Query]
+            ReactQuery -.-> |Fetches/Manages| LocalData[(Local State/Mock Data)]
+        end
     style User fill:#0f1923,stroke:#ff4655,stroke-width:2px,color:#fff
     style Vite fill:#ff4655,stroke:#111,stroke-width:2px,color:#fff
     style App fill:#ece8e1,stroke:#0f1923,stroke-width:2px,color:#111
@@ -107,31 +108,32 @@ graph TD
     style Tailwind fill:#38bdf8,stroke:#0f1923,stroke-width:2px,color:#fff
     style Framer fill:#ff0088,stroke:#0f1923,stroke-width:2px,color:#fff
     style ReactQuery fill:#ff4154,stroke:#0f1923,stroke-width:2px,color:#fff
+    end
 ```
 
 ### Level 3 Data Flow Diagram (DFD)
 This detailed diagram breaks down the processes involved in routing, data fetching (via React Query), and UI rendering within the application.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'tertiaryColor': '#0f1923', 'clusterBorder': '#ff4655'}}}%%
 flowchart TD
-    User[User]:::userStyle
-    subgraph "Process 1: Navigation & Routing"
-        1.1(Handle Route Change):::processStyle
-        1.2(Update View State):::processStyle
-    end
-    subgraph "Process 2: Data Management (React Query)"
-        2.1(Request Agent/Weapon Data):::processStyle
-        2.2(Cache Data):::processStyle
-        2.3(Return Formatted Data):::processStyle
-    end
-    subgraph "Process 3: UI Rendering & Animation"
-        3.1(Trigger Entrance Animation):::processStyle
-        3.2(Render Component):::processStyle
-        3.3(Handle Hover/Click Interactions):::processStyle
-    end
-    DataStore[(Mock Game Data)]:::storeStyle
-
+    subgraph "Data Flow Overview"
+        User[User]:::userStyle
+        subgraph "Process 1: Navigation & Routing"
+            1.1(Handle Route Change):::processStyle
+            1.2(Update View State):::processStyle
+        end
+        subgraph "Process 2: Data Management (React Query)"
+            2.1(Request Agent/Weapon Data):::processStyle
+            2.2(Cache Data):::processStyle
+            2.3(Return Formatted Data):::processStyle
+        end
+        subgraph "Process 3: UI Rendering & Animation"
+            3.1(Trigger Entrance Animation):::processStyle
+            3.2(Render Component):::processStyle
+            3.3(Handle Hover/Click Interactions):::processStyle
+        end
+        DataStore[(Mock Game Data)]:::storeStyle
     User --> |Clicks Navigation| 1.1
     1.1 --> |Action Payload| 1.2
     1.2 --> |Requested View| 3.2
@@ -150,13 +152,14 @@ flowchart TD
     classDef userStyle fill:#0f1923,stroke:#ff4655,stroke-width:3px,color:#fff;
     classDef processStyle fill:#ece8e1,stroke:#0f1923,stroke-width:2px,color:#111;
     classDef storeStyle fill:#ff4655,stroke:#0f1923,stroke-width:2px,color:#fff;
+    end
 ```
 
 ### UI Flow Diagram
 This state diagram represents the user journey and navigation paths available within the UI clone.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'clusterBorder': '#ff4655'}}}%%
 stateDiagram-v2
     [*] --> LoadingScreen
     LoadingScreen --> MainMenu : Click/Any Key
@@ -217,9 +220,10 @@ stateDiagram-v2
 This tree diagram visualizes the project's file structure and how the main components and pages are linked together.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'tertiaryColor': '#ece8e1', 'clusterBorder': '#ff4655'}}}%%
 graph LR
-    App[src/App.jsx<br>Main App Entry]
+    subgraph "Project Components"
+        App[src/App.jsx<br>Main App Entry]
     
     subgraph "src/Pages (Route Views)"
         MainPage[Main_page.jsx]
@@ -296,6 +300,7 @@ graph LR
     
     CareerPage --> CarieerRank
     PremierPage --> PremieerInfo
+    end
 ```
 
 ## 📄 License
