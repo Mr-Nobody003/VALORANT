@@ -86,7 +86,7 @@ npm run preview
 This diagram illustrates the high-level architecture of the application, showcasing how different libraries and components interact.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff4655', 'primaryTextColor': '#fff', 'primaryBorderColor': '#111', 'lineColor': '#888', 'secondaryColor': '#0f1923', 'tertiaryColor': '#ece8e1'}}}%%
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#ff4655', 'primaryTextColor': '#fff', 'primaryBorderColor': '#111', 'lineColor': '#ff4655', 'secondaryColor': '#0f1923', 'tertiaryColor': '#ece8e1', 'background': '#111111'}}}%%
 graph TD
     User((User)) --> |Interacts with| Browser
     subgraph "VALORANT UI Clone (Client-Side)"
@@ -113,7 +113,7 @@ graph TD
 This detailed diagram breaks down the processes involved in routing, data fetching (via React Query), and UI rendering within the application.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'background': '#111111'}}}%%
 flowchart TD
     User[User]:::userStyle
     subgraph "Process 1: Navigation & Routing"
@@ -156,7 +156,7 @@ flowchart TD
 This state diagram represents the user journey and navigation paths available within the UI clone.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'background': '#111111'}}}%%
 stateDiagram-v2
     [*] --> LoadingScreen
     LoadingScreen --> MainMenu : Click/Any Key
@@ -173,15 +173,38 @@ stateDiagram-v2
     }
 
     state AgentsMenu {
-        [*] --> AgentList
+        [*] --> AgentList : View All Agents
         AgentList --> AgentDetails : Click Agent Card
+        state AgentDetails {
+            [*] --> Abilities : View Skills
+            Abilities --> Lore : Story/Bio
+            Lore --> Abilities : Toggle
+        }
         AgentDetails --> AgentList : Back
     }
 
     state CollectionMenu {
         [*] --> Weapons
+        Weapons --> WeaponSelection : Choose specific Gun
+        WeaponSelection --> WeaponSkins : View Skins & Variants
+        WeaponSkins --> Weapons : Back
+
         Weapons --> PlayerCards
+        PlayerCards --> PlayerCardSelection : Browse Banners/Cards
+        PlayerCardSelection --> EquipCard : Select & Equip
+
         PlayerCards --> Sprays
+        Sprays --> SpraySelection : Browse Sprays
+        SpraySelection --> EquipSpray : Select & Equip
+    }
+
+    state StoreMenu {
+        [*] --> FeaturedBundle : Current Bundle
+        FeaturedBundle --> BundleDetails : Inspect Bundle Items
+        BundleDetails --> FeaturedBundle : Back
+
+        FeaturedBundle --> NightMarket : Special Offers (If active)
+        FeaturedBundle --> AccessoriesStore : Buy Gun Buddies/Cards
     }
 
     PlayMode --> MainMenu : Home Button
@@ -194,29 +217,53 @@ stateDiagram-v2
 This tree diagram visualizes the project's file structure and how the main components and pages are linked together.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'background': '#111111'}}}%%
 graph TD
-    App[src/App.jsx<br>Main Application Entry & Routing]
+    App[src/App.jsx<br>Main App Entry]
     
     subgraph "src/Pages (Route Views)"
+        MainPage[Main_page.jsx]
         PlayPage[Play_page.jsx]
         AgentPage[Agent_page.jsx]
         CollectionPage[Collection_page.jsx]
         StorePage[Store_page.jsx]
-        MainPage[Main_page.jsx]
         BattlepassPage[Battlepass_page.jsx]
         CareerPage[Career_page.jsx]
         PremierPage[Premieer_page.jsx]
+
+        subgraph "Nested Pages (Deep Selections)"
+            WeaponSelection[WeaponSelection.jsx]
+            PlayerCardSelection[PlayerCardSelection.jsx]
+            SpraySelection[SpraySelection.jsx]
+        end
     end
     
     subgraph "src/components (Reusable UI)"
         Nav[Nav.jsx<br>Top Navigation]
         Menu[Mainmenu.jsx]
-        PlayMenu[Play_buttons.jsx]
-        PlayCard[Play_card.jsx]
-        AgentBox[Agent_box.jsx]
-        WeaponBox[Weapon_box.jsx]
-        PlayerCard[Playercard.jsx]
+        
+        subgraph "Play Components"
+            PlayMenu[Play_buttons.jsx]
+            PlayCard[Play_card.jsx]
+            PlayCustom[Play_custom.jsx]
+            PlayParty[Play_party.jsx]
+        end
+        
+        subgraph "Agent Components"
+            AgentBox[Agent_box.jsx]
+        end
+        
+        subgraph "Collection Components"
+            WeaponsUI[Weapons.jsx]
+            WeaponBox[Weapon_box.jsx]
+            SpraysUI[Sprays.jsx]
+            PlayerCard[Playercard.jsx]
+        end
+        
+        subgraph "Other"
+            CarieerRank[Carieer_rank.jsx]
+            PremieerInfo[Premieer_info.jsx]
+        end
     end
     
     App --> Nav
@@ -232,9 +279,23 @@ graph TD
     MainPage --> Menu
     PlayPage --> PlayMenu
     PlayPage --> PlayCard
+    PlayPage --> PlayCustom
+    PlayPage --> PlayParty
+    
     AgentPage --> AgentBox
-    CollectionPage --> WeaponBox
+    
+    CollectionPage --> WeaponsUI
+    CollectionPage --> SpraysUI
     CollectionPage --> PlayerCard
+    
+    WeaponsUI --> WeaponSelection
+    WeaponSelection --> WeaponBox
+    
+    SpraysUI --> SpraySelection
+    PlayerCard --> PlayerCardSelection
+    
+    CareerPage --> CarieerRank
+    PremierPage --> PremieerInfo
 ```
 
 ## 📄 License
