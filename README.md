@@ -86,7 +86,7 @@ npm run preview
 This diagram illustrates the high-level architecture of the application, showcasing how different libraries and components interact.
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#ff4655', 'primaryTextColor': '#fff', 'primaryBorderColor': '#111', 'lineColor': '#ff4655', 'secondaryColor': '#0f1923', 'tertiaryColor': '#ece8e1', 'background': '#111111'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff4655', 'primaryTextColor': '#fff', 'primaryBorderColor': '#111', 'lineColor': '#ff4655', 'secondaryColor': '#0f1923', 'tertiaryColor': '#ece8e1'}}}%%
 graph TD
     User((User)) --> |Interacts with| Browser
     subgraph "VALORANT UI Clone (Client-Side)"
@@ -113,7 +113,7 @@ graph TD
 This detailed diagram breaks down the processes involved in routing, data fetching (via React Query), and UI rendering within the application.
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'background': '#111111'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
 flowchart TD
     User[User]:::userStyle
     subgraph "Process 1: Navigation & Routing"
@@ -156,7 +156,7 @@ flowchart TD
 This state diagram represents the user journey and navigation paths available within the UI clone.
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'background': '#111111'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
 stateDiagram-v2
     [*] --> LoadingScreen
     LoadingScreen --> MainMenu : Click/Any Key
@@ -217,8 +217,8 @@ stateDiagram-v2
 This tree diagram visualizes the project's file structure and how the main components and pages are linked together.
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'background': '#111111'}}}%%
-graph TD
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+graph LR
     App[src/App.jsx<br>Main App Entry]
     
     subgraph "src/Pages (Route Views)"
