@@ -113,7 +113,7 @@ graph TD
 This detailed diagram breaks down the processes involved in routing, data fetching (via React Query), and UI rendering within the application.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#0f1923'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
 flowchart TD
     User[User]:::userStyle
     subgraph "Process 1: Navigation & Routing"
@@ -156,7 +156,7 @@ flowchart TD
 This state diagram represents the user journey and navigation paths available within the UI clone.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ece8e1'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
 stateDiagram-v2
     [*] --> LoadingScreen
     LoadingScreen --> MainMenu : Click/Any Key
@@ -188,6 +188,53 @@ stateDiagram-v2
     AgentsMenu --> MainMenu : Home Button
     CollectionMenu --> MainMenu : Home Button
     StoreMenu --> MainMenu : Home Button
+```
+
+### Component File Structure
+This tree diagram visualizes the project's file structure and how the main components and pages are linked together.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655'}}}%%
+graph TD
+    App[src/App.jsx<br>Main Application Entry & Routing]
+    
+    subgraph "src/Pages (Route Views)"
+        PlayPage[Play_page.jsx]
+        AgentPage[Agent_page.jsx]
+        CollectionPage[Collection_page.jsx]
+        StorePage[Store_page.jsx]
+        MainPage[Main_page.jsx]
+        BattlepassPage[Battlepass_page.jsx]
+        CareerPage[Career_page.jsx]
+        PremierPage[Premieer_page.jsx]
+    end
+    
+    subgraph "src/components (Reusable UI)"
+        Nav[Nav.jsx<br>Top Navigation]
+        Menu[Mainmenu.jsx]
+        PlayMenu[Play_buttons.jsx]
+        PlayCard[Play_card.jsx]
+        AgentBox[Agent_box.jsx]
+        WeaponBox[Weapon_box.jsx]
+        PlayerCard[Playercard.jsx]
+    end
+    
+    App --> Nav
+    App --> MainPage
+    App --> PlayPage
+    App --> AgentPage
+    App --> CollectionPage
+    App --> StorePage
+    App --> BattlepassPage
+    App --> CareerPage
+    App --> PremierPage
+    
+    MainPage --> Menu
+    PlayPage --> PlayMenu
+    PlayPage --> PlayCard
+    AgentPage --> AgentBox
+    CollectionPage --> WeaponBox
+    CollectionPage --> PlayerCard
 ```
 
 ## 📄 License
