@@ -87,8 +87,9 @@ This diagram illustrates the high-level architecture of the application, showcas
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff4655', 'primaryTextColor': '#fff', 'primaryBorderColor': '#111', 'lineColor': '#ff4655', 'secondaryColor': '#0f1923', 'tertiaryColor': '#ece8e1', 'clusterBorder': '#ff4655'}}}%%
-graph TD
+flowchart TD
     subgraph "System Architecture"
+        direction TD
         User((User)) --> |Interacts with| Browser
         subgraph "VALORANT UI Clone (Client-Side)"
             Browser --> |Loads| Vite[Vite Development/Build]
@@ -118,6 +119,7 @@ This detailed diagram breaks down the processes involved in routing, data fetchi
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ece8e1', 'primaryTextColor': '#111', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'tertiaryColor': '#0f1923', 'clusterBorder': '#ff4655'}}}%%
 flowchart TD
     subgraph "Data Flow Overview"
+        direction TD
         User[User]:::userStyle
         subgraph "Process 1: Navigation & Routing"
             1.1(Handle Route Change):::processStyle
