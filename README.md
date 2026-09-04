@@ -223,8 +223,9 @@ This tree diagram visualizes the project's file structure and how the main compo
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0f1923', 'primaryTextColor': '#fff', 'primaryBorderColor': '#ff4655', 'lineColor': '#ff4655', 'tertiaryColor': '#ece8e1', 'clusterBorder': '#ff4655'}}}%%
-graph LR
+flowchart TD
     subgraph "Project Components"
+        direction TD
         App[src/App.jsx<br>Main App Entry]
     
     subgraph "src/Pages (Route Views)"
