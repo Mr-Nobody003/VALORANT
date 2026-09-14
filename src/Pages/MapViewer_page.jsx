@@ -146,7 +146,7 @@ const MapViewer_page = ({ onBack }) => {
     const GLASS_NAME_HINTS = ['glass'];
 
     loader.load(
-        `${import.meta.env.BASE_URL}maps/Haven_deduped.glb?v=` + Date.now(),
+        `${import.meta.env.BASE_URL}maps/Haven_split.gltf?v=` + Date.now(),
         (gltf) => {
             const map = gltf.scene;
             mapRoot = map;
