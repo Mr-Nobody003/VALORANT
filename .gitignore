@@ -24,3 +24,6 @@ dist-ssr
 *.sln
 *.sw?
 
+map_viewer*
+src/assets/maps/Haven.glb
+

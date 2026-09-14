@@ -8,6 +8,7 @@ import Agent_page from "./Pages/Agent_page";
 import Battlepass_page from "./Pages/Battlepass_page";
 import Career_page from "./Pages/Career_page";
 import Store_page from "./Pages/Store_page";
+import MapViewer_page from "./Pages/MapViewer_page";
 import Nav from "./components/Nav";
 import GlobalDataPrefetcher from "./components/GlobalDataPrefetcher";
 import ScaleWrapper from "./components/ScaleWrapper";
@@ -115,8 +116,9 @@ function App() {
   };
   
   return (
-    <ScaleWrapper>
-      {showStartPage ? (
+    <>
+      <ScaleWrapper>
+        {showStartPage ? (
         // Start page content
         <div
           className="w-full h-full overflow-hidden cursor-pointer flex justify-center items-center"
@@ -141,16 +143,18 @@ function App() {
           <div className={`absolute inset-0 ${currentPage === "Main_page" ? "opacity-100 z-0" : "opacity-0 pointer-events-none -z-50"}`}>
             <Main_page onPageChange={handlePageChange} />
           </div>
-          {currentPage === "Play_page" && <Play_page />}
+          {currentPage === "Play_page" && <Play_page onPageChange={handlePageChange} />}
           {currentPage === "Premieer_page" && <Premieer_page />}
           {currentPage === "Collection_page" && <Collection_page setNavBackOverride={setNavBackOverride} />}
           {currentPage === "Career_page" && <Career_page />}
-          {currentPage === "Agent_page" && <Agent_page selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
-          {currentPage === "Battlepass_page" && <Battlepass_page />}
-          {currentPage === "Store_page" && <Store_page />}
-        </>
-      )}
-    </ScaleWrapper>
+            {currentPage === "Agent_page" && <Agent_page selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
+            {currentPage === "Battlepass_page" && <Battlepass_page />}
+            {currentPage === "Store_page" && <Store_page />}
+          </>
+        )}
+      </ScaleWrapper>
+      {currentPage === "MapViewer_page" && <MapViewer_page onBack={() => handlePageChange("Play_page")} />}
+    </>
   );
 }
 

@@ -8,7 +8,7 @@ import Play_custom from "../components/Play_custom";
 import Play_bgc from "../assets/pages_bgc/Play_bgc.png";
 import Contract from "../assets/video/Contract Glitches.webm";
 
-const Play_page = () => {
+const Play_page = ({ onPageChange }) => {
   const [activeType, setActiveType] = useState("UNRATED"); // Default play type
   const [scale, setScale] = useState(1);
 
@@ -62,7 +62,7 @@ const Play_page = () => {
           {activeType === "CUSTOM GAME" ? <Play_custom /> : <Play_card activeType={activeType} />}
 
           <Play_info activeType={activeType} />
-          <Play_buttons />
+          <Play_buttons onPageChange={onPageChange} />
         </div>
       </div>
     </>
