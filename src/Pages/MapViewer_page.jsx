@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
-import { Timer } from 'three/examples/jsm/misc/Timer.js';
 import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
 import MapViewer_bgc from "../assets/pages_bgc/Play_bgc.png"; // Sci-Fi background for loading
 
@@ -262,7 +261,7 @@ const MapViewer_page = ({ onBack }) => {
     // ---------------------------------------------------------------
     // 6. Animation Loop & Physics
     // ---------------------------------------------------------------
-    const timer = new Timer();
+    const timer = new THREE.Timer();
     let speed = 6.0;
     
     let velocityY = 0;
