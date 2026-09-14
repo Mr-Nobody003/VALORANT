@@ -65,7 +65,7 @@ const Play_card = ({ activeType }) => {
                     )}
 
                     <img
-                        src="/card_border.png"
+                        src={`${import.meta.env.BASE_URL}card_border.png`}
                         width={268}
                         height={640}
                         alt="card border"

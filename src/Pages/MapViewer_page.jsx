@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import { Timer } from 'three/examples/jsm/misc/Timer.js';
 import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
 import MapViewer_bgc from "../assets/pages_bgc/Play_bgc.png"; // Sci-Fi background for loading
 
@@ -146,7 +147,7 @@ const MapViewer_page = ({ onBack }) => {
     const GLASS_NAME_HINTS = ['glass'];
 
     loader.load(
-        '/src/assets/maps/Haven_deduped.glb?v=' + Date.now(),
+        `${import.meta.env.BASE_URL}maps/Haven_deduped.glb?v=` + Date.now(),
         (gltf) => {
             const map = gltf.scene;
             mapRoot = map;
@@ -261,7 +262,7 @@ const MapViewer_page = ({ onBack }) => {
     // ---------------------------------------------------------------
     // 6. Animation Loop & Physics
     // ---------------------------------------------------------------
-    const clock = new THREE.Clock();
+    const timer = new Timer();
     let speed = 6.0;
     
     let velocityY = 0;
@@ -310,7 +311,8 @@ const MapViewer_page = ({ onBack }) => {
 
     const animate = () => {
         animationFrameId = requestAnimationFrame(animate);
-        const delta = Math.min(clock.getDelta(), 0.1);
+        timer.update();
+        const delta = Math.min(timer.getDelta(), 0.1);
 
         if (controls.isLocked) {
             const distance = speed * delta;
