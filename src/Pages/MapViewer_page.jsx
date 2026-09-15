@@ -15,6 +15,7 @@ const MapViewer_page = ({ onBack }) => {
   const mountRef = useRef(null);
   const [gameState, setGameState] = useState('LOADING'); // LOADING, CONTROLS, PLAYING
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [loadingText, setLoadingText] = useState('DOWNLOADING MAP...');
 
   useEffect(() => {
     let animationFrameId;
@@ -38,7 +39,7 @@ const MapViewer_page = ({ onBack }) => {
     renderer.setPixelRatio(1.0);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.0;
+    renderer.toneMappingExposure = 1.5;
     
     renderer.shadowMap.enabled = true;
     // Standard PCF is much faster than PCFSoft
@@ -54,10 +55,12 @@ const MapViewer_page = ({ onBack }) => {
     // ---------------------------------------------------------------
     // 2. Lights
     // ---------------------------------------------------------------
-    const hemiLight = new THREE.HemisphereLight(0xffe5b4, 0x111122, 0.2);
+    // Increased intensity to 1 to heavily lighten/reduce the darkness of shadows
+    const hemiLight = new THREE.HemisphereLight(0xffe5b4, 0x222233, 1);
     scene.add(hemiLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffeedd, 2.5);
+    // Warmer, golden sunlight color
+    const dirLight = new THREE.DirectionalLight(0xffb86c, 3.0);
     dirLight.position.set(-80, 150, 80);
     dirLight.castShadow = true;
     // Lowered shadow map to 512x512
@@ -148,11 +151,16 @@ const MapViewer_page = ({ onBack }) => {
     loader.load(
         `${import.meta.env.BASE_URL}maps/Haven_split.gltf?v=` + Date.now(),
         (gltf) => {
-            const map = gltf.scene;
-            mapRoot = map;
-            
-            // Re-initialize colliders array
-            colliders = [];
+            setLoadingText("BUILDING PHYSICS BVH...");
+            setLoadingProgress(94);
+
+            // Yield to browser to paint "BUILDING PHYSICS..." before blocking CPU
+            setTimeout(() => {
+                const map = gltf.scene;
+                mapRoot = map;
+                
+                // Re-initialize colliders array
+                colliders = [];
 
             map.traverse((child) => {
                 if (!child.isMesh) return;
@@ -241,16 +249,28 @@ const MapViewer_page = ({ onBack }) => {
 
             scene.add(map);
 
-            // Pre-compile shaders so there is no freeze when engaging!
-            renderer.compile(scene, camera);
-            setLoadingProgress(100);
+            setLoadingText("COMPILING SHADERS...");
+            setLoadingProgress(98);
 
-            setGameState('CONTROLS');
+            // Yield to browser to paint "COMPILING SHADERS..." before compiling
+            setTimeout(() => {
+                // Pre-compile shaders so there is no freeze when engaging!
+                renderer.compile(scene, camera);
+                
+                setLoadingProgress(100);
+                setGameState('CONTROLS');
+            }, 50);
+
+        }, 50);
         },
         (xhr) => {
             if (xhr.total > 0) {
-                // Cap progress at 90%, leaving the last 10% for parsing/BVH generation
-                setLoadingProgress(Math.min(90, Math.round(xhr.loaded / xhr.total * 100)));
+                // Cap progress at 90% for the download phase
+                const percent = Math.min(90, Math.round((xhr.loaded / xhr.total) * 100));
+                setLoadingProgress(percent);
+                if (percent >= 90) {
+                    setLoadingText("PARSING GEOMETRY...");
+                }
             }
         },
         (error) => {
@@ -433,8 +453,8 @@ const MapViewer_page = ({ onBack }) => {
 
                 {gameState === 'LOADING' && (
                     <div className="flex flex-col items-center w-64">
-                        <div className="text-white/70 mb-3 tracking-widest text-xs uppercase font-bold">
-                            INITIALIZING SCENE
+                        <div className="text-white/70 mb-3 tracking-widest text-xs uppercase font-bold text-center">
+                            {loadingText}
                         </div>
                         <div className="w-full h-1 bg-white/20 relative overflow-hidden">
                             <div 
