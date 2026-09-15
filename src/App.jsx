@@ -147,15 +147,19 @@ function App() {
           {currentPage === "Premieer_page" && <Premieer_page />}
           {currentPage === "Collection_page" && <Collection_page setNavBackOverride={setNavBackOverride} />}
           {currentPage === "Career_page" && <Career_page />}
-            {currentPage === "Agent_page" && <Agent_page selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
-            {currentPage === "Battlepass_page" && <Battlepass_page />}
-            {currentPage === "Store_page" && <Store_page />}
-          </>
-        )}
-      </ScaleWrapper>
-      {currentPage === "MapViewer_page" && <MapViewer_page onBack={() => handlePageChange("Play_page")} />}
-    </>
-  );
+          {currentPage === "Agent_page" && <Agent_page selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
+          {currentPage === "Battlepass_page" && <Battlepass_page />}
+          {currentPage === "Store_page" && <Store_page />}
+          {currentPage === "MapViewer_page" && (
+            <div className="absolute inset-0 z-50">
+              <MapViewer_page onBack={() => handlePageChange("Play_page")} />
+            </div>
+          )}
+        </>
+      )}
+    </ScaleWrapper>
+  </>
+);
 }
 
 export default App;
