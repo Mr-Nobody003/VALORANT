@@ -5,21 +5,20 @@ import { Search } from 'lucide-react';
 import GentleBreeze from "../assets/player_cards/GentleBreeze_Card.png";
 import Back_button from "../components/Back_button";
 
+import api from '../api';
+
 const fetchPlayerCards = async () => {
-  const res = await fetch('https://valorant-api.com/v1/playercards');
-  const data = await res.json();
+  const { data } = await api.get('/playercards');
   return data.data;
 };
 
 const fetchPlayerTitles = async () => {
-  const res = await fetch('https://valorant-api.com/v1/playertitles');
-  const data = await res.json();
+  const { data } = await api.get('/playertitles');
   return data.data;
 };
 
 const fetchLevelBorders = async () => {
-  const res = await fetch('https://valorant-api.com/v1/levelborders');
-  const data = await res.json();
+  const { data } = await api.get('/levelborders');
   return data.data;
 };
 
@@ -29,9 +28,9 @@ const PlayerCardSelection = ({ onBack }) => {
   const [activeTab, setActiveTab] = useState('BANNERS'); // 'BANNERS', 'LEVEL BORDERS'
   const [searchQuery, setSearchQuery] = useState('');
   
-  const { data: cards, isLoading: cardsLoading } = useQuery({ queryKey: ['playerCards'], queryFn: fetchPlayerCards });
-  const { data: titles, isLoading: titlesLoading } = useQuery({ queryKey: ['playerTitles'], queryFn: fetchPlayerTitles });
-  const { data: borders, isLoading: bordersLoading } = useQuery({ queryKey: ['levelBorders'], queryFn: fetchLevelBorders });
+  const { data: cards, isLoading: cardsLoading } = useQuery({ queryKey: ['playercards'], queryFn: fetchPlayerCards });
+  const { data: titles, isLoading: titlesLoading } = useQuery({ queryKey: ['playertitles'], queryFn: fetchPlayerTitles });
+  const { data: borders, isLoading: bordersLoading } = useQuery({ queryKey: ['levelborders'], queryFn: fetchLevelBorders });
 
   // Local preview state
   const [previewCard, setPreviewCard] = useState(equippedCard);

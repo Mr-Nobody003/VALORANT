@@ -25,6 +25,7 @@ dist-ssr
 *.sw?
 
 map_viewer*
-public/maps/Haven.glb
+3D*
+announcer_voice*
 
 debug

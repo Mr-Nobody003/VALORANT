@@ -1,5 +1,5 @@
 import React from 'react'
-import Premieer_logo from '../assets/premieer_logo.png'
+import Premieer_logo from '../../assets/premieer_logo.png'
 const Premieer_mid = () => {
   return (
     <>

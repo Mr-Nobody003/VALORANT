@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { PlayerContext } from "../context/PlayerContext";
-import GentleBreeze from "../assets/player_cards/GentleBreeze_Card.png";
+import { PlayerContext } from "../../context/PlayerContext";
+import GentleBreeze from "../../assets/player_cards/GentleBreeze_Card.png";
 
 const Playercard = () => {
   const { equippedCard, equippedTitle, showLevel, equippedBorder } = useContext(PlayerContext);

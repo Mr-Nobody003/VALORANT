@@ -1,12 +1,25 @@
 import React, { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import Close_icon from "./Close_icon";
 import About from "./About";
 
 const Options = ({ setShowOptions }) => {
   const [showAbout, setShowAbout] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const queryClient = useQueryClient();
 
   const handleAboutClick = () => {
     setShowAbout(true); // Open About modal
+  };
+
+  const handleSyncData = async () => {
+    setIsSyncing(true);
+    // Invalidate all queries to force a background refetch
+    await queryClient.invalidateQueries();
+    // Artificial delay so the user sees the syncing state
+    setTimeout(() => {
+      setIsSyncing(false);
+    }, 1000);
   };
 
   return (
@@ -33,6 +46,15 @@ const Options = ({ setShowOptions }) => {
               onClick={handleAboutClick}
             >
               <div className="font-Oswald font-medium text-lg">ABOUT</div>
+            </div>
+
+            <div
+              className="flex items-center justify-center border border-slate-600 py-2 w-[300px] bg-teal-500 bg-opacity-80 rounded-md cursor-pointer hover:bg-teal-600 transition duration-200"
+              onClick={handleSyncData}
+            >
+              <div className="font-Oswald font-medium text-lg">
+                {isSyncing ? "SYNCING..." : "SYNC LATEST DATA"}
+              </div>
             </div>
 
             {/* <div className="flex items-center justify-center border border-slate-600 py-2 w-[300px] bg-slate-400 bg-opacity-90 rounded-md cursor-pointer hover:bg-slate-600 transition duration-200">

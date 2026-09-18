@@ -112,6 +112,11 @@ flowchart TD
     end
 ```
 
+### API Architecture
+All external data fetching strictly routes through a centralized API client located at `src/api.js`. 
+- **Native Fetch Wrapper:** `src/api.js` exposes an `api.get()` method that wraps the native browser `fetch` API. This completely avoids third-party dependencies like Axios (which had historical vulnerabilities) while maintaining a clean, Axios-like `{ data }` signature.
+- **No Duplicate Fetching:** The `GlobalDataPrefetcher.jsx` centrally prefetches critical app data using `useQuery` into an IndexedDB cache on load. All pages must use `useQuery` with identical query keys to access this cached data, eliminating duplicate network requests.
+
 ### Level 3 Data Flow Diagram (DFD)
 This detailed diagram breaks down the processes involved in routing, data fetching (via React Query), and UI rendering within the application.
 
@@ -245,31 +250,42 @@ flowchart TD
         end
     end
     
-    subgraph "src/components (Reusable UI)"
+    subgraph "src/components (Global UI)"
         Nav[Nav.jsx<br>Top Navigation]
         Menu[Mainmenu.jsx]
-        
-        subgraph "Play Components"
+        Scale[ScaleWrapper.jsx]
+        Prefetcher[GlobalDataPrefetcher.jsx]
+        Button[Back_button.jsx]
+    end
+    
+    subgraph "src/features (Domain Specific)"
+        direction TB
+        subgraph "Play"
             PlayMenu[Play_buttons.jsx]
             PlayCard[Play_card.jsx]
             PlayCustom[Play_custom.jsx]
             PlayParty[Play_party.jsx]
         end
         
-        subgraph "Agent Components"
+        subgraph "Agents"
+            AgentPage[AgentPage.jsx]
+            AgentRoster[AgentRoster.jsx]
             AgentBox[Agent_box.jsx]
         end
         
-        subgraph "Collection Components"
+        subgraph "Collection"
             WeaponsUI[Weapons.jsx]
             WeaponBox[Weapon_box.jsx]
             SpraysUI[Sprays.jsx]
             PlayerCard[Playercard.jsx]
         end
         
-        subgraph "Other"
-            CarieerRank[Carieer_rank.jsx]
+        subgraph "Premier"
             PremieerInfo[Premieer_info.jsx]
+        end
+
+        subgraph "Career"
+            CarieerRank[Carieer_rank.jsx]
         end
     end
     

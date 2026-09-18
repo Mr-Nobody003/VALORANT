@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Weapons from "../components/Weapons";
-import Playercard from "../components/Playercard";
-import Sprays from "../components/Sprays";
+import Weapons from "../features/Collection/Weapons";
+import Playercard from "../features/Collection/Playercard";
+import Sprays from "../features/Collection/Sprays";
 import Play_bgc from "../assets/pages_bgc/Play_bgc.png";
 import PlayerCardSelection from "./PlayerCardSelection";
-import WeaponSelection from "./WeaponSelection";
+import WeaponSelectionPage from "../features/Weapons/WeaponSelectionPage";
 import SpraySelection from "./SpraySelection";
 
 const Collection_page = ({ setNavBackOverride }) => {
@@ -38,7 +38,7 @@ const Collection_page = ({ setNavBackOverride }) => {
       {isSelectingCard ? (
           <PlayerCardSelection onBack={() => setIsSelectingCard(false)} />
       ) : selectedWeaponForSkin ? (
-          <WeaponSelection weapon={selectedWeaponForSkin} onBack={() => setSelectedWeaponForSkin(null)} />
+          <WeaponSelectionPage weapon={selectedWeaponForSkin} onBack={() => setSelectedWeaponForSkin(null)} />
       ) : selectedSprayQuadrant ? (
           <SpraySelection quadrant={selectedSprayQuadrant} onBack={() => setSelectedSprayQuadrant(null)} />
       ) : (

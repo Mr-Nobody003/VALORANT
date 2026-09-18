@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useMaps } from '../hooks/useMaps';
-import { PlayerContext } from '../context/PlayerContext';
+import { useMaps } from '../../hooks/useMaps';
+import { PlayerContext } from '../../context/PlayerContext';
 
 const Play_custom = () => {
     const { equippedCard, equippedTitle, showLevel, equippedBorder } = useContext(PlayerContext);

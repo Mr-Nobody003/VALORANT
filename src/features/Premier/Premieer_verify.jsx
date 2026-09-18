@@ -1,7 +1,7 @@
 import React from 'react'
-import Premieer_logo from '../assets/premieer_logo.png'
-import Graph from '../assets/pages_bgc/Premieer_graph.png'
-import Button_verify from './Button_verify'
+import Premieer_logo from '../../assets/premieer_logo.png'
+import Graph from '../../assets/pages_bgc/Premieer_graph.png'
+import Button_verify from '../../components/Button_verify';
 const Premieer_verify = () => {
   return (
     <>

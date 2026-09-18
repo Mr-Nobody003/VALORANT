@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Content from "../components/Content"; // Updated import
-import Play_party from "../components/Play_party";
-import Play_card from "../components/Play_card";
-import Play_info from "../components/Play_info";
-import Play_buttons from "../components/Play_buttons";
-import Play_custom from "../components/Play_custom";
+import Play_party from "../features/Play/Play_party";
+import Play_card from "../features/Play/Play_card";
+import Play_info from "../features/Play/Play_info";
+import Play_buttons from "../features/Play/Play_buttons";
+import Play_custom from "../features/Play/Play_custom";
 import Play_bgc from "../assets/pages_bgc/Play_bgc.png";
 import Contract from "../assets/video/Contract Glitches.webm";
 

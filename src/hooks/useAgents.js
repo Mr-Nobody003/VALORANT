@@ -23,5 +23,6 @@ export const useAgents = () => {
 
       return { agents, latestAgent };
     },
+    staleTime: 1000 * 60 * 60 * 24, // 24 hours
   });
 };

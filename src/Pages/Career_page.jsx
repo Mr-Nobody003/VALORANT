@@ -1,5 +1,5 @@
 import React from "react";
-import Carieer_rank from "../components/Carieer_rank";
+import Carieer_rank from "../features/Career/Carieer_rank";
 import Play_bgc from "../assets/pages_bgc/Play_bgc.png";
 const Career_page = () => {
   return (

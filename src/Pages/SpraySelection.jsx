@@ -4,18 +4,16 @@ import { PlayerContext } from '../context/PlayerContext';
 import Back_button from '../components/Back_button';
 import { Search } from 'lucide-react';
 
+import api from '../api';
+
 const fetchSprays = async () => {
-    const response = await fetch('https://valorant-api.com/v1/sprays');
-    if (!response.ok) throw new Error('Failed to fetch sprays');
-    return response.json();
+    const { data } = await api.get('/sprays');
+    return data;
 };
 
-
-
 const fetchFlex = async () => {
-    const response = await fetch('https://valorant-api.com/v1/flex');
-    if (!response.ok) throw new Error('Failed to fetch flex');
-    return response.json();
+    const { data } = await api.get('/flex');
+    return data;
 };
 
 const SpraySelection = ({ quadrant, onBack }) => {

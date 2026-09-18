@@ -1,10 +1,53 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import Play_bgc from "../assets/pages_bgc/Play_bgc.png";
+import api from '../api';
+
+const fetchStoreData = async () => {
+  const [bundlesRes, skinsRes, tiersRes] = await Promise.all([
+    api.get('/bundles'),
+    api.get('/weapons/skins'),
+    api.get('/contenttiers')
+  ]);
+
+  const bundlesData = bundlesRes.data;
+  const skinsData = skinsRes.data;
+  const tiersData = tiersRes.data;
+
+  const bundles = bundlesData.data
+    .filter(b => b.displayIcon)
+    .map(b => ({
+      uuid: b.uuid,
+      displayName: b.displayName,
+      displayIcon: b.displayIcon
+    }));
+    
+  const skins = skinsData.data
+    .filter(s => 
+      s.displayIcon && 
+      !s.displayName.includes("Standard") && 
+      !s.displayName.includes("Random") &&
+      s.contentTierUuid
+    )
+    .map(s => ({
+      uuid: s.uuid,
+      displayName: s.displayName,
+      displayIcon: s.displayIcon,
+      contentTierUuid: s.contentTierUuid
+    }));
+
+  const tiers = tiersData.data.reduce((acc, tier) => {
+    acc[tier.uuid] = {
+      color: tier.color ? `#${tier.color.slice(0, 6)}` : '#888888',
+      icon: tier.displayIcon
+    };
+    return acc;
+  }, {});
+
+  return { bundles, skins, tiers };
+};
 
 const Store_page = () => {
-  const [bundles, setBundles] = useState([]);
-  const [skins, setSkins] = useState([]);
-  const [contentTiers, setContentTiers] = useState({});
   const [currentBundleIndex, setCurrentBundleIndex] = useState(0);
   const [currentOffers, setCurrentOffers] = useState([]);
   const [isOffersFading, setIsOffersFading] = useState(false);
@@ -40,110 +83,41 @@ const Store_page = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch API data and cache it
+  const { data: storeData } = useQuery({
+    queryKey: ['storeData'],
+    queryFn: fetchStoreData,
+    staleTime: 1000 * 60 * 60 * 24 // 24 hours caching natively handled by React Query
+  });
+
+  const bundles = storeData?.bundles || [];
+  const skins = storeData?.skins || [];
+  const contentTiers = storeData?.tiers || {};
+
+  // Pick initial 4 random offers
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const CACHE_KEY = "valorant_store_data_v4";
-        const CACHE_TIME_KEY = "valorant_store_data_time_v4";
-        const cacheTime = localStorage.getItem(CACHE_TIME_KEY);
-        const now = new Date().getTime();
-        
-        let data = null;
-
-        if (cacheTime && now - parseInt(cacheTime) < 1000 * 60 * 60 * 24) { // 24 hours cache
-          const cached = localStorage.getItem(CACHE_KEY);
-          if (cached) {
-            try {
-              data = JSON.parse(cached);
-            } catch (e) {
-              data = null; // invalid cache
-            }
-          }
+    if (skins.length >= 4 && currentOffers.length === 0) {
+      const initialOffers = [];
+      const usedIndices = new Set();
+      while (initialOffers.length < 4) {
+        const idx = Math.floor(Math.random() * skins.length);
+        if (!usedIndices.has(idx)) {
+          usedIndices.add(idx);
+          initialOffers.push(skins[idx]);
         }
-
-        if (!data) {
-          const [bundlesRes, skinsRes, tiersRes] = await Promise.all([
-            fetch('https://valorant-api.com/v1/bundles'),
-            fetch('https://valorant-api.com/v1/weapons/skins'),
-            fetch('https://valorant-api.com/v1/contenttiers')
-          ]);
-
-          const bundlesData = await bundlesRes.json();
-          const skinsData = await skinsRes.json();
-          const tiersData = await tiersRes.json();
-
-          // Only extract needed properties to prevent localStorage QuotaExceededError
-          data = {
-            bundles: bundlesData.data
-              .filter(b => b.displayIcon)
-              .map(b => ({
-                uuid: b.uuid,
-                displayName: b.displayName,
-                displayIcon: b.displayIcon
-              })), 
-            skins: skinsData.data
-              .filter(s => 
-                s.displayIcon && 
-                !s.displayName.includes("Standard") && 
-                !s.displayName.includes("Random") &&
-                s.contentTierUuid
-              )
-              .map(s => ({
-                uuid: s.uuid,
-                displayName: s.displayName,
-                displayIcon: s.displayIcon,
-                contentTierUuid: s.contentTierUuid
-              })),
-            tiers: tiersData.data.reduce((acc, tier) => {
-              acc[tier.uuid] = {
-                color: tier.color ? `#${tier.color.slice(0, 6)}` : '#888888',
-                icon: tier.displayIcon
-              };
-              return acc;
-            }, {})
-          };
-
-          localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-          localStorage.setItem(CACHE_TIME_KEY, now.toString());
-        }
-
-        setBundles(data.bundles);
-        setSkins(data.skins);
-        setContentTiers(data.tiers);
-
-        // Pick initial 4 random offers
-        if (data.skins.length >= 4) {
-          const initialOffers = [];
-          const usedIndices = new Set();
-          while (initialOffers.length < 4) {
-            const idx = Math.floor(Math.random() * data.skins.length);
-            if (!usedIndices.has(idx)) {
-              usedIndices.add(idx);
-              initialOffers.push(data.skins[idx]);
-            }
-          }
-          
-          // Preload initial offers before displaying
-          Promise.all(
-            initialOffers.map(offer => new Promise(resolve => {
-              const img = new Image();
-              img.src = offer.displayIcon;
-              img.onload = resolve;
-              img.onerror = resolve;
-            }))
-          ).then(() => {
-            setCurrentOffers(initialOffers);
-          });
-        }
-
-      } catch (error) {
-        console.error("Error fetching store data:", error);
       }
-    };
-
-    fetchData();
-  }, []);
+      
+      Promise.all(
+        initialOffers.map(offer => new Promise(resolve => {
+          const img = new Image();
+          img.src = offer.displayIcon;
+          img.onload = resolve;
+          img.onerror = resolve;
+        }))
+      ).then(() => {
+        setCurrentOffers(initialOffers);
+      });
+    }
+  }, [skins]);
 
   // Slideshow with preloading for bundles
   useEffect(() => {

@@ -39,7 +39,7 @@ const ScaleWrapper = ({ children }) => {
   }, []);
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-black flex items-center justify-center">
+    <div className="fixed inset-0 overflow-hidden bg-black flex items-center justify-center">
       <div 
         className="shrink-0"
         style={{

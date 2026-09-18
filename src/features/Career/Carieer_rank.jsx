@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Progress_bar from './Progress_bar';
-import Rank from '../assets/ranks/radient.png';
+import Progress_bar from '../../components/Progress_bar';
+import Rank from '../../assets/ranks/radient.png';
 const Carieer_rank = ({Rank_no,Rank_name}) => {
     const [progress, setProgress] = useState(0);
 

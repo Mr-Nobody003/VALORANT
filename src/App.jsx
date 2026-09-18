@@ -4,11 +4,11 @@ import Main_page from "./Pages/Main_page";
 import Play_page from "./Pages/Play_page";
 import Premieer_page from "./Pages/Premieer_page";
 import Collection_page from "./Pages/Collection_page";
-import Agent_page from "./Pages/Agent_page";
+import AgentPage from "./features/Agents/AgentPage";
 import Battlepass_page from "./Pages/Battlepass_page";
 import Career_page from "./Pages/Career_page";
 import Store_page from "./Pages/Store_page";
-import MapViewer_page from "./Pages/MapViewer_page";
+import MapViewerPage from "./features/MapViewer/MapViewerPage";
 import Nav from "./components/Nav";
 import GlobalDataPrefetcher from "./components/GlobalDataPrefetcher";
 import ScaleWrapper from "./components/ScaleWrapper";
@@ -147,12 +147,12 @@ function App() {
           {currentPage === "Premieer_page" && <Premieer_page />}
           {currentPage === "Collection_page" && <Collection_page setNavBackOverride={setNavBackOverride} />}
           {currentPage === "Career_page" && <Career_page />}
-          {currentPage === "Agent_page" && <Agent_page selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
+          {currentPage === "Agent_page" && <AgentPage selectedAgent={selectedAgent} setSelectedAgent={setSelectedAgent} />}
           {currentPage === "Battlepass_page" && <Battlepass_page />}
           {currentPage === "Store_page" && <Store_page />}
           {currentPage === "MapViewer_page" && (
             <div className="absolute inset-0 z-50">
-              <MapViewer_page onBack={() => handlePageChange("Play_page")} />
+              <MapViewerPage onBack={() => handlePageChange("Play_page")} />
             </div>
           )}
         </>

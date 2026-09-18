@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PlayerContext } from "../context/PlayerContext";
+import { PlayerContext } from "../../context/PlayerContext";
 
 // Fallback spray icon if none equipped (use a transparent placeholder or default spray icon if desired)
 const defaultSprayIcon = "https://media.valorant-api.com/sprays/0a696669-4e78-0112-9c17-1f95be6737f0/displayicon.png"; // Valorant logo spray

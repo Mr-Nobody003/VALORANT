@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { PlayerContext } from '../context/PlayerContext'
-import { useCompetitiveTiers } from '../hooks/useCompetitiveTiers'
-import GentleBreeze from "../assets/player_cards/GentleBreeze_Card.png";
+import { PlayerContext } from '../../context/PlayerContext'
+import { useCompetitiveTiers } from '../../hooks/useCompetitiveTiers'
+import GentleBreeze from "../../assets/player_cards/GentleBreeze_Card.png";
 
 const Play_card = ({ activeType }) => {
     const { equippedCard, equippedTitle, showLevel, equippedBorder } = useContext(PlayerContext);

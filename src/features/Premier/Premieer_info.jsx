@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Close_icon from './Close_icon';
+import Close_icon from '../../components/Close_icon';
 const Premieer_info = () => {
     const [ShowInfo, setShowInfo] = useState(false);
 

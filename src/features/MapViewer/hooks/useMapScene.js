@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
@@ -8,19 +8,14 @@ import {
   disposeBoundsTree,
   acceleratedRaycast,
 } from "three-mesh-bvh";
-import MapViewer_bgc from "../assets/pages_bgc/Play_bgc.png";
 
 THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
 THREE.BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
 THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
-// Anything whose bounding sphere is larger than this is backdrop scenery
-// (the basalt mountains, the sky dome). The player can never reach it, so
-// it must not go into the collision BVH.
 const COLLIDER_MAX_RADIUS = 300;
 
-const MapViewer_page = ({ onBack }) => {
-  const mountRef = useRef(null);
+export const useMapScene = (mountRef, onBack) => {
   const [gameState, setGameState] = useState("LOADING");
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [loadingText, setLoadingText] = useState("DOWNLOADING MAP...");
@@ -46,12 +41,9 @@ const MapViewer_page = ({ onBack }) => {
     let controls;
     let disposed = false;
 
-    // ------------------------------------------------------------- scene
+    // scene
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x9ebfd9);
-    // The original relied on near fog to hide draw distance. The baked map
-    // already has aerial perspective painted in, so fog only needs to soften
-    // the very far backdrop.
     scene.fog = new THREE.Fog(0xa8c4da, 600, 2600);
 
     const camera = new THREE.PerspectiveCamera(75, 16 / 9, 0.1, 6000);
@@ -82,8 +74,6 @@ const MapViewer_page = ({ onBack }) => {
       mountRef.current.appendChild(renderer.domElement);
     }
 
-    // Re-adding real-time lighting because the baked lighting was stripped,
-    // so we need standard PBR lighting for shadows and depth!
     const hemiLight = new THREE.HemisphereLight(0xffe4cc, 0x554433, 0.65);
     hemiLight.position.set(0, 200, 0);
     scene.add(hemiLight);
@@ -103,7 +93,6 @@ const MapViewer_page = ({ onBack }) => {
     dirLight.shadow.normalBias = isMobile ? 0.2 : 0.05;
     scene.add(dirLight);
 
-    renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const dirtGeo = new THREE.PlaneGeometry(4000, 4000);
@@ -114,7 +103,7 @@ const MapViewer_page = ({ onBack }) => {
     dirtPlane.position.y = -60;
     scene.add(dirtPlane);
 
-    // ---------------------------------------------------------- controls
+    // controls
     controls = new PointerLockControls(camera, renderer.domElement);
     const onUnlock = () => setGameState("CONTROLS");
     const onError = () => setGameState("CONTROLS");
@@ -197,17 +186,13 @@ const MapViewer_page = ({ onBack }) => {
       document.addEventListener("touchcancel", onTouchEnd);
     }
 
-    // -------------------------------------------------------- map loading
+    // map loading
     const loader = new GLTFLoader();
     loader.setMeshoptDecoder(MeshoptDecoder);
 
     let mapRoot = null;
     let colliders = [];
 
-    // The GLB is already unlit with correct alpha modes, so this is a safety
-    // net rather than a conversion. The one thing it must do is stop
-    // alphaMode:BLEND materials from being depth-sorted transparents, which
-    // is what made walls see-through and tanked the fill rate.
     const tuneMaterial = (mat, kind) => {
       if (mat.map) {
         mat.map.colorSpace = THREE.SRGBColorSpace;
@@ -231,7 +216,7 @@ const MapViewer_page = ({ onBack }) => {
       } else {
         mat.transparent = false;
         mat.depthWrite = true;
-        mat.side = THREE.DoubleSide; // Force DoubleSide in case of negative scales flipping winding order
+        mat.side = THREE.DoubleSide; 
       }
       mat.needsUpdate = true;
     };
@@ -254,9 +239,8 @@ const MapViewer_page = ({ onBack }) => {
           child.renderOrder = -1;
           return;
         }
-        if (kind === "FOLIAGE") return; // never collide with leaves
+        if (kind === "FOLIAGE") return;
 
-        // We already computed bounding sphere for all meshes above.
         const r = child.geometry.boundingSphere?.radius ?? 0;
         if (r > 0 && r < COLLIDER_MAX_RADIUS) pendingColliders.push(child);
       });
@@ -281,7 +265,6 @@ const MapViewer_page = ({ onBack }) => {
         const tier = isMobile ? "mobile" : "desktop";
         mapRoot = new THREE.Group();
 
-        // Temporarily adding a cache buster so your browser stops loading the old cached files!
         const cb = `?v=${Date.now()}`;
         setLoadingText("DOWNLOADING MAP...");
         const solid = await loadGLTF(`${base}maps/Haven_Solid.${tier}.glb${cb}`, 0, 0.55);
@@ -301,13 +284,9 @@ const MapViewer_page = ({ onBack }) => {
         if (disposed) return;
         scene.add(mapRoot);
 
-        // 14k nodes were being matrix-updated every frame. The map never
-        // moves, so update once and switch it off.
         mapRoot.updateMatrixWorld(true);
         mapRoot.traverse((o) => { o.matrixAutoUpdate = false; });
 
-        // Build collision BVHs a few meshes at a time so the tab stays
-        // responsive and the progress bar keeps moving.
         setLoadingText("BUILDING COLLISION...");
         for (let i = 0; i < pendingColliders.length; i++) {
           const mesh = pendingColliders[i];
@@ -339,7 +318,7 @@ const MapViewer_page = ({ onBack }) => {
 
     loadMap();
 
-    // ------------------------------------------------- physics + rendering
+    // physics + rendering
     const timer = new THREE.Timer();
     let speed = 6.0;
     let velocityY = 0;
@@ -387,9 +366,6 @@ const MapViewer_page = ({ onBack }) => {
     };
     document.addEventListener("wheel", onWheel);
 
-    // Adaptive resolution: if the GPU can't keep up, render fewer pixels
-    // rather than dropping frames. This is what keeps mid-range phones
-    // playable without a separate quality menu.
     let frames = 0;
     let fpsClock = performance.now();
     const MIN_RATIO = isMobile ? 0.45 : 0.6;
@@ -442,7 +418,6 @@ const MapViewer_page = ({ onBack }) => {
           canJump = false;
         }
 
-        // Respawn if the player falls off the playable map bounds
         if (camera.position.y < -20) {
           camera.position.set(12.39, 4.7, -22.52);
           velocityY = 0;
@@ -511,114 +486,7 @@ const MapViewer_page = ({ onBack }) => {
       renderer.dispose();
       if (mountRef.current) mountRef.current.innerHTML = "";
     };
-  }, []);
+  }, [mountRef]);
 
-  const handleStartGame = () => {
-    if (gameState !== "CONTROLS") return;
-    setGameState("PLAYING");
-    if (isMobile) {
-      if (mountRef.current) mountRef.current.isMobileLocked = true;
-      try {
-        document.documentElement.requestFullscreen?.().then(() => {
-          window.screen?.orientation?.lock?.("landscape").catch(console.warn);
-        }).catch(console.warn);
-      } catch (e) { console.warn(e); }
-    } else {
-      mountRef.current?.querySelector("canvas")?.requestPointerLock();
-    }
-  };
-
-  return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden bg-black touch-none">
-      <div ref={mountRef} className="absolute inset-0 w-full h-full" />
-
-      {gameState === "PLAYING" && isMobile && (
-        <div 
-          id="mobile-ui" 
-          className="absolute inset-0 z-10 touch-none pointer-events-auto select-none"
-          style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none" }}
-          onContextMenu={(e) => e.preventDefault()}
-        >
-          <div className="absolute bottom-12 left-12 z-20 flex flex-col items-center gap-2 pointer-events-auto">
-            <div id="btn-w" role="button" className="flex items-center justify-center w-16 h-16 bg-white/20 active:bg-white/50 rounded-md border border-white/50 text-white font-bold text-xl touch-manipulation select-none" style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}>W</div>
-            <div className="flex gap-2">
-              <div id="btn-a" role="button" className="flex items-center justify-center w-16 h-16 bg-white/20 active:bg-white/50 rounded-md border border-white/50 text-white font-bold text-xl touch-manipulation select-none" style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}>A</div>
-              <div id="btn-s" role="button" className="flex items-center justify-center w-16 h-16 bg-white/20 active:bg-white/50 rounded-md border border-white/50 text-white font-bold text-xl touch-manipulation select-none" style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}>S</div>
-              <div id="btn-d" role="button" className="flex items-center justify-center w-16 h-16 bg-white/20 active:bg-white/50 rounded-md border border-white/50 text-white font-bold text-xl touch-manipulation select-none" style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}>D</div>
-            </div>
-          </div>
-          <div className="absolute bottom-12 right-12 z-20 flex flex-col gap-4 pointer-events-auto">
-            <div id="btn-jump" role="button" className="w-20 h-14 bg-red-500/50 active:bg-red-500 rounded-full border border-red-500 text-white font-bold flex items-center justify-center backdrop-blur-md text-xs touch-manipulation select-none" style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}>JUMP</div>
-            <div id="btn-crouch" role="button" className="w-20 h-14 bg-white/20 active:bg-white/50 rounded-full border border-white/50 text-white font-bold flex items-center justify-center backdrop-blur-md text-xs touch-manipulation select-none" style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}>CROUCH</div>
-          </div>
-          <div
-            id="btn-exit"
-            role="button"
-            className="absolute top-8 right-8 z-20 px-4 py-2 border border-white/20 bg-black/50 text-white text-xs font-bold pointer-events-auto flex items-center justify-center select-none"
-            style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}
-            onClick={(e) => { e.stopPropagation(); onBack?.(); }}
-          >
-            EXIT
-          </div>
-        </div>
-      )}
-
-      {gameState !== "PLAYING" && (
-        <div
-          className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center backdrop-blur-sm z-10"
-          style={{
-            backgroundImage: `url(${MapViewer_bgc})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundBlendMode: "overlay",
-          }}
-        >
-          <div className="flex flex-col items-center p-12 bg-black/50 backdrop-blur-md border border-white/10 rounded-sm shadow-2xl">
-            <h1 className="text-white text-5xl font-extrabold tracking-widest mb-2 font-[Oswald]">HAVEN</h1>
-            <p className="text-red-500 font-bold tracking-widest text-sm mb-12">ATTACKER</p>
-
-            {gameState === "LOADING" && (
-              <div className="flex flex-col items-center w-64">
-                <div className="text-white/70 mb-3 tracking-widest text-xs uppercase font-bold text-center">
-                  {loadingText}
-                </div>
-                <div className="w-full h-1 bg-white/20 relative overflow-hidden">
-                  <div
-                    className="absolute top-0 left-0 h-full bg-red-500 transition-all duration-300 ease-out"
-                    style={{ width: `${loadingProgress}%` }}
-                  />
-                </div>
-                <div className="text-white/50 mt-2 text-[10px] tracking-wider">{loadingProgress}%</div>
-              </div>
-            )}
-
-            {gameState === "CONTROLS" && (
-              <div className="flex flex-col items-center">
-                <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-10 text-xs tracking-widest font-bold">
-                  <div className="text-right text-white/50">W A S D</div><div className="text-white">MOVE</div>
-                  <div className="text-right text-white/50">SPACE</div><div className="text-white">JUMP</div>
-                  <div className="text-right text-white/50">CTRL / C</div><div className="text-white">CROUCH</div>
-                  <div className="text-right text-white/50">SCROLL</div><div className="text-white">SPEED</div>
-                </div>
-                <div
-                  className="px-8 py-3 bg-red-500 hover:bg-red-400 text-white font-bold tracking-widest cursor-pointer transition-colors text-sm mb-4 active:scale-95 shadow-lg"
-                  onClick={handleStartGame}
-                >
-                  CLICK TO ENGAGE
-                </div>
-                <div
-                  className="px-6 py-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white font-bold tracking-widest cursor-pointer transition-all text-xs"
-                  onClick={(e) => { e.stopPropagation(); onBack?.(); }}
-                >
-                  EXIT TO LOBBY
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return { gameState, setGameState, loadingProgress, loadingText, isMobile };
 };
-
-export default MapViewer_page;

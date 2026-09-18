@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Premieer_scheduler from "../components/Premieer_scheduler";
-import Premieer_mid from "../components/Premieer_mid";
-import Premieer_verify from "../components/Premieer_verify";
-import Premieer_info from "../components/Premieer_info";
+import Premieer_scheduler from "../features/Premier/Premieer_scheduler";
+import Premieer_mid from "../features/Premier/Premieer_mid";
+import Premieer_verify from "../features/Premier/Premieer_verify";
+import Premieer_info from "../features/Premier/Premieer_info";
 import Content from "../components/Content";
 import Premieer_bgc from "../assets/pages_bgc/Premieer_bgc.png";
 import Contract from "../assets/video/Contract Glitches.webm";
