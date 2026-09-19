@@ -1,0 +1,54 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/vyse\\/",
+    "Name": "vyse_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Nox_S0_Shot_01",
+      "Translatable": "Character Select Part 1",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Nox_S0_Shot_02",
+      "Translatable": "Character Select Part 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Nox_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Nox_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/vyse\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/vyse\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/vyse\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/vyse\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/killjoy\\/",
+    "Name": "killjoy_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Killjoy_S0_Intro",
+      "Translatable": "Character Select Intro",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Killjoy_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Killjoy_S0_Fidget",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Killjoy_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Killjoy_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Killjoy_S0_Head_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/head_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/head_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/head_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/killjoy\\/textures\\/head_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    },
+    {
+      "Name": "TP_Killjoy_S0_Glass_MI",
+      "Type": "AgentGlass",
+      "Opacity": 0.1,
+      "Metallic": 1,
+      "Roughness": 1,
+      "Color": {
+        "R": 0.758125,
+        "G": 0.806269,
+        "B": 1
+      }
+    }
+  ]
+}

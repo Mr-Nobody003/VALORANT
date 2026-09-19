@@ -1,0 +1,126 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/tejo\\/",
+    "Name": "tejo_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cashew_S0_Shot_01",
+      "Translatable": "Character Select Part 1",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cashew_S0_Shot_02",
+      "Translatable": "Character Select Part 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cashew_S0_Shot_03",
+      "Translatable": "Character Select Part 3",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cashew_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cashew_S0_Fidget01",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Cashew_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Cashew_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Cashew_S0_Drone_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/drone_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/drone_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/drone_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/drone_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "ABTP_Cashew_S0_Semtex_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/nade_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/nade_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/nade_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/nade_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "AB_Cashew_S0_E_Rocket_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/rocket_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/rocket_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/rocket_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/rocket_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Cashew_S0_Drone_GlassMat_MI",
+      "Type": "AgentGlass",
+      "Opacity": 0.3,
+      "Metallic": 0,
+      "Roughness": 0.15,
+      "Color": {
+        "R": 0.366253,
+        "G": 0.184475,
+        "B": 0.068478
+      }
+    },
+    {
+      "Name": "CS_Cashew_S0_Glass_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/glass_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/glass_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/tejo\\/textures\\/glass_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    }
+  ]
+}

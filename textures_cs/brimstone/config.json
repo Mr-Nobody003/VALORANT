@@ -1,0 +1,69 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/brimstone\\/",
+    "Name": "brimstone_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Sarge_S0_Breath",
+      "Translatable": "Character Select Breath",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Sarge_S0_CharSelect_Anim",
+      "Translatable": "Character Select",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Sarge_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Sarge_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "AB_Sarge_S0_E_StimPack_MI1",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/stim_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/stim_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/stim_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/brimstone\\/textures\\/stim_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

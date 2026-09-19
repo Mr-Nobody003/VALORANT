@@ -1,0 +1,74 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/raze\\/",
+    "Name": "raze_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Clay_S0_CharSelect",
+      "Translatable": "Character Select",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Clay_S0_CharSelect_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Clay_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "Clay_S0_Granade_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/nade_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/nade_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/nade_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/nade_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "AB_Clay_S0_X_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/ult_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/ult_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/ult_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/raze\\/textures\\/ult_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

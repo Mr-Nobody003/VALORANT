@@ -1,0 +1,59 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/cypher\\/",
+    "Name": "cypher_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "Idle_No_Hat",
+      "Translatable": "A Pose Without Hat",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Gumshoe_S0_CS_Intro",
+      "Translatable": "Character Select Intro",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Gumshoe_S0_Fidget",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Gumshoe_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Gumshoe_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/cypher\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/cypher\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/cypher\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/cypher\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/clove\\/",
+    "Name": "clove_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Smonk_S0_Shot_01",
+      "Translatable": "Character Select Part 1",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Smonk_S0_Shot_02",
+      "Translatable": "Character Select Part 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Smonk_S0_IdleLoop",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Smonk_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Smonk_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/clove\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}
