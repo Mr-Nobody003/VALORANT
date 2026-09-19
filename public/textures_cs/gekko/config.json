@@ -1,0 +1,104 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/gekko\\/",
+    "Name": "gekko_cs.glb",
+    "SpecialMaterial": "CS_AggroBot_S0_MI",
+    "SpecialMaterialIndex": 5
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Intro_Scene01",
+      "Translatable": "Character Select Part 1",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Intro_Scene02",
+      "Translatable": "Character Select Part 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Intro_Scene03",
+      "Translatable": "Character Select Part 3",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Intro_Scene04",
+      "Translatable": "Character Select Part 4",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Intro_Scene05",
+      "Translatable": "Character Select Part 5",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Intro_Scene06",
+      "Translatable": "Character Select Part 6",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Idle_02",
+      "Translatable": "Character Select Idle 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_AggroBot_S0_Idle_Fidget",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_AggroBot_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/gekko\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/gekko\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/gekko\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/gekko\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1,
+      "DecalDF": "..\\/uploads\\/models\\/agents\\/gekko\\/textures\\/decal_df.png"
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    },
+    {
+      "Name": "TP_AggroBot_S0_Glass_MI",
+      "Type": "AgentGlass",
+      "Opacity": 0.2,
+      "Metallic": 1,
+      "Roughness": 1,
+      "Color": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+      }
+    }
+  ]
+}

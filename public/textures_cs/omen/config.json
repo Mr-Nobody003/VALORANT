@@ -1,0 +1,49 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/omen\\/",
+    "Name": "omen_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Wraith_S0_Intro",
+      "Translatable": "Character Select Intro",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Wraith_S0_IdleLoop",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "OmenOverlayCS_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/omen\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/omen\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/omen\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/omen\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    }
+  ]
+}

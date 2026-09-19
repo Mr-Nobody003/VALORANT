@@ -17,6 +17,7 @@ export default {
         Oswald: ["Oswald", 'sans-serif'],
         Roboto: ["Roboto" ,'sans-serif'],
         Audiowide:["Audiowide-Regular"],
+        Valorant: ["Valorant", 'sans-serif'],
       },
       width: {
         '10p': '10%',

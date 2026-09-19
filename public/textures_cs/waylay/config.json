@@ -1,0 +1,99 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/waylay\\/",
+    "Name": "waylay_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Terra_S0_Scene_01_Equip",
+      "Translatable": "Character Select Part 1",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Terra_S0_Scene_02_Dash",
+      "Translatable": "Character Select Part 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Terra_S0_Scene_03_InAir",
+      "Translatable": "Character Select Part 3",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Terra_S0_Scene_04_Land",
+      "Translatable": "Character Select Part 4",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Terra_S0_Scene_05_Idle_LookAround",
+      "Translatable": "Character Select Part 5",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Terra_S0_Scene_06_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Terra_S0_Scene_07_Fidget",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Terra_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Terra_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "FP_Terra_S0_Floaters_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/tattoos_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/tattoos_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/tattoos_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/waylay\\/textures\\/tattoos_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

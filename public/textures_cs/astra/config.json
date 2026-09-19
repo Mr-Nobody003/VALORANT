@@ -1,0 +1,94 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/astra\\/",
+    "Name": "astra_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "Idle_No_Hood",
+      "Translatable": "A Pose Hood Disabled",
+      "Type": "Internal"
+    },
+    {
+      "Name": "Idle_Hood",
+      "Translatable": "A Pose Hood On",
+      "Type": "Internal"
+    },
+    {
+      "Name": "Idle_Hood_Off",
+      "Translatable": "A Pose Hood Off",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Rift_S0_Intro",
+      "Translatable": "Character Select Part 1",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Rift_S0_Intro_02",
+      "Translatable": "Character Select Part 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Rift_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "TP_Rift_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Rift_MorphTest_L_Arm_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Rift_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/astra\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/miks\\/",
+    "Name": "miks.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Iris_S0_Shot_01",
+      "Translatable": "Character Select",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Iris_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Iris_S0_Idle_Fidget",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Iris_S0_Idle_LookAround",
+      "Translatable": "Look Around",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Iris_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Iris_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/miks\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

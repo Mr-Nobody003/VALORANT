@@ -1,0 +1,72 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/harbor\\/",
+    "Name": "harbor_cs.glb",
+    "SpecialMaterial": "CS_Mage_S0_MI",
+    "SpecialMaterialIndex": 5
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Mage_S0_Prototype",
+      "Translatable": "Character Select",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Mage_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Mage_S0_Fidget",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Mage_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1,
+      "DecalDF": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/decal_df.png"
+    },
+    {
+      "Name": "CS_Mage_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/harbor\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

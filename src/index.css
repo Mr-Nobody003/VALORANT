@@ -30,6 +30,10 @@ html, body {
     src: url(./fonts/Oswald-Regular.ttf) format('truetype');
 }
 @font-face {
+    font-family: Valorant;
+    src: url(./fonts/Valorant-Font.ttf) format('truetype');
+}
+@font-face {
     font-family: Roboto;
     src: url(./fonts/Roboto-Bold.ttf) format('truetype');
 }

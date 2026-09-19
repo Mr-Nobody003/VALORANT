@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '../api';
-import { Languages } from 'lucide-react';
 
 export const useAgents = () => {
   return useQuery({

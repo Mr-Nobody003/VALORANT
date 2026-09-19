@@ -27,7 +27,7 @@ const Nav = ({ onPageChange, onBack, showBackButton, current_Page }) => {
 
   return (
     <>
-      <div className="flex flex-row text-white w-full h-[70px] bg-transparent font-Oswald items-center justify-center fixed top-0 left-0 z-50">
+      <div className="flex flex-row text-white w-full h-[70px] bg-transparent font-Valorant tracking-widest items-center justify-center fixed top-0 left-0 z-50">
         
         {/* LEFT SECTION */}
         <div className="absolute left-0 flex items-center h-full">
@@ -72,7 +72,7 @@ const Nav = ({ onPageChange, onBack, showBackButton, current_Page }) => {
               className="flex items-center justify-center bg-[#ff4655] hover:bg-[#ff5865] h-full w-[160px] cursor-pointer group transition-colors relative z-10"
               style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 15% 100%)' }}
             >
-              <span className="text-3xl font-black font-Oswald tracking-widest text-white mt-1 group-hover:scale-105 transition-transform">PLAY</span>
+              <span className="text-3xl font-Valorant tracking-[0.2em] text-white mt-1 group-hover:scale-105 transition-transform">PLAY</span>
             </div>
 
             {/* Right Nav Icons */}
@@ -87,7 +87,7 @@ const Nav = ({ onPageChange, onBack, showBackButton, current_Page }) => {
 
         {/* RIGHT SECTION */}
         <div className="absolute right-0 flex items-center h-full pr-8">
-          <div className="flex items-center h-full gap-5 text-[13px] font-Roboto text-slate-300">
+          <div className="flex items-center h-full gap-5 text-[15px] font-Valorant tracking-widest text-slate-300">
             
             {/* Alert Icon */}
             <div className="cursor-pointer text-[#eeb350] hover:text-[#ffd685] transition-colors">
@@ -106,7 +106,7 @@ const Nav = ({ onPageChange, onBack, showBackButton, current_Page }) => {
             </div>
 
             {/* currencies */}
-            <div className="flex items-center gap-5 font-bold font-Oswald tracking-wider">
+            <div className="flex items-center gap-5 font-Valorant tracking-widest">
               <div className="flex items-center gap-2 group cursor-pointer hover:text-white transition-colors">
                 <img src={vpIcon} alt="VP" className="w-4 h-4 opacity-90 group-hover:opacity-100" />
                 <span className="mt-[2px] text-pink-500 text-[70%]">99999</span>

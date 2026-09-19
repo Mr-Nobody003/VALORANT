@@ -1,0 +1,74 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/fade\\/",
+    "Name": "fade_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_BountyHunter_S0_Intro_01",
+      "Translatable": "Character Select Part 1",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_BountyHunter_S0_Intro_02",
+      "Translatable": "Character Select Part 2",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_BountyHunter_S0_Intro_03",
+      "Translatable": "Character Select Part 3",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_BountyHunter_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_BountyHunter_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_BountyHunter_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/fade\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

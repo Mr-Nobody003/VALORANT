@@ -1,0 +1,64 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/jett\\/",
+    "Name": "jett_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Wushu_S0_Intro",
+      "Translatable": "Character Select Intro",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Wushu_S0_Idle_Loop",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Wushu_S0_TattooMI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Wushu_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/jett\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

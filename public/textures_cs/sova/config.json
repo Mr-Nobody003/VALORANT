@@ -1,0 +1,99 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/sova\\/",
+    "Name": "sova_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Hunter_S0_Intro",
+      "Translatable": "Character Select Intro",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Hunter_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Hunter_S0_Fidget",
+      "Translatable": "Character Select Fidget",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Hunter_S0_Body_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Hunter_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Hunter_E_GauntletMode_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/drone_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/drone_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/drone_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/drone_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "Hunter_Bow_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "Hunter_Bow_Emissive_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_emissive_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_emissive_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_emissive_df.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/sova\\/textures\\/bow_emissive_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

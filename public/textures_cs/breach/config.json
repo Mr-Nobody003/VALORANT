@@ -1,0 +1,59 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/breach\\/",
+    "Name": "breach_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Breach_S0_CharSelect",
+      "Translatable": "Character Select",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Breach_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Breach_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/breach\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

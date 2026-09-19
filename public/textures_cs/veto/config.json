@@ -1,0 +1,117 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/veto\\/",
+    "Name": "veto.glb",
+    "Default": "CS_Pine_S0_Skelmeshao"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Variants": [
+    {
+      "Name": "default",
+      "Type": "ModelToggle",
+      "Show": "CS_Pine_S0_Skelmeshao"
+    },
+    {
+      "Name": "ulting",
+      "Type": "ModelToggle",
+      "Show": "CS_Pine_Sym_S0_Skelmeshao"
+    }
+  ],
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Double": "Idle.001",
+      "Type": "InternalDouble"
+    },
+    {
+      "Name": "CS_Pine_S0_Shot_01",
+      "Translatable": "Character Select",
+      "Double": "CS_Pine_S0_Shot_01.001",
+      "Type": "InternalDouble"
+    },
+    {
+      "Name": "CS_Pine_S0_Idle_Loop",
+      "Translatable": "Character Select Idle",
+      "Double": "CS_Pine_S0_Idle_Loop.001",
+      "Type": "InternalDouble"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Pine_S0_Sym_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/sym_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/sym_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/sym_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/sym_nm.png",
+      "Metallic": 1,
+      "Roughness": 1,
+      "Emissive": {
+        "Color": {
+          "R": 1,
+          "G": 1,
+          "B": 1
+        },
+        "Intensity": 5,
+        "ColorSpace": "sRGB"
+      }
+    },
+    {
+      "Name": "CS_Pine_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Pine_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1,
+      "Emissive": {
+        "Color": {
+          "R": 1,
+          "G": 1,
+          "B": 1
+        },
+        "Intensity": 2,
+        "ColorSpace": "sRGB"
+      }
+    },
+    {
+      "Name": "CS_Pine_S0_outfit_Sym_MI",
+      "Type": "VetoUlt",
+      "Vertex": "\\/uploads\\/models\\/shaders\\/veto-ult.vert",
+      "Fragment": "\\/uploads\\/models\\/shaders\\/veto-ult.frag",
+      "DF": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/outfit_df.png",
+      "MRAE": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/outfit_mrae.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/veto\\/textures\\/nm.png"
+    },
+    {
+      "Name": "TP_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    }
+  ]
+}

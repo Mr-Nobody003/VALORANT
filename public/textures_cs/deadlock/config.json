@@ -1,0 +1,89 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/deadlock\\/",
+    "Name": "deadlock_cs.glb"
+  },
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cable_S0_Intro",
+      "Translatable": "Character Select Intro",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cable_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Cable_S0_Idle_02",
+      "Translatable": "Character Select Idle 2",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "CS_Cable_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Cable_S0_Hair_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/hair_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/hair_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/hair_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/hair_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "CS_Cable_Core_Eye_MI",
+      "Type": "Eye",
+      "DF": "..\\/uploads\\/models\\/agents\\/eye_df.png"
+    },
+    {
+      "Name": "FP_Cable_S0_Grenade_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/nade_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/nade_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/nade_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/nade_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "FP_Cable_S0_CableJam_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/barrier_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/barrier_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/barrier_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/deadlock\\/textures\\/barrier_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    }
+  ]
+}

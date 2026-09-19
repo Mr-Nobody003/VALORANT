@@ -1,0 +1,77 @@
+{
+  "Model": {
+    "Path": "..\\/uploads\\/models\\/agents\\/kayo\\/",
+    "Name": "kayo_cs.glb"
+  },
+  "Constraints": [
+    {
+      "Type": "ObjectToBone",
+      "Bone": "Head",
+      "TargetObject": "CS_Grenadier_S0_Skelmeshao",
+      "SourceObject": "geo_faceExpressionMesh_03mo",
+      "Offset": {
+        "X": 0,
+        "Y": 0.047109,
+        "Z": 0.108445
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      }
+    }
+  ],
+  "Settings": {
+    "FOV": 45,
+    "CameraPosition": {
+      "X": 0,
+      "Y": 1,
+      "Z": 3
+    },
+    "OrbitTarget": {
+      "X": 0,
+      "Y": 1,
+      "Z": 0
+    },
+    "ShadowHeight": 0
+  },
+  "Animations": [
+    {
+      "Name": "Idle",
+      "Translatable": "A Pose",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Grenadier_S0_Intro",
+      "Translatable": "Character Select Intro",
+      "Type": "Internal"
+    },
+    {
+      "Name": "CS_Grenadier_S0_Idle",
+      "Translatable": "Character Select Idle",
+      "Type": "Internal"
+    }
+  ],
+  "Materials": [
+    {
+      "Name": "TP_Grenadier_S0_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    },
+    {
+      "Name": "TP_Grenadier_S0_Face_MI",
+      "Type": "PBR",
+      "DF": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/face_df.png",
+      "ORM": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/face_orm.png",
+      "EM": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/face_em.png",
+      "NM": "..\\/uploads\\/models\\/agents\\/kayo\\/textures\\/face_nm.png",
+      "Metallic": 1,
+      "Roughness": 1
+    }
+  ]
+}
