@@ -17,10 +17,10 @@ const MatchFound = ({ onAnimationComplete }) => {
         }
 
         // Play Match Found Announcer Voice (or futuristic chime)
-        const matchFoundAudio = new Audio('/announcer_voice/MATCH_FOUND.mp3');
+        const matchFoundAudio = new Audio(`${import.meta.env.BASE_URL}announcer_voice/MATCH_FOUND.mp3`);
         matchFoundAudio.volume = 0.8;
         
-        clockAudioRef.current = new Audio('/clock sound.mp3');
+        clockAudioRef.current = new Audio(`${import.meta.env.BASE_URL}clock sound.mp3`);
         clockAudioRef.current.volume = 0.6;
         clockAudioRef.current.loop = true;
         
@@ -109,7 +109,7 @@ const MatchFound = ({ onAnimationComplete }) => {
             <video 
                 ref={videoRef}
                 className={`logo-animation-video ${phase === 'video' ? 'visible' : ''}`}
-                src="/logo animation.mp4" 
+                src={`${import.meta.env.BASE_URL}logo animation.mp4`} 
                 muted 
                 playsInline
                 onEnded={handleVideoEnd}

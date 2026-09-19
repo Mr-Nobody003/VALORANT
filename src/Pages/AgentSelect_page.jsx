@@ -24,7 +24,7 @@ const AgentSelect_page = ({ onPageChange }) => {
   }, [data, selectedAgent]);
 
   useEffect(() => {
-    const agentMenuAudio = new Audio('/agentmenu.mp3');
+    const agentMenuAudio = new Audio(`${import.meta.env.BASE_URL}agentmenu.mp3`);
     agentMenuAudio.volume = 0.5;
     agentMenuAudio.loop = true;
     agentMenuAudio.play().catch(e => console.log("Agent menu audio play failed:", e));
@@ -66,7 +66,7 @@ const AgentSelect_page = ({ onPageChange }) => {
     <div 
       className="w-full h-full bg-[#0f1923] flex relative overflow-hidden text-white font-Roboto"
       style={{
-        backgroundImage: "url('/agentselect-bg.jpg')",
+        backgroundImage: `url('${import.meta.env.BASE_URL}agentselect-bg.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
@@ -83,7 +83,7 @@ const AgentSelect_page = ({ onPageChange }) => {
           <div className="flex flex-col space-y-1 mb-8">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-white/20 clip-path-hex flex items-center justify-center">
-                <img src="/icons8-valorant-192.png" alt="logo" className="w-6 h-6 opacity-80" />
+                <img src={`${import.meta.env.BASE_URL}icons8-valorant-192.png`} alt="logo" className="w-6 h-6 opacity-80" />
               </div>
               <h1 className="text-4xl font-bold italic uppercase tracking-wider text-white">Haven</h1>
             </div>
