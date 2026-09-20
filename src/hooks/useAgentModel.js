@@ -107,7 +107,9 @@ export const useAgentModel = (mountRef, agentName) => {
                       emissive: 0x000000,
                       roughness: 0.8,
                       metalness: 0.2,
-                      side: THREE.DoubleSide
+                      side: THREE.DoubleSide,
+                      transparent: true,
+                      alphaTest: 0.1
                     });
 
                     if (matConfig) {
@@ -185,7 +187,11 @@ export const useAgentModel = (mountRef, agentName) => {
           if (gltf.animations && gltf.animations.length > 0) {
             const mixer = new THREE.AnimationMixer(model);
             mixerRef.current = mixer;
-            const action = mixer.clipAction(gltf.animations[0]);
+            
+            // Look for Intro animation to show assets/abilities, fallback to first
+            const anim = gltf.animations.find(a => a.name.includes("Select")) || gltf.animations[0];
+            
+            const action = mixer.clipAction(anim);
             action.play();
           }
         },
